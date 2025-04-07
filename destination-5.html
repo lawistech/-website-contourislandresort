@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Destinations | Citrine Hotels and Resorts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Logo Style for when page is scrolled */
+        .scrolled .logo-svg path,
+        .scrolled .logo-svg text {
+            fill: var(--primary);
+            stroke: var(--primary);
+        }
+        
+        .scrolled .logo-svg path:nth-child(2),
+        .scrolled .logo-svg path:nth-of-type(n+13):nth-of-type(-n+18) {
+            fill: var(--gold);
+            stroke: var(--gold);
+        }
+        
+        /* Google Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0a3d62;
+            --primary-light: #3c6382;
+            --secondary: #60a3bc;
+            --accent: #82ccdd;
+            --dark: #1e272e;
+            --light: #f5f6fa;
+            --gold: #e9bc66;
+            --white: #ffffff;
+            --gray: #f0f0f0;
+            --text: #333333;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 1.6rem;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        
+        p {
+            margin-bottom: 2rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--gold);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        .btn:hover:before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            color: var(--dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:before {
+            background-color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            color: var(--white);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: var(--white);
+        }
+        
+        .btn-whatsapp:before {
+            background-color: #128C7E;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section {
+            padding: 10rem 0;
+            position: relative;
+        }
+        
+        .section-light {
+            background-color: var(--light);
+        }
+        
+        .section-white {
+            background-color: var(--white);
+        }
+        
+        .section-title-container {
+            margin-bottom: 6rem;
+            position: relative;
+        }
+        
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .section-title {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            color: var(--primary);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6rem;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.8rem;
+            color: var(--primary-light);
+        }
+        
+        /* Header and Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 2.5rem 0;
+            transition: all 0.4s ease;
+            background-color: rgba(10, 61, 98, 0.8);
+        }
+        
+        .header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 0;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--white);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo span {
+            font-size: 1.5rem;
+            position: absolute;
+            bottom: -0.5rem;
+            right: 0;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+        
+        .scrolled .logo {
+            color: var(--primary);
+        }
+        
+        /* Enhanced Navbar and Dropdown Styles */
+        
+        /* Base navbar styles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            position: relative;
+        }
+        
+        .nav-links li {
+            margin-left: 3rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.4rem;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .scrolled .nav-links a {
+            color: var(--primary);
+        }
+        
+        .nav-links a i {
+            margin-left: 0.5rem;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Dropdown menu styles */
+        .has-dropdown {
+            position: relative;
+        }
+        
+        .has-dropdown:hover > a i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        
+        .has-dropdown:hover > a i.fa-chevron-right {
+            transform: rotate(90deg);
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -2rem;
+            width: 24rem;
+            background-color: white;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+            border-radius: 0.5rem;
+            padding: 1rem 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(1rem);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .has-dropdown:hover > .dropdown {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown li {
+            margin: 0;
+            position: relative;
+        }
+        
+        .dropdown a {
+            color: var(--primary) !important;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown a:hover {
+            background-color: rgba(233, 188, 102, 0.1);
+            border-left: 3px solid var(--gold);
+        }
+        
+        .dropdown a:after {
+            display: none;
+        }
+        
+        /* Submenu styles */
+        .dropdown-submenu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 24rem;
+            background-color: white;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+            border-radius: 0.5rem;
+            padding: 1rem 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(1rem);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .has-dropdown:hover > .dropdown-submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Book now button styles */
+        .book-now-btn {
+            background-color: var(--gold);
+            color: var(--dark) !important;
+            padding: 1rem 2rem !important;
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .book-now-btn:hover {
+            background-color: var(--primary);
+            color: var(--white) !important;
+        }
+        
+        .book-now-btn:after {
+            display: none;
+        }
+        
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .scrolled .mobile-menu-btn {
+            color: var(--primary);
+        }
+        
+        /* Page Header */
+        .page-header {
+            height: 40vh;
+            background: linear-gradient(to right, rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.4)), url('https://cdn.pixabay.com/photo/2015/09/18/01/16/wood-945439_1280.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            margin-top: 8rem;
+        }
+        
+        .page-header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-title {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            line-height: 1.2;
+        }
+        
+        .page-description {
+            font-size: 1.8rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Destinations Grid */
+        .destinations-section {
+            padding: 8rem 0;
+            background-color: var(--light);
+        }
+        
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+            gap: 4rem;
+            margin-top: 5rem;
+        }
+        
+        .destination-card {
+            background-color: var(--white);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+        }
+        
+        .destination-image {
+            height: 25rem;
+            overflow: hidden;
+        }
+        
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .destination-card:hover .destination-image img {
+            transform: scale(1.1);
+        }
+        
+        .destination-content {
+            padding: 2.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .destination-location {
+            color: var(--secondary);
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .destination-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .destination-description {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+        
+        .destination-actions {
+            margin-top: auto;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: #999;
+            padding: 8rem 0 2rem;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: linear-gradient(to bottom right, var(--primary) 0%, var(--primary) 50%, transparent 50%, transparent 100%);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 5rem;
+            margin-bottom: 5rem;
+        }
+        
+        .footer-logo {
+            color: var(--white);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-description {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 30rem;
+        }
+        
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--white);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 5rem;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: #999;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-contact-icon {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-right: 1.5rem;
+            margin-top: 0.3rem;
+        }
+        
+        .footer-contact-text {
+            font-size: 1.4rem;
+        }
+        
+        .footer-social {
+            margin-top: 2.5rem;
+        }
+        
+        .footer-social-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .social-link {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1.4rem;
+        }
+        
+        .copyright {
+            color: #777;
+        }
+        
+        .copyright a {
+            color: var(--gold);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            html {
+                font-size: 56.25%; /* 9px */
+            }
+            
+            .page-title {
+                font-size: 4.5rem;
+            }
+            
+            .destinations-grid {
+                grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+            }
+        }
+        
+        @media (max-width: 991px) {
+            html {
+                font-size: 50%; /* 8px */
+            }
+            
+            .section {
+                padding: 8rem 0;
+            }
+            
+            .page-title {
+                font-size: 4rem;
+            }
+            
+            .destinations-grid {
+                grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 3.5rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 2rem 0;
+            }
+            
+            .nav-links a {
+                color: var(--primary);
+                font-size: 1.8rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+            
+            .page-title {
+                font-size: 3.5rem;
+            }
+            
+            .destinations-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .page-title {
+                font-size: 3rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2"/>
+                        <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2"/>
+                        <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff"/>
+                        <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff"/>
+                        <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff"/>
+                        <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff"/>
+                        <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff"/>
+                        <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff"/>
+                        <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff"/>
+                        <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff"/>
+                        <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff"/>
+                        <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66"/>
+                        <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66"/>
+                        <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66"/>
+                        <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66"/>
+                        <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66"/>
+                        <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66"/>
+                        <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">HOTELS & RESORTS</text>
+                    </svg>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">Destinations <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li class="has-dropdown">
+                                <a href="#">Wayanad <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                                    <li><a href="#">The Wave Lakeview Resort</a></li>
+                                    <li><a href="#">Talenresort Vythiri Villas</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Trivandrum <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Sunview Beach Resort</a></li>
+                                    <li><a href="#">Indimasi Healing Village</a></li>
+                                    <li><a href="#">The Terrace Business Hotel</a></li>
+                                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Other Locations <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Vanya Holiday Resort</a></li>
+                                    <li><a href="#">Anubhav Resort</a></li>
+                                    <li><a href="#">Wind Chimes Retreat</a></li>
+                                    <li><a href="#">Contour Farm Resort</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Other Products</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="our_story.html">Our Story</a></li>
+                    <li><a href="contact.html">Reach Us</a></li>
+                    <li><a href="#" class="book-now-btn">Book Now</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1 class="page-title">Our Destinations</h1>
+            <p class="page-description">Discover our collection of luxury properties across stunning locations</p>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations-section">
+        <div class="container">
+            <div class="destinations-grid">
+                <!-- Wind Chimes Retreat -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg" alt="Wind Chimes Retreat">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Coorg, Karnataka</span>
+                        <h3 class="destination-title">Wind Chimes Retreat</h3>
+                        <p class="destination-description">Nestled within a sprawling 50-acre coffee estate in Virajpet, Coorg, The Windchimes Retreat captivates with its Chettinad-themed allure. Crafted to star-category standards, this retreat seamlessly blends a touch of tradition with contemporary elegance.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Wave Lakeview Resort -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2016/03/15/02/42/water-1256758_1280.jpg" alt="The Wave Lakeview Resort">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Wayanad, Kerala</span>
+                        <h3 class="destination-title">The Wave Lakeview Resort</h3>
+                        <p class="destination-description">Nestled in lush greenery, facing the beatific Karapuzha lake, Wave by Citrine is a serene haven where luxury meets authenticity. A waterfront luxury resort and spa in Wayanad - designed to provide a delightful and relaxing experience for you and your family.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">View More</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contour Island Resort & Spa -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_1280.jpg" alt="Contour Island Resort & Spa">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Wayanad, Kerala</span>
+                        <h3 class="destination-title">Contour Island Resort & Spa</h3>
+                        <p class="destination-description">Escape to Contour Island Resort & Spa, nestled on the tranquil shores of Banasura Sagar Lake amidst the breathtaking landscapes of Wayanad. Surrounded by lush greenery and serene waters, our idyllic retreat offers a sanctuary from everyday life.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">View More</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Talenresort Vythiri Villas -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2016/08/06/19/34/bungalow-1575064_1280.jpg" alt="Talenresort Vythiri Villas">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Wayanad, Kerala</span>
+                        <h3 class="destination-title">Talenresort Vythiri Villas</h3>
+                        <p class="destination-description">Talenmark Developers is a real estate development company. It is committed to providing spectacular projects that deliver the best value for customer's money. The developer aims to transform the property dreams of the customers into reality.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">View More</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anubhav Resort -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2019/05/28/00/15/indoors-4234071_1280.jpg" alt="Anubhav Resort">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Munnar, Kerala</span>
+                        <h3 class="destination-title">Anubhav Resort</h3>
+                        <p class="destination-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit More</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vanya Holiday Resort -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/17/18/35/forest-2413138_1280.jpg" alt="Vanya Holiday Resort">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Nelliampathi, Kerala</span>
+                        <h3 class="destination-title">Vanya Holiday Resort</h3>
+                        <p class="destination-description">The Vanya Holiday Resort is a vibrant haven located amidst the lush greenery of the Nelliampathi forests. addition to the magnificent views & soothing atmosphere, the resort boasts a range of modern facilities to ensure a delightful stay.</p>
+                        <div class="destination-actions">
+                            <a href="destination-1.html" class="btn btn-primary">View More</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contour Backwaters Hotel & Convention Centre -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2016/09/18/03/28/travel-1677347_1280.jpg" alt="Contour Backwaters Hotel">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Changanassery, Kerala</span>
+                        <h3 class="destination-title">Contour Backwaters Hotel & Convention Centre</h3>
+                        <p class="destination-description">Located in the Kerala, Changanacherry, Contour Backwaters Resort Hotel & Convention Centre is a property that relishes its charm & beauty to its guests. Modern & traditional architecture is blended well with the nature.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunview Beach Resort -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/08/04/49/jetty-1807471_1280.jpg" alt="Sunview Beach Resort">
+                    </div>  
+                    <div class="destination-content">
+                        <span class="destination-location">Varkala, Kerala</span>
+                        <h3 class="destination-title">Sunview Beach Resort</h3>
+                        <p class="destination-description">Sunview Beach Resort & Spa, managed by Citrine Hotels & Resorts is one of the leading Resorts in Varkala, is truly an exquisite place for your holidays situated at the amazing coastline of Varkala Beach, Trivandrum, Kerala.</p>
+                        <div class="destination-actions">
+                            <a href="destination-4.html" class="btn btn-primary">View More</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indimasi Healing Village -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="Indimasi Healing Village">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Trivandrum, Kerala</span>
+                        <h3 class="destination-title">Indimasi Healing Village</h3>
+                        <p class="destination-description">Indimasi healing village is a NABH (National Accreditation Board for Hospitals & Healthcare) certified Ayurveda and Siddha hospital established on the principle of leading a life of sharing and caring in co-existence with Mother Nature.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Terrace Business Hotel -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/17/09/28/hotel-1831072_1280.jpg" alt="The Terrace Business Hotel">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Trivandrum, Kerala</span>
+                        <h3 class="destination-title">The Terrace Business Hotel</h3>
+                        <p class="destination-description">The Terrace is a great choice for travellers looking for a 4 star hotel in Trivandrum. It is located in Thampanoor. This Hotel stands out as one of the highly recommended hotel in Trivandrum and is recommended by 100% of our guests.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contour Farm Resort -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/14/02/28/farm-1822443_1280.jpg" alt="Contour Farm Resort">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Madurai, Tamil Nadu</span>
+                        <h3 class="destination-title">Contour Farm Resort</h3>
+                        <p class="destination-description">A homogeneous and eco-friendly blend of healthy living and farming. Ensure that the system is self- reliant and self-sufficient. While assuring that all our endeavours will be in consonance with our mission and vision.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poovar Island Resort & Spa -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_1280.jpg" alt="Poovar Island Resort & Spa">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Trivandrum, Kerala</span>
+                        <h3 class="destination-title">Poovar Island Resort & Spa</h3>
+                        <p class="destination-description">Enveloped in serene Kerala backwaters, flanked by the Arabian Sea on the East and the majestic towering Ghats to the West, opening out to the ocean and a dream golden beach, Poovar Island Resort is a tropical paradise.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Torres De Selma -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2014/09/07/21/52/castle-438392_1280.jpg" alt="Torres De Selma">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Cataluna, Spain</span>
+                        <h3 class="destination-title">Torres De Selma</h3>
+                        <p class="destination-description">Eco-Wellness Resort Torres de Selma offers the perfect ambience to improve your health and well-being. Our team of certified holistic Indian therapists is ready to give you an authentic Ayurvedic treatment.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lotus Desaru Beach Resort & Spa -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://cdn.pixabay.com/photo/2016/03/30/02/57/tropical-1289937_1280.jpg" alt="Lotus Desaru Beach Resort & Spa">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-location">Johor, Malaysia</span>
+                        <h3 class="destination-title">Lotus Desaru Beach Resort & Spa</h3>
+                        <p class="destination-description">Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.</p>
+                        <div class="destination-actions">
+                            <a href="#" class="btn btn-primary">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">Location</h3>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            Citrine Hotels & Resorts<br>
+                            T.C. 93/1744, V V Road, Pattoor,<br>
+                            Vanchiyoor, Pettah .P.O,<br>
+                            Thiruvananthapuram - 695024
+                        </div>
+                    </div>
+
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            crs@citrinehotels.com
+                        </div>
+                    </div>
+
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            +91 73567 77860 / 861 / 862<br>
+                            1800 2020 166 (Toll-Free)
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Sitemap</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="our_story.html">Our Story</a></li>
+                        <li><a href="our-destinations.html">Our Resorts</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="#">Other Products</a></li>
+                        <li><a href="contact.html">Reach Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">Citrine Hotels and Resorts © 2024 - All Rights Reserved. Designed by <a href="#">Netindia</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
+                    if (element.getAttribute('fill') === '#fff') {
+                        element.setAttribute('fill', '#0a3d62');
+                    }
+                    if (element.getAttribute('stroke') === '#fff') {
+                        element.setAttribute('stroke', '#0a3d62');
+                    }
+                });
+            } else {
+                header.classList.remove('scrolled');
+                document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
+                    if (element.getAttribute('fill') === '#0a3d62') {
+                        element.setAttribute('fill', '#fff');
+                    }
+                    if (element.getAttribute('stroke') === '#0a3d62') {
+                        element.setAttribute('stroke', '#fff');
+                    }
+                });
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            
+            // Change icon based on menu state
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Mobile dropdown toggle
+        const windowWidth = window.innerWidth;
+        
+        if (windowWidth < 992) {
+            const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
+            
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    const dropdown = parent.querySelector('.dropdown, .dropdown-submenu');
+                    
+                    // Close all other open dropdowns first
+                    const allDropdowns = document.querySelectorAll('.dropdown, .dropdown-submenu');
+                    const allDropdownParents = document.querySelectorAll('.has-dropdown');
+                    
+                    // If clicking on a submenu toggle, don't close parent dropdowns
+                    if (!parent.parentElement.classList.contains('dropdown')) {
+                        allDropdowns.forEach(drop => {
+                            if (drop !== dropdown && drop !== parent.parentElement) {
+                                drop.classList.remove('active');
+                            }
+                        });
+                        
+                        allDropdownParents.forEach(drparent => {
+                            if (drparent !== parent && drparent !== parent.parentElement.parentElement) {
+                                drparent.classList.remove('active');
+                            }
+                        });
+                    }
+                    
+                    // Toggle current dropdown
+                    parent.classList.toggle('active');
+                    dropdown.classList.toggle('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
