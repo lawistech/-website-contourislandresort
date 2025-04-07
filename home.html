@@ -250,13 +250,18 @@
             color: var(--primary);
         }
         
+        /* Enhanced Navbar and Dropdown Styles */
+        
+        /* Base navbar styles */
         .nav-links {
             display: flex;
             list-style: none;
+            position: relative;
         }
         
         .nav-links li {
-            margin-left: 4rem;
+            margin-left: 3rem;
+            position: relative;
         }
         
         .nav-links a {
@@ -266,10 +271,18 @@
             position: relative;
             font-size: 1.4rem;
             padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
         }
         
         .scrolled .nav-links a {
             color: var(--primary);
+        }
+        
+        .nav-links a i {
+            margin-left: 0.5rem;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
         }
         
         .nav-links a:after {
@@ -287,21 +300,108 @@
             width: 100%;
         }
         
+        /* Dropdown menu styles */
+        .has-dropdown {
+            position: relative;
+        }
+        
+        .has-dropdown:hover > a i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        
+        .has-dropdown:hover > a i.fa-chevron-right {
+            transform: rotate(90deg);
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -2rem;
+            width: 24rem;
+            background-color: white;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+            border-radius: 0.5rem;
+            padding: 1rem 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(1rem);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .has-dropdown:hover > .dropdown {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown li {
+            margin: 0;
+            position: relative;
+        }
+        
+        .dropdown a {
+            color: var(--primary) !important;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown a:hover {
+            background-color: rgba(233, 188, 102, 0.1);
+            border-left: 3px solid var(--gold);
+        }
+        
+        .dropdown a:after {
+            display: none;
+        }
+        
+        /* Submenu styles */
+        .dropdown-submenu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 24rem;
+            background-color: white;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+            border-radius: 0.5rem;
+            padding: 1rem 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(1rem);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .has-dropdown:hover > .dropdown-submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Book now button styles */
         .book-now-btn {
             background-color: var(--gold);
             color: var(--dark) !important;
             padding: 1rem 2rem !important;
             border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .book-now-btn:hover {
+            background-color: var(--primary);
+            color: var(--white) !important;
         }
         
         .book-now-btn:after {
             display: none;
         }
         
-        .book-now-btn:hover {
-            background-color: var(--white);
-        }
-        
+        /* Mobile menu button */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -314,6 +414,100 @@
         
         .scrolled .mobile-menu-btn {
             color: var(--primary);
+        }
+        
+        /* Responsive styles for the navbar */
+        @media (max-width: 1200px) {
+            .nav-links li {
+                margin-left: 2rem;
+            }
+            
+            .dropdown, .dropdown-submenu {
+                width: 22rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 30rem;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 8rem 0 0 0;
+                transition: all 0.4s ease;
+                overflow-y: auto;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .nav-links a {
+                color: var(--primary);
+                padding: 1.5rem 2rem;
+                width: 100%;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+            
+            .dropdown, .dropdown-submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                visibility: visible;
+                opacity: 1;
+                transform: none;
+                display: none;
+                padding: 0;
+                background-color: rgba(10, 61, 98, 0.05);
+            }
+            
+            .dropdown.active, .dropdown-submenu.active {
+                display: block;
+            }
+            
+            .dropdown a, .dropdown-submenu a {
+                padding-left: 4rem;
+            }
+            
+            .dropdown-submenu a {
+                padding-left: 6rem;
+            }
+            
+            .book-now-btn {
+                width: calc(100% - 4rem);
+                margin: 1rem 2rem;
+                text-align: center;
+            }
+            
+            .has-dropdown > a i.fa-chevron-down,
+            .has-dropdown > a i.fa-chevron-right {
+                transition: transform 0.3s ease;
+            }
+            
+            .has-dropdown.active > a i.fa-chevron-down {
+                transform: rotate(180deg);
+            }
+            
+            .has-dropdown.active > a i.fa-chevron-right {
+                transform: rotate(90deg);
+            }
         }
         
         /* Hero Section */
@@ -1385,39 +1579,6 @@
                 font-size: 3.5rem;
             }
             
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background-color: var(--white);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.5s ease;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 2rem 0;
-            }
-            
-            .nav-links a {
-                color: var(--primary);
-                font-size: 1.8rem;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                z-index: 1001;
-            }
-            
             .hero-title {
                 font-size: 4.5rem;
             }
@@ -1482,36 +1643,114 @@
     <header class="header" id="header">
         <div class="container">
             <nav class="nav">
-                <a href="#" class="logo">
-                <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2"/>
-                    <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2"/>
-                    <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff"/>
-                    <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff"/>
-                    <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff"/>
-                    <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff"/>
-                    <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff"/>
-                    <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff"/>
-                    <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff"/>
-                    <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff"/>
-                    <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff"/>
-                    <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66"/>
-                    <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66"/>
-                    <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66"/>
-                    <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66"/>
-                    <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66"/>
-                    <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66"/>
-                    <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">RESORT & SPA</text>
-                </svg>
-            </a>
+                <a href="index.html" class="logo">
+                    <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2"/>
+                        <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2"/>
+                        <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff"/>
+                        <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff"/>
+                        <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff"/>
+                        <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff"/>
+                        <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff"/>
+                        <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff"/>
+                        <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff"/>
+                        <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff"/>
+                        <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff"/>
+                        <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66"/>
+                        <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66"/>
+                        <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66"/>
+                        <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66"/>
+                        <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66"/>
+                        <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66"/>
+                        <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">HOTELS & RESORTS</text>
+                    </svg>
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Destinations</a></li>
-                    <li><a href="#">Other Products</a></li>
-                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">Destinations <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li class="has-dropdown">
+                                <a href="#">Wayanad <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                                    <li><a href="#">The Wave Lakeview Resort</a></li>
+                                    <li><a href="#">Talenresort Vythiri Villas</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Nelliampathi <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Vanya Holiday Resort</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Munnar <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Anubhav Resort</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Changanassery <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Contour Backwaters Hotel & Convention Centre</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Trivandrum <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Sunview Beach Resort</a></li>
+                                    <li><a href="#">Indimasi Healing Village</a></li>
+                                    <li><a href="#">The Terrace Business Hotel</a></li>
+                                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Coorg <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Wind Chimes Retreat</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Tamil Nadu <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Contour Farm Resort</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Malaysia <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Lotus Desaru Beach Resort & Spa</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Spain <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Torres De Selma</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Other Products <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">MICE</a></li>
+                            <li><a href="#">Coffee Tree Spa</a></li>
+                            <li><a href="#">Ruchikoot By Citrine</a></li>
+                            <li class="has-dropdown">
+                                <a href="#">Wellness Resorts <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                                    <li><a href="#">Indimasi Healing Village</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="#">Careers</a></li>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Reach Us</a></li>
+                    <li><a href="our_story.html">Our Story</a></li>
+                    <li><a href="contact.html">Reach Us</a></li>
                     <li><a href="#" class="book-now-btn">Book Now</a></li>
                 </ul>
                 <button class="mobile-menu-btn">
@@ -2011,85 +2250,143 @@
 
     <!-- JavaScript -->
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-                document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
-                    if (element.getAttribute('fill') === '#fff') {
-                        element.setAttribute('fill', '#0a3d62');
-                    }
-                    if (element.getAttribute('stroke') === '#fff') {
-                        element.setAttribute('stroke', '#0a3d62');
-                    }
-                });
-            } else {
-                header.classList.remove('scrolled');
-                document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
-                    if (element.getAttribute('fill') === '#0a3d62') {
-                        element.setAttribute('fill', '#fff');
-                    }
-                    if (element.getAttribute('stroke') === '#0a3d62') {
-                        element.setAttribute('stroke', '#fff');
-                    }
-                });
-            }
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            
-            // Change icon based on menu state
-            const icon = this.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+        // JavaScript for enhanced dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                    document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
+                        if (element.getAttribute('fill') === '#fff') {
+                            element.setAttribute('fill', '#0a3d62');
+                        }
+                        if (element.getAttribute('stroke') === '#fff') {
+                            element.setAttribute('stroke', '#0a3d62');
+                        }
                     });
-                    
-                    // Close mobile menu if open
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        const icon = mobileMenuBtn.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
+                } else {
+                    header.classList.remove('scrolled');
+                    document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
+                        if (element.getAttribute('fill') === '#0a3d62') {
+                            element.setAttribute('fill', '#fff');
+                        }
+                        if (element.getAttribute('stroke') === '#0a3d62') {
+                            element.setAttribute('stroke', '#fff');
+                        }
+                    });
                 }
             });
-        });
-        
-        // Amenity tabs
-        const amenityTabs = document.querySelectorAll('.amenity-tab');
-        
-        amenityTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                amenityTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
                 
-                // Add filtering functionality here if needed
+                // Change icon based on menu state
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Mobile dropdown toggle
+            const windowWidth = window.innerWidth;
+            
+            if (windowWidth < 992) {
+                const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
+                
+                dropdownToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        const dropdown = parent.querySelector('.dropdown, .dropdown-submenu');
+                        
+                        // Close all other open dropdowns first
+                        const allDropdowns = document.querySelectorAll('.dropdown, .dropdown-submenu');
+                        const allDropdownParents = document.querySelectorAll('.has-dropdown');
+                        
+                        // If clicking on a submenu toggle, don't close parent dropdowns
+                        if (!parent.parentElement.classList.contains('dropdown')) {
+                            allDropdowns.forEach(drop => {
+                                if (drop !== dropdown && drop !== parent.parentElement) {
+                                    drop.classList.remove('active');
+                                }
+                            });
+                            
+                            allDropdownParents.forEach(drparent => {
+                                if (drparent !== parent && drparent !== parent.parentElement.parentElement) {
+                                    drparent.classList.remove('active');
+                                }
+                            });
+                        }
+                        
+                        // Toggle current dropdown
+                        parent.classList.toggle('active');
+                        dropdown.classList.toggle('active');
+                    });
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#') return;
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            const icon = mobileMenuBtn.querySelector('i');
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 992) {
+                    // Reset mobile menu styles when switching to desktop
+                    const activeDropdowns = document.querySelectorAll('.dropdown.active, .dropdown-submenu.active');
+                    const activeParents = document.querySelectorAll('.has-dropdown.active');
+                    
+                    activeDropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                    
+                    activeParents.forEach(parent => {
+                        parent.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Amenity tabs functionality
+            const amenityTabs = document.querySelectorAll('.amenity-tab');
+            
+            amenityTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    amenityTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Add filtering functionality here if needed
+                });
             });
         });
     </script>
