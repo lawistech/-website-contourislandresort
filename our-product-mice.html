@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citrine MICE | Meetings, Incentives, Conferences and Exhibitions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* Logo Style for when page is scrolled */
+    .scrolled .logo-svg path,
+    .scrolled .logo-svg text {
+        fill: var(--primary);
+        stroke: var(--primary);
+    }
+    
+    .scrolled .logo-svg path:nth-child(2),
+    .scrolled .logo-svg path:nth-of-type(n+13):nth-of-type(-n+18) {
+        fill: var(--gold);
+        stroke: var(--gold);
+    }
+    
+    /* Google Font Import */
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+    
+    /* Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    :root {
+        --primary: #0a3d62;
+        --primary-light: #3c6382;
+        --secondary: #60a3bc;
+        --accent: #82ccdd;
+        --dark: #1e272e;
+        --light: #f5f6fa;
+        --gold: #e9bc66;
+        --white: #ffffff;
+        --gray: #f0f0f0;
+        --text: #333333;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+        font-size: 62.5%;
+    }
+    
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        font-size: 1.6rem;
+        background-color: var(--white);
+    }
+    
+    h1, h2, h3, h4, h5 {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 600;
+        color: var(--primary);
+        line-height: 1.2;
+    }
+    
+    p {
+        margin-bottom: 2rem;
+    }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 1.5rem 3.5rem;
+        border: none;
+        border-radius: 0;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1.2rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .btn:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--gold);
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    
+    .btn:hover:before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    
+    .btn-primary {
+        background-color: var(--primary);
+        color: var(--white);
+    }
+    
+    .btn-primary:hover {
+        color: var(--dark);
+    }
+    
+    .btn-outline {
+        background-color: transparent;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+    }
+    
+    .btn-outline:before {
+        background-color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+        color: var(--white);
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    .section {
+        padding: 10rem 0;
+        position: relative;
+    }
+    
+    .section-light {
+        background-color: var(--light);
+    }
+    
+    .section-white {
+        background-color: var(--white);
+    }
+    
+    .section-title-container {
+        margin-bottom: 6rem;
+        position: relative;
+    }
+    
+    .section-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--secondary);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+    
+    .section-title {
+        font-size: 4.5rem;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+        color: var(--primary);
+    }
+    
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6rem;
+        height: 2px;
+        background-color: var(--gold);
+    }
+    
+    .section-description {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.8rem;
+        color: var(--primary-light);
+    }
+    
+    /* Header and Navigation */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 2.5rem 0;
+        transition: all 0.4s ease;
+    }
+    
+    .header.scrolled {
+        background-color: var(--white);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem 0;
+    }
+    
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--white);
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+    
+    .logo span {
+        font-size: 1.5rem;
+        position: absolute;
+        bottom: -0.5rem;
+        right: 0;
+        color: var(--gold);
+        letter-spacing: 2px;
+    }
+    
+    .scrolled .logo {
+        color: var(--primary);
+    }
+    
+    /* Enhanced Navbar and Dropdown Styles */
+    
+    /* Base navbar styles */
+    .nav-links {
+        display: flex;
+        list-style: none;
+        position: relative;
+    }
+    
+    .nav-links li {
+        margin-left: 3rem;
+        position: relative;
+    }
+    
+    .nav-links a {
+        color: var(--white);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        font-size: 1.4rem;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    .scrolled .nav-links a {
+        color: var(--primary);
+    }
+    
+    .nav-links a i {
+        margin-left: 0.5rem;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links a:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--gold);
+        transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover:after {
+        width: 100%;
+    }
+    
+    /* Dropdown menu styles */
+    .has-dropdown {
+        position: relative;
+    }
+    
+    .has-dropdown:hover > a i.fa-chevron-down {
+        transform: rotate(180deg);
+    }
+    
+    .has-dropdown:hover > a i.fa-chevron-right {
+        transform: rotate(90deg);
+    }
+    
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: -2rem;
+        width: 24rem;
+        background-color: white;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+        padding: 1rem 0;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(1rem);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .has-dropdown:hover > .dropdown {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .dropdown li {
+        margin: 0;
+        position: relative;
+    }
+    
+    .dropdown a {
+        color: var(--primary) !important;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 3px solid transparent;
+    }
+    
+    .dropdown a:hover {
+        background-color: rgba(233, 188, 102, 0.1);
+        border-left: 3px solid var(--gold);
+    }
+    
+    .dropdown a:after {
+        display: none;
+    }
+    
+    /* Submenu styles */
+    .dropdown-submenu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 24rem;
+        background-color: white;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+        padding: 1rem 0;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(1rem);
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+    
+    .has-dropdown:hover > .dropdown-submenu {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    /* Book now button styles */
+    .book-now-btn {
+        background-color: var(--gold);
+        color: var(--dark) !important;
+        padding: 1rem 2rem !important;
+        border-radius: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+    
+    .book-now-btn:hover {
+        background-color: var(--primary);
+        color: var(--white) !important;
+    }
+    
+    .book-now-btn:after {
+        display: none;
+    }
+    
+    /* Mobile menu button */
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 2.4rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .scrolled .mobile-menu-btn {
+        color: var(--primary);
+    }
+    
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        background: linear-gradient(to right, rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.4)), url('/api/placeholder/1900/1000?text=Citrine+MICE+Events') center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+    }
+    
+    .hero:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(to top, var(--white), transparent);
+    }
+    
+    .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: 400;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        color: var(--gold);
+    }
+    
+    .hero-title {
+        font-size: 7rem;
+        margin-bottom: 3rem;
+        color: var(--white);
+        line-height: 1.2;
+    }
+    
+    .hero-description {
+        font-size: 2rem;
+        margin-bottom: 4rem;
+        font-weight: 300;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    
+    .scroll-down {
+        position: absolute;
+        bottom: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.2rem;
+        color: var(--white);
+        transition: all 0.3s ease;
+        z-index: 2;
+    }
+    
+    .scroll-down i {
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+    
+    /* About MICE Section */
+    .about-mice {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .about-mice:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        background-color: var(--light);
+        z-index: -1;
+    }
+    
+    .mice-content {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    
+    .mice-text {
+        flex: 0 0 50%;
+        padding-right: 5rem;
+    }
+    
+    .mice-description {
+        font-size: 1.6rem;
+        color: var(--text);
+        margin-bottom: 3rem;
+    }
+    
+    .mice-image {
+        flex: 0 0 50%;
+        position: relative;
+    }
+    
+    .mice-img-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
+    }
+    
+    .mice-img {
+        width: 100%;
+        height: 55rem;
+        object-fit: cover;
+        transform: scale(1.1);
+        transition: all 0.5s ease;
+    }
+    
+    .mice-img:hover {
+        transform: scale(1);
+    }
+    
+    /* Services Section */
+    .services {
+        background-color: var(--light);
+        position: relative;
+    }
+    
+    .services:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at bottom left, rgba(130, 204, 221, 0.1), transparent 70%);
+        z-index: 0;
+    }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .service-item {
+        background-color: var(--white);
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .service-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-image {
+        height: 25rem;
+        overflow: hidden;
+    }
+    
+    .service-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+    }
+    
+    .service-item:hover .service-image img {
+        transform: scale(1.1);
+    }
+    
+    .service-content {
+        padding: 3rem;
+    }
+    
+    .service-title {
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+    }
+    
+    .service-description {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        color: var(--text);
+    }
+    
+    /* Venues Section */
+    .venues {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .venue-slider {
+        margin-top: 5rem;
+    }
+    
+    .venue-card {
+        background-color: var(--white);
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+        margin: 0 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .venue-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+    }
+    
+    .venue-image {
+        height: 25rem;
+        overflow: hidden;
+    }
+    
+    .venue-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+    }
+    
+    .venue-card:hover .venue-image img {
+        transform: scale(1.1);
+    }
+    
+    .venue-content {
+        padding: 3rem;
+        text-align: center;
+    }
+    
+    .venue-title {
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+    }
+    
+    .venue-description {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        color: var(--text);
+    }
+    
+    /* CTA Section */
+    .cta {
+        background: linear-gradient(to right, var(--primary), var(--primary-light));
+        color: var(--white);
+        text-align: center;
+        padding: 8rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cta:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/api/placeholder/1900/1000?text=Conference+Hall') center/cover no-repeat;
+        opacity: 0.1;
+    }
+    
+    .cta-title {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        color: var(--white);
+    }
+    
+    .cta-text {
+        font-size: 1.8rem;
+        margin-bottom: 4rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-btn {
+        background-color: var(--white);
+        color: var(--primary);
+    }
+    
+    .cta-btn:before {
+        background-color: var(--gold);
+    }
+    
+    .cta-btn:hover {
+        color: var(--dark);
+    }
+    
+    /* Contact Form */
+    .contact-form-section {
+        background-color: var(--light);
+        padding: 8rem 0;
+        position: relative;
+    }
+    
+    .contact-form-section:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at bottom right, rgba(130, 204, 221, 0.1), transparent 70%);
+    }
+    
+    .contact-form-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: var(--white);
+        padding: 5rem;
+        border-radius: 5px;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .contact-form-title {
+        font-size: 3.6rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .contact-form-subtitle {
+        font-size: 1.6rem;
+        color: var(--secondary);
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+    
+    .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .form-group {
+        position: relative;
+    }
+    
+    .form-group.full-width {
+        grid-column: 1 / -1;
+    }
+    
+    .form-input {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        border: 1px solid #eee;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        font-size: 1.6rem;
+        transition: all 0.3s ease;
+    }
+    
+    .form-input:focus {
+        outline: none;
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 3px rgba(96, 163, 188, 0.1);
+    }
+    
+    .form-label {
+        position: absolute;
+        top: 50%;
+        left: 2rem;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        color: #999;
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .form-input:focus + .form-label,
+    .form-input:not(:placeholder-shown) + .form-label {
+        top: 0;
+        left: 1rem;
+        transform: translateY(-50%);
+        background-color: var(--white);
+        padding: 0 1rem;
+        font-size: 1.2rem;
+        color: var(--secondary);
+    }
+    
+    .form-select {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        border: 1px solid #eee;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        font-size: 1.6rem;
+        color: #999;
+        transition: all 0.3s ease;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M8 12.5a.5.5 0 0 1-.35-.15l-5-5A.5.5 0 0 1 2.5 7H13.5a.5.5 0 0 1 .35.85l-5 5a.5.5 0 0 1-.35.15z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 2rem center;
+        background-size: 1.6rem;
+    }
+    
+    .form-select:focus {
+        outline: none;
+        border-color: var(--secondary);
+        color: var(--text);
+        box-shadow: 0 0 0 3px rgba(96, 163, 188, 0.1);
+    }
+    
+    .form-textarea {
+        height: 15rem;
+        resize: none;
+    }
+    
+    .form-textarea + .form-label {
+        top: 2.5rem;
+    }
+    
+    .form-textarea:focus + .form-label,
+    .form-textarea:not(:placeholder-shown) + .form-label {
+        top: 0;
+    }
+    
+    .form-submit {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    /* Footer */
+    .footer {
+        background-color: var(--dark);
+        color: #999;
+        padding: 8rem 0 2rem;
+        position: relative;
+    }
+    
+    .footer:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10rem;
+        background: linear-gradient(to bottom right, var(--primary) 0%, var(--primary) 50%, transparent 50%, transparent 100%);
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 5rem;
+        margin-bottom: 5rem;
+    }
+    
+    .footer-logo {
+        color: var(--white);
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+    }
+    
+    .footer-description {
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+        max-width: 30rem;
+    }
+    
+    .footer-title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+        color: var(--white);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 1rem;
+    }
+    
+    .footer-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 5rem;
+        height: 2px;
+        background-color: var(--gold);
+    }
+    
+    .footer-links {
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-links a {
+        color: #999;
+        font-size: 1.4rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    
+    .footer-links a:hover {
+        color: var(--gold);
+        transform: translateX(5px);
+    }
+    
+    .footer-contact-item {
+        display: flex;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-contact-icon {
+        color: var(--gold);
+        font-size: 1.8rem;
+        margin-right: 1.5rem;
+        margin-top: 0.3rem;
+    }
+    
+    .footer-contact-text {
+        font-size: 1.4rem;
+    }
+    
+    .footer-social {
+        margin-top: 2.5rem;
+    }
+    
+    .footer-social-title {
+        font-size: 1.6rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+    
+    .social-link {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+        background-color: var(--gold);
+        transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        margin-top: 5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 1.4rem;
+    }
+    
+    .copyright {
+        color: #777;
+    }
+    
+    .copyright a {
+        color: var(--gold);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+        html {
+            font-size: 56.25%; /* 9px */
+        }
+        
+        .hero-title {
+            font-size: 6rem;
+        }
+        
+        .services-grid {
+            gap: 3rem;
+        }
+    }
+    
+    @media (max-width: 991px) {
+        html {
+            font-size: 50%; /* 8px */
+        }
+        
+        .section {
+            padding: 8rem 0;
+        }
+        
+        .hero-title {
+            font-size: 5rem;
+        }
+        
+        .mice-text {
+            flex: 0 0 100%;
+            padding-right: 0;
+            margin-bottom: 5rem;
+        }
+        
+        .mice-image {
+            flex: 0 0 100%;
+        }
+        
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .contact-form-container {
+            padding: 4rem 3rem;
+        }
+        
+        /* Mobile menu styles */
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 30rem;
+            height: 100vh;
+            background-color: var(--white);
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 8rem 0 0 0;
+            transition: all 0.4s ease;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .nav-links.active {
+            right: 0;
+        }
+        
+        .nav-links li {
+            margin: 0;
+            width: 100%;
+        }
+        
+        .nav-links a {
+            color: var(--primary);
+            padding: 1.5rem 2rem;
+            width: 100%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            z-index: 1001;
+        }
+        
+        .dropdown, .dropdown-submenu {
+            position: static;
+            width: 100%;
+            box-shadow: none;
+            visibility: visible;
+            opacity: 1;
+            transform: none;
+            display: none;
+            padding: 0;
+            background-color: rgba(10, 61, 98, 0.05);
+        }
+        
+        .dropdown.active, .dropdown-submenu.active {
+            display: block;
+        }
+        
+        .dropdown a, .dropdown-submenu a {
+            padding-left: 4rem;
+        }
+        
+        .dropdown-submenu a {
+            padding-left: 6rem;
+        }
+        
+        .book-now-btn {
+            width: calc(100% - 4rem);
+            margin: 1rem 2rem;
+            text-align: center;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 3.5rem;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+        }
+        
+        .hero-buttons {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-form {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .section-title {
+            font-size: 3rem;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+        }
+        
+        .contact-form-container {
+            padding: 3rem 2rem;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+
+    <!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="hero-subtitle">CITRINE HOTELS AND RESORTS</span>
+        <h1 class="hero-title">Organise Perfect Events</h1>
+        <p class="hero-description">Meetings, Incentives, Conferences and Exhibitions</p>
+        
+        <div class="hero-buttons">
+            <a href="#about-mice" class="btn btn-primary">Discover More</a>
+            <a href="#contact-mice" class="btn btn-outline">Enquire Now</a>
+        </div>
+    </div>
+    
+    <a href="#about-mice" class="scroll-down">
+        <span>Scroll Down</span>
+        <i class="fas fa-chevron-down"></i>
+    </a>
+</section>
+
+<!-- About MICE Section -->
+<section class="section about-mice" id="about-mice">
+    <div class="container">
+        <div class="mice-content">
+            <div class="mice-text">
+                <span class="section-subtitle">Citrine MICE</span>
+                <h2 class="section-title">Premium Event Spaces</h2>
+                <p class="mice-description">Citrine Hotels and Resorts offer premium banqueting and event organisation spaces. We have experience in hosting corporate as well as private events. Impress your compatriots and clientele, organise an event with Paradise.</p>
+                <p class="mice-description">Our dedicated team of event planners will work with you to create memorable experiences tailored to your specific requirements. From intimate board meetings to grand conferences and exhibitions, we provide the perfect setting for all your MICE needs.</p>
+                <a href="#services" class="btn btn-primary">Our Services</a>
+            </div>
+            
+            <div class="mice-image">
+                <div class="mice-img-container">
+                    <img src="/api/placeholder/600/550?text=Conference+Setup" alt="Conference Setup" class="mice-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section services section-light" id="services">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-subtitle">WHAT WE OFFER</span>
+            <h2 class="section-title">MICE Services</h2>
+            <p class="section-description">Comprehensive solutions for all your business event needs</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="/api/placeholder/500/300?text=Business+Meetings" alt="Business Meetings">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Business Meetings</h3>
+                    <p class="service-description">From boardroom meetings to corporate gatherings, our well-equipped spaces provide the perfect professional environment. State-of-the-art audio-visual technology and reliable high-speed internet ensure seamless presentations.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="/api/placeholder/500/300?text=Incentive+Events" alt="Incentive Events">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Incentive Events</h3>
+                    <p class="service-description">Reward your team with exceptional experiences at our beautiful properties. We offer custom incentive packages that blend business objectives with leisure activities to motivate and rejuvenate your workforce.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="/api/placeholder/500/300?text=Conferences+and+Seminars" alt="Conferences and Seminars">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Conferences</h3>
+                    <p class="service-description">Host successful conferences with our comprehensive support services. Our venues accommodate groups of all sizes, with flexible seating arrangements, dedicated event coordinators, and tailored catering options.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="/api/placeholder/500/300?text=Exhibitions+and+Trade+Shows" alt="Exhibitions and Trade Shows">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Exhibitions</h3>
+                    <p class="service-description">Showcase your products or services in our spacious exhibition areas. We provide custom booth setups, technical support, and logistics management to ensure your exhibition achieves maximum impact and visibility.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Venues Section -->
+<section class="section venues" id="venues">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-subtitle">OUR LOCATIONS</span>
+            <h2 class="section-title">Featured Venues</h2>
+            <p class="section-description">Explore our premium event spaces across multiple destinations</p>
+        </div>
+        
+        <div class="venue-slider">
+            <div class="services-grid">
+                <div class="venue-card">
+                    <div class="venue-image">
+                        <img src="/api/placeholder/500/300?text=Club+Mahindra" alt="Club Mahindra, Ashtamudi">
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Club Mahindra, Ashtamudi</h3>
+                        <p class="venue-description">Your search for a grand banquet hall by the beach ends at our resort in Goa. Elegant spaces with panoramic ocean views.</p>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="venue-card">
+                    <div class="venue-image">
+                        <img src="/api/placeholder/500/300?text=Luxury+Heritage+Hotel" alt="Luxury Heritage Hotel, Jaipur">
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Luxury Heritage Hotel, Jaipur</h3>
+                        <p class="venue-description">Experience a memorable event at our spacious banquet halls in Fort Jaipur. Rich in cultural heritage with modern amenities.</p>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="venue-card">
+                    <div class="venue-image">
+                        <img src="/api/placeholder/500/300?text=Luxury+Hotel+Suite" alt="Luxury Hotel Suite, Mumbai">
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Luxury Hotel Suite, Mumbai</h3>
+                        <p class="venue-description">Organize a hassle-free and successful event, book a banquet hall at Luxury Hotel Suite, Mumbai. Urban sophistication at its best.</p>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="venue-card">
+                    <div class="venue-image">
+                        <img src="/api/placeholder/500/300?text=Contour+Convention+Centre" alt="Contour Convention Centre, Kerala">
+                    </div>
+                    <div class="venue-content">
+                        <h3 class="venue-title">Contour Convention Centre</h3>
+                        <p class="venue-description">Our largest convention facility featuring multiple halls and outdoor spaces perfect for large-scale conferences and exhibitions.</p>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2 class="cta-title">Plan Your Next Event With Us</h2>
+        <p class="cta-text">Let our expert team help you create an unforgettable experience for your guests. Contact us today to discuss your requirements and get a customized quote.</p>
+        <a href="#contact-mice" class="btn cta-btn">Contact Us Now</a>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section" id="contact-mice">
+    <div class="container">
+        <div class="contact-form-container">
+            <h2 class="contact-form-title">Event Enquiry</h2>
+            <p class="contact-form-subtitle">Tell us about your event and we'll get back to you soon</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="name" placeholder=" " required>
+                    <label for="name" class="form-label">Full Name</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="form-input" id="email" placeholder=" " required>
+                    <label for="email" class="form-label">Email Address</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" class="form-input" id="phone" placeholder=" " required>
+                    <label for="phone" class="form-label">Phone Number</label>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-select" id="event-type" required>
+                        <option value="" selected disabled>--Select Event Type--</option>
+                        <option value="Meeting">Business Meeting</option>
+                        <option value="Conference">Conference</option>
+                        <option value="Exhibition">Exhibition</option>
+                        <option value="Incentive">Incentive Event</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <input type="number" class="form-input" id="guests" placeholder=" " required>
+                    <label for="guests" class="form-label">Number of Guests</label>
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-select" id="venue" required>
+                        <option value="" selected disabled>--Preferred Venue--</option>
+                        <option value="Club Mahindra">Club Mahindra, Ashtamudi</option>
+                        <option value="Luxury Heritage">Luxury Heritage Hotel, Jaipur</option>
+                        <option value="Luxury Suite">Luxury Hotel Suite, Mumbai</option>
+                        <option value="Contour Convention">Contour Convention Centre, Kerala</option>
+                        <option value="Other">Not Sure / Any Location</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <textarea class="form-input form-textarea" id="event-details" placeholder=" " required></textarea>
+                    <label for="event-details" class="form-label">Event Details & Requirements</label>
+                </div>
+                
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <a href="index.html" class="footer-logo">
+                    <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2"/>
+                        <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2"/>
+                        <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff"/>
+                        <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff"/>
+                        <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff"/>
+                        <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff"/>
+                        <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff"/>
+                        <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff"/>
+                        <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff"/>
+                        <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff"/>
+                        <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff"/>
+                        <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66"/>
+                        <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66"/>
+                        <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66"/>
+                        <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66"/>
+                        <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66"/>
+                        <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66"/>
+                        <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">HOTELS & RESORTS</text>
+                    </svg>
+                </a>
+                <p class="footer-description">Citrine Hotels and Resorts offer premium banqueting and event organisation spaces. We have experience in hosting corporate as well as private events. Impress your compatriots and clientele, organise an event with Paradise.</p>
+                
+                <div class="footer-social">
+                    <h4 class="footer-social-title">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Location</h3>
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="footer-contact-text">
+                        T.C. 93/1744, V V Road, Pattoor, Vanchiyoor, Pettah .P.O, Thiruvananthapuram - 695024
+                    </div>
+                </div>
+                
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="footer-contact-text">
+                        <strong>crs@citrinehotels.com</strong>
+                    </div>
+                </div>
+                
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="footer-contact-text">
+                        <strong>+91 73567 77860 / 861 / 862<br>1800 2020 166 (Toll-Free)</strong>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Sitemap</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="our_story.html">Our Story</a></li>
+                    <li><a href="#">Our Resorts</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="#">Other Products</a></li>
+                    <li><a href="contact.html">Reach Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">Citrine Hotels and Resorts © 2024 - All Rights Reserved. Designed by <a href="#">Netindia</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Header scroll effect
+    window.addEventListener('load', function() {
+        const header = document.getElementById('header');
+        header.classList.add('scrolled');
+    });
+    
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+            document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
+                if (element.getAttribute('fill') === '#fff') {
+                    element.setAttribute('fill', '#0a3d62');
+                }
+                if (element.getAttribute('stroke') === '#fff') {
+                    element.setAttribute('stroke', '#0a3d62');
+                }
+            });
+        } else {
+            header.classList.remove('scrolled');
+            document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
+                if (element.getAttribute('fill') === '#0a3d62') {
+                    element.setAttribute('fill', '#fff');
+                }
+                if (element.getAttribute('stroke') === '#0a3d62') {
+                    element.setAttribute('stroke', '#fff');
+                }
+            });
+        }
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        
+        // Change icon based on menu state
+        const icon = this.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    // Mobile dropdown toggle
+    const windowWidth = window.innerWidth;
+    
+    if (windowWidth < 992) {
+        const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
+        
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                const dropdown = parent.querySelector('.dropdown, .dropdown-submenu');
+                
+                // Close all other open dropdowns first
+                const allDropdowns = document.querySelectorAll('.dropdown, .dropdown-submenu');
+                const allDropdownParents = document.querySelectorAll('.has-dropdown');
+                
+                // If clicking on a submenu toggle, don't close parent dropdowns
+                if (!parent.parentElement.classList.contains('dropdown')) {
+                    allDropdowns.forEach(drop => {
+                        if (drop !== dropdown && drop !== parent.parentElement) {
+                            drop.classList.remove('active');
+                        }
+                    });
+                    
+                    allDropdownParents.forEach(drparent => {
+                        if (drparent !== parent && drparent !== parent.parentElement.parentElement) {
+                            drparent.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Toggle current dropdown
+                parent.classList.toggle('active');
+                dropdown.classList.toggle('active');
+            });
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            if (this.getAttribute('href') === '#') return;
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+    });
+    
+    // Form validation
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your enquiry. Our team will get back to you shortly.');
+            this.reset();
+        });
+    }
+</script>
+</body>
+</html>
