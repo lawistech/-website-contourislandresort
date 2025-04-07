@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contour Island Resort and Spa | Luxury Resort in Wayanad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Google Font Import */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
         
         /* Reset and Base Styles */
         * {
@@ -15,30 +16,48 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #0a3d62;
+            --primary-light: #3c6382;
+            --secondary: #60a3bc;
+            --accent: #82ccdd;
+            --dark: #1e272e;
+            --light: #f5f6fa;
+            --gold: #e9bc66;
+            --white: #ffffff;
+            --gray: #f0f0f0;
+            --text: #333333;
+        }
+        
         html {
             scroll-behavior: smooth;
+            font-size: 62.5%;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            font-size: 1.6rem;
+            background-color: var(--white);
         }
         
         h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
-            color: #1c2e4a;
+            color: var(--primary);
+            line-height: 1.2;
         }
         
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
         
         a {
             text-decoration: none;
             color: inherit;
+            transition: all 0.3s ease;
         }
         
         img {
@@ -49,40 +68,67 @@
         
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 1.5rem;
         }
         
         .btn {
             display: inline-block;
-            padding: 12px 32px;
-            background-color: #1c2e4a;
-            color: white;
+            padding: 1.5rem 3.5rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 0;
             cursor: pointer;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
         
-        .btn:hover {
-            background-color: #344e77;
-            transform: translateY(-2px);
+        .btn:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--gold);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        .btn:hover:before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            color: var(--dark);
         }
         
         .btn-outline {
             background-color: transparent;
-            border: 2px solid #1c2e4a;
-            color: #1c2e4a;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:before {
+            background-color: var(--primary);
         }
         
         .btn-outline:hover {
-            background-color: #1c2e4a;
-            color: white;
+            color: var(--white);
         }
         
         .text-center {
@@ -90,50 +136,75 @@
         }
         
         .section {
-            padding: 80px 0;
+            padding: 10rem 0;
+            position: relative;
+        }
+        
+        .section-light {
+            background-color: var(--light);
+        }
+        
+        .section-white {
+            background-color: var(--white);
+        }
+        
+        .section-title-container {
+            margin-bottom: 6rem;
+            position: relative;
+        }
+        
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            display: block;
         }
         
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
             position: relative;
             display: inline-block;
+            color: var(--primary);
         }
         
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background-color: #5c8d89;
+            bottom: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6rem;
+            height: 2px;
+            background-color: var(--gold);
         }
         
-        .section-subtitle {
-            font-family: 'Poppins', sans-serif;
-            color: #5c8d89;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.8rem;
+            color: var(--primary-light);
         }
         
         /* Header and Navigation */
         .header {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 100;
-            padding: 20px 0;
-            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 2.5rem 0;
+            transition: all 0.4s ease;
         }
         
         .header.scrolled {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 0;
         }
         
         .nav {
@@ -143,14 +214,27 @@
         }
         
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--white);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo span {
+            font-size: 1.5rem;
+            position: absolute;
+            bottom: -0.5rem;
+            right: 0;
+            color: var(--gold);
+            letter-spacing: 2px;
         }
         
         .scrolled .logo {
-            color: #1c2e4a;
+            color: var(--primary);
         }
         
         .nav-links {
@@ -159,28 +243,30 @@
         }
         
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 4rem;
         }
         
         .nav-links a {
-            color: #fff;
+            color: var(--white);
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
+            font-size: 1.4rem;
+            padding: 0.5rem 0;
         }
         
         .scrolled .nav-links a {
-            color: #1c2e4a;
+            color: var(--primary);
         }
         
         .nav-links a:after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #5c8d89;
+            background-color: var(--gold);
             transition: width 0.3s ease;
         }
         
@@ -188,202 +274,521 @@
             width: 100%;
         }
         
+        .book-now-btn {
+            background-color: var(--gold);
+            color: var(--dark) !important;
+            padding: 1rem 2rem !important;
+            border-radius: 0;
+        }
+        
+        .book-now-btn:after {
+            display: none;
+        }
+        
+        .book-now-btn:hover {
+            background-color: var(--white);
+        }
+        
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: white;
-            font-size: 1.5rem;
+            color: var(--white);
+            font-size: 2.4rem;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
         
         .scrolled .mobile-menu-btn {
-            color: #1c2e4a;
+            color: var(--primary);
         }
         
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1900/1000') center/cover no-repeat;
+            background: linear-gradient(to right, rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.4)), url('/api/placeholder/1900/1000') center/cover no-repeat;
             display: flex;
             align-items: center;
-            color: white;
+            color: var(--white);
             text-align: center;
+            position: relative;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--white), transparent);
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: white;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
         
         .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 400;
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+        }
+        
+        .hero-title {
+            font-size: 7rem;
+            margin-bottom: 3rem;
+            color: var(--white);
+            line-height: 1.2;
+        }
+        
+        .hero-description {
+            font-size: 2rem;
+            margin-bottom: 4rem;
             font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--white);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .scroll-down i {
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
         
         .awards {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 30px;
+            gap: 1.5rem;
         }
         
         .award {
-            margin: 10px;
-            padding: 8px 15px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            font-size: 0.9rem;
+            padding: 1rem 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 5rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .award i {
+            color: var(--gold);
+            margin-right: 1rem;
         }
         
         /* About Section */
         .about {
-            background-color: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background-color: var(--light);
+            z-index: -1;
         }
         
         .about-content {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+            position: relative;
         }
         
         .about-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 50px;
+            flex: 0 0 50%;
+            padding-right: 5rem;
+        }
+        
+        .about-description {
+            font-size: 1.6rem;
+            color: var(--text);
+            margin-bottom: 3rem;
         }
         
         .about-image {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 10px;
+            flex: 0 0 50%;
+            position: relative;
+        }
+        
+        .about-img-container {
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-img {
+            width: 100%;
+            height: 55rem;
+            object-fit: cover;
+            transform: scale(1.1);
+            transition: all 0.5s ease;
+        }
+        
+        .about-img:hover {
+            transform: scale(1);
+        }
+        
+        .about-img-small {
+            position: absolute;
+            bottom: -5rem;
+            left: -5rem;
+            width: 25rem;
+            height: 25rem;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+            border: 1rem solid var(--white);
+        }
+        
+        .about-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .stat-text {
+            font-size: 1.4rem;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         /* Room Section */
         .rooms {
-            background-color: white;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rooms:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(130, 204, 221, 0.1), transparent 70%);
         }
         
         .room-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+            gap: 4rem;
+            margin-top: 5rem;
+            position: relative;
+            z-index: 2;
         }
         
         .room-card {
-            background-color: white;
-            border-radius: 10px;
+            background-color: var(--white);
+            border-radius: 5px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            position: relative;
         }
         
         .room-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+        }
+        
+        .room-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 25rem;
         }
         
         .room-image {
-            height: 200px;
             width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .room-card:hover .room-image {
+            transform: scale(1.1);
+        }
+        
+        .room-price {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
         
         .room-details {
-            padding: 20px;
+            padding: 3rem;
+            position: relative;
         }
         
         .room-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
         }
         
         .room-description {
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #777;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            color: var(--text);
         }
         
         .room-features {
             display: flex;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #eee;
         }
         
         .room-feature {
-            margin-right: 15px;
-            margin-bottom: 5px;
-            font-size: 0.8rem;
+            margin-right: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
+            color: var(--text);
         }
         
-        .room-feature:before {
-            content: '✓';
-            margin-right: 5px;
-            color: #5c8d89;
+        .room-feature i {
+            color: var(--gold);
+            margin-right: 0.5rem;
+            font-size: 1.6rem;
+        }
+        
+        .room-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         /* Amenities Section */
         .amenities {
-            background-color: #f9f9f9;
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .amenities:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(130, 204, 221, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .amenity-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .amenity-tab {
+            padding: 1.5rem 3rem;
+            margin: 0 1rem 1rem;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-size: 1.6rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text);
+        }
+        
+        .amenity-tab.active {
+            border-color: var(--gold);
+            color: var(--primary);
+        }
+        
+        .amenity-tab:hover {
+            color: var(--primary);
         }
         
         .amenities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
         }
         
         .amenity-item {
-            background-color: white;
-            padding: 30px 20px;
-            border-radius: 8px;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 5px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .amenity-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary);
+            z-index: -1;
+            opacity: 0;
             transition: all 0.3s ease;
         }
         
         .amenity-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+        }
+        
+        .amenity-item:hover:before {
+            opacity: 1;
+        }
+        
+        .amenity-item:hover .amenity-title,
+        .amenity-item:hover .amenity-text {
+            color: var(--white);
+        }
+        
+        .amenity-item:hover .amenity-icon {
+            color: var(--gold);
+            transform: translateY(-10px);
         }
         
         .amenity-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .amenity-title {
             font-size: 2rem;
-            margin-bottom: 15px;
-            color: #5c8d89;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .amenity-text {
+            font-size: 1.4rem;
+            color: var(--text);
+            transition: all 0.3s ease;
         }
         
         /* Gallery Section */
         .gallery {
-            background-color: white;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(130, 204, 221, 0.1), transparent 70%);
+        }
+        
+        .gallery-container {
+            position: relative;
+            z-index: 2;
         }
         
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-auto-rows: 250px;
-            gap: 15px;
-            margin-top: 50px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 25rem);
+            gap: 2rem;
         }
         
         .gallery-item {
-            overflow: hidden;
-            border-radius: 8px;
             position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        
+        .gallery-item:nth-child(3) {
+            grid-row: span 2;
         }
         
         .gallery-item img {
@@ -397,126 +802,390 @@
             transform: scale(1.1);
         }
         
-        /* Testimonials Section */
-        .testimonials {
-            background-color: #f9f9f9;
-            text-align: center;
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(10, 61, 98, 0.8), transparent);
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
         }
         
-        .testimonials-slider {
-            max-width: 800px;
-            margin: 50px auto 0;
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-caption {
+            color: var(--white);
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            transition-delay: 0.1s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+        
+        .gallery-category {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--white);
             position: relative;
         }
         
+        .testimonials:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(130, 204, 221, 0.1), transparent 70%);
+            z-index: 0;
+        }
+        
+        .testimonials-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
         .testimonial-item {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            margin: 20px;
+            background-color: var(--white);
+            padding: 5rem;
+            border-radius: 5px;
+            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-item:before {
+            content: '\201C';
+            position: absolute;
+            top: 3rem;
+            left: 3rem;
+            font-size: 10rem;
+            color: var(--light);
+            font-family: serif;
+            line-height: 1;
         }
         
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            color: var(--text);
             position: relative;
+            z-index: 1;
         }
         
-        .testimonial-text:before,
-        .testimonial-text:after {
-            content: '"';
-            font-size: 2rem;
-            color: #5c8d89;
-            position: absolute;
+        .testimonial-author-container {
+            display: flex;
+            align-items: center;
         }
         
-        .testimonial-text:before {
-            top: -20px;
-            left: -15px;
-        }
-        
-        .testimonial-text:after {
-            bottom: -40px;
-            right: -15px;
+        .testimonial-author-image {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 2rem;
         }
         
         .testimonial-author {
             font-weight: 600;
-            color: #1c2e4a;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .testimonial-position {
+            font-size: 1.4rem;
+            color: var(--secondary);
+        }
+        
+        .testimonial-rating {
+            margin-top: 0.5rem;
+            color: var(--gold);
         }
         
         /* Contact Section */
         .contact {
-            background-color: white;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(130, 204, 221, 0.1), transparent 70%);
         }
         
         .contact-container {
             display: flex;
             flex-wrap: wrap;
-            margin-top: 50px;
+            gap: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-form-container {
+            flex: 1;
+            min-width: 30rem;
+            background-color: var(--white);
+            padding: 4rem;
+            border-radius: 5px;
+            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-subtitle {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            margin-bottom: 3rem;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            border: 1px solid #eee;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(96, 163, 188, 0.1);
+        }
+        
+        .form-label {
+            position: absolute;
+            top: 50%;
+            left: 2rem;
+            transform: translateY(-50%);
+            font-size: 1.6rem;
+            color: #999;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .form-input:focus + .form-label,
+        .form-input:not(:placeholder-shown) + .form-label {
+            top: 0;
+            left: 1rem;
+            transform: translateY(-50%);
+            background-color: var(--white);
+            padding: 0 1rem;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        .form-textarea {
+            height: 15rem;
+            resize: none;
+        }
+        
+        .form-textarea + .form-label {
+            top: 2.5rem;
+        }
+        
+        .form-textarea:focus + .form-label,
+        .form-textarea:not(:placeholder-shown) + .form-label {
+            top: 0;
         }
         
         .contact-info {
             flex: 1;
-            min-width: 300px;
-            padding-right: 50px;
+            min-width: 30rem;
+        }
+        
+        .contact-info-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
         }
         
         .contact-item {
-            margin-bottom: 20px;
+            margin-bottom: 4rem;
             display: flex;
-            align-items: flex-start;
         }
         
         .contact-icon {
-            margin-right: 15px;
-            font-size: 1.2rem;
-            color: #5c8d89;
+            margin-right: 2rem;
+            width: 5rem;
+            height: 5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-text p {
+            font-size: 1.6rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
         }
         
         .contact-map {
-            flex: 1;
-            min-width: 300px;
-            height: 400px;
-            border-radius: 10px;
+            height: 40rem;
+            border-radius: 5px;
             overflow: hidden;
+            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+            margin-top: 4rem;
+        }
+        
+        .contact-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1900/1000') center/cover no-repeat;
+            opacity: 0.1;
+        }
+        
+        .cta-title {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+        
+        .cta-text {
+            font-size: 1.8rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-btn {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+        
+        .cta-btn:before {
+            background-color: var(--gold);
+        }
+        
+        .cta-btn:hover {
+            color: var(--dark);
         }
         
         /* Footer */
         .footer {
-            background-color: #1c2e4a;
-            color: white;
-            padding: 60px 0 20px;
+            background-color: var(--dark);
+            color: #999;
+            padding: 8rem 0 2rem;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: linear-gradient(to bottom right, var(--primary) 0%, var(--primary) 50%, transparent 50%, transparent 100%);
         }
         
         .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 5rem;
+            margin-bottom: 5rem;
         }
         
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: 30px;
+        .footer-logo {
+            color: var(--white);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-description {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 30rem;
         }
         
         .footer-title {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: white;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--white);
             position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
         }
         
         .footer-title:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: 0;
             left: 0;
-            width: 50px;
+            width: 5rem;
             height: 2px;
-            background-color: #5c8d89;
+            background-color: var(--gold);
         }
         
         .footer-links {
@@ -524,82 +1193,198 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 1.5rem;
         }
         
         .footer-links a {
-            color: #ccc;
+            color: #999;
+            font-size: 1.4rem;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         
         .footer-links a:hover {
-            color: #5c8d89;
-            padding-left: 5px;
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-contact-icon {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-right: 1.5rem;
+            margin-top: 0.3rem;
+        }
+        
+        .footer-contact-text {
+            font-size: 1.4rem;
+        }
+        
+        .footer-social {
+            margin-top: 2.5rem;
+        }
+        
+        .footer-social-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
         }
         
         .social-links {
             display: flex;
+            gap: 1.5rem;
         }
         
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 4rem;
+            height: 4rem;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 10px;
+            color: var(--white);
+            font-size: 1.8rem;
             transition: all 0.3s ease;
         }
         
         .social-link:hover {
-            background-color: #5c8d89;
+            background-color: var(--gold);
             transform: translateY(-3px);
+        }
+        
+        .footer-newsletter {
+            margin-top: 2.5rem;
+        }
+        
+        .footer-newsletter-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            border-radius: 3px 0 0 3px;
+            font-size: 1.4rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+        }
+        
+        .newsletter-btn {
+            padding: 0 1.5rem;
+            background-color: var(--gold);
+            color: var(--dark);
+            border: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #d4a849;
         }
         
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            margin-top: 50px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #999;
+            padding-top: 3rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1.4rem;
+        }
+        
+        .copyright {
+            color: #777;
+        }
+        
+        .copyright a {
+            color: var(--gold);
         }
         
         /* Responsive Styles */
-        @media (max-width: 991px) {
-            .section {
-                padding: 60px 0;
+        @media (max-width: 1200px) {
+            html {
+                font-size: 56.25%; /* 9px */
             }
             
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 6rem;
             }
             
-            .section-title {
-                font-size: 2rem;
+            .about-img-small {
+                width: 20rem;
+                height: 20rem;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            html {
+                font-size: 50%; /* 8px */
+            }
+            
+            .section {
+                padding: 8rem 0;
+            }
+            
+            .hero-title {
+                font-size: 5rem;
             }
             
             .about-text {
+                flex: 0 0 100%;
                 padding-right: 0;
-                margin-bottom: 40px;
+                margin-bottom: 5rem;
+            }
+            
+            .about-image {
+                flex: 0 0 100%;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-item:first-child {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            
+            .gallery-item:nth-child(3) {
+                grid-row: span 1;
             }
         }
         
         @media (max-width: 768px) {
+            .section-title {
+                font-size: 3.5rem;
+            }
+            
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 width: 70%;
                 height: 100vh;
-                background-color: white;
+                background-color: var(--white);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 transition: all 0.5s ease;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
             }
             
             .nav-links.active {
@@ -607,52 +1392,73 @@
             }
             
             .nav-links li {
-                margin: 15px 0;
+                margin: 2rem 0;
             }
             
             .nav-links a {
-                color: #1c2e4a;
-                font-size: 1.1rem;
+                color: var(--primary);
+                font-size: 1.8rem;
             }
             
             .mobile-menu-btn {
                 display: block;
+                z-index: 1001;
             }
             
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 4.5rem;
             }
             
-            .hero-subtitle {
-                font-size: 1rem;
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1.5rem;
             }
             
-            .section-title {
-                font-size: 1.8rem;
+            .about-img-small {
+                display: none;
             }
             
             .testimonial-item {
-                padding: 30px 20px;
+                padding: 3rem;
             }
         }
         
         @media (max-width: 576px) {
-            .btn {
-                padding: 10px 20px;
-                font-size: 12px;
+            .section-title {
+                font-size: 3rem;
             }
             
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 3.5rem;
             }
             
-            .section-title {
-                font-size: 1.5rem;
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
             
             .award {
-                font-size: 0.8rem;
-                padding: 5px 10px;
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+            }
+            
+            .stat-item {
+                flex: 0 0 50%;
+                margin-bottom: 3rem;
+            }
+            
+            .testimonial-author-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .testimonial-author-image {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -663,17 +1469,19 @@
     <header class="header" id="header">
         <div class="container">
             <nav class="nav">
-                <a href="#" class="logo">Contour Island</a>
+                <a href="#" class="logo">Contour Island <span>Resort & Spa</span></a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#rooms">Rooms</a></li>
                     <li><a href="#amenities">Amenities</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="book-now-btn">Book Now</a></li>
                 </ul>
-                <button class="mobile-menu-btn">☰</button>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
         </div>
     </header>
@@ -681,33 +1489,60 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
+            <span class="hero-subtitle">LUXURY RETREAT IN WAYANAD</span>
             <h1 class="hero-title">Contour Island Resort & Spa</h1>
-            <p class="hero-subtitle">Escape to tranquility on the shores of Banasura Sagar Lake, Wayanad</p>
-            <a href="#rooms" class="btn">Explore Rooms</a>
+            <p class="hero-description">Escape to tranquility on the shores of Banasura Sagar Lake, surrounded by the breathtaking landscapes of Wayanad</p>
+            
+            <div class="hero-buttons">
+                <a href="#rooms" class="btn btn-primary">Explore Rooms</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+            
             <div class="awards">
-                <div class="award">Trip Advisor Choice 2023</div>
-                <div class="award">Radio City Awards 2019</div>
-                <div class="award">Best Tribal Cuisine 2024</div>
+                <div class="award"><i class="fas fa-award"></i> Trip Advisor Choice 2023</div>
+                <div class="award"><i class="fas fa-award"></i> Radio City Awards 2019</div>
+                <div class="award"><i class="fas fa-award"></i> Best Tribal Cuisine 2024</div>
             </div>
         </div>
+        
+        <a href="#about" class="scroll-down">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
     <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
-            <div class="text-center">
-                <span class="section-subtitle">Discover</span>
-                <h2 class="section-title">About Us</h2>
-            </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Welcome to Contour Island Resort & Spa, nestled on the tranquil shores of Banasura Sagar Lake amidst the breathtaking landscapes of Wayanad. Surrounded by lush greenery and serene waters, our idyllic retreat offers a sanctuary from everyday life.</p>
-                    <p>Immerse yourself in nature's beauty, from mist-covered hills to dense forests and cascading waterfalls. Whether seeking adventure or solace, find your perfect getaway here to unwind and reconnect.</p>
-                    <p>The Contour Island Resort & Spa, Wayanad is a three-time winner of the Trip Advisor Traveller's Choice Awards (2021, 2022, 2023), the Radio City Awards (2019) and the Metro Food Awards - Best Tribal Cuisine (2024).</p>
-                    <a href="#" class="btn btn-outline">Learn More</a>
+                    <span class="section-subtitle">Discover</span>
+                    <h2 class="section-title">About Our Resort</h2>
+                    <p class="about-description">Welcome to Contour Island Resort & Spa, nestled on the tranquil shores of Banasura Sagar Lake amidst the breathtaking landscapes of Wayanad. Surrounded by lush greenery and serene waters, our idyllic retreat offers a sanctuary from everyday life.</p>
+                    <p class="about-description">Immerse yourself in nature's beauty, from mist-covered hills to dense forests and cascading waterfalls. Whether seeking adventure or solace, find your perfect getaway here to unwind and reconnect.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-text">Years of Excellence</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5</div>
+                            <div class="stat-text">Star Rating</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-text">Award Winning</div>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="Contour Island Resort">
+                    <div class="about-img-container">
+                        <img src="/api/placeholder/600/700" alt="Contour Island Resort" class="about-img">
+                    </div>
+                    <img src="/api/placeholder/300/300" alt="Resort Detail" class="about-img-small">
                 </div>
             </div>
         </div>
@@ -717,52 +1552,72 @@
     <section class="section rooms" id="rooms">
         <div class="container">
             <div class="text-center">
-                <span class="section-subtitle">Accommodation</span>
-                <h2 class="section-title">Our Luxury Rooms</h2>
+                <span class="section-subtitle">Luxury Accommodation</span>
+                <h2 class="section-title">Our Rooms & Suites</h2>
+                <p class="section-description">Experience unparalleled comfort and elegant design in our carefully crafted accommodations</p>
             </div>
+            
             <div class="room-grid">
                 <div class="room-card">
-                    <img src="/api/placeholder/400/200" alt="Superior Room" class="room-image">
+                    <div class="room-image-container">
+                        <img src="/api/placeholder/600/400" alt="Superior Room" class="room-image">
+                        <div class="room-price">From $120/night</div>
+                    </div>
                     <div class="room-details">
                         <h3 class="room-title">Superior Room</h3>
                         <p class="room-description">Enjoy comfort and charm in our Superior Room, where modern luxury meets timeless architecture. Unwind in your private retreat with a plush Queen Bed and a well-appointed bathroom.</p>
                         <div class="room-features">
-                            <span class="room-feature">Free Wi-Fi</span>
-                            <span class="room-feature">Daily Housekeeping</span>
-                            <span class="room-feature">Comfortable Beds</span>
-                            <span class="room-feature">Shower</span>
+                            <span class="room-feature"><i class="fas fa-wifi"></i> Free Wi-Fi</span>
+                            <span class="room-feature"><i class="fas fa-broom"></i> Daily Housekeeping</span>
+                            <span class="room-feature"><i class="fas fa-bed"></i> Queen Bed</span>
+                            <span class="room-feature"><i class="fas fa-shower"></i> Luxury Bathroom</span>
                         </div>
-                        <a href="#" class="btn btn-outline">Book Now</a>
+                        <div class="room-link">
+                            <a href="#" class="btn btn-outline">Book Now</a>
+                            <a href="#" class="btn btn-link">View Details</a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="room-card">
-                    <img src="/api/placeholder/400/200" alt="Lake View Cottages" class="room-image">
+                    <div class="room-image-container">
+                        <img src="/api/placeholder/600/400" alt="Lake View Cottage" class="room-image">
+                        <div class="room-price">From $180/night</div>
+                    </div>
                     <div class="room-details">
-                        <h3 class="room-title">Lake View Cottages</h3>
+                        <h3 class="room-title">Lake View Cottage</h3>
                         <p class="room-description">Our Lake View Cottages offer luxury and serenity with mesmerizing views of Banasura Sagar Lake. Each cottage features a comfortable Queen Bed and a private veranda.</p>
                         <div class="room-features">
-                            <span class="room-feature">Free Wi-Fi</span>
-                            <span class="room-feature">Daily Housekeeping</span>
-                            <span class="room-feature">Lake View</span>
-                            <span class="room-feature">Private Veranda</span>
+                            <span class="room-feature"><i class="fas fa-wifi"></i> Free Wi-Fi</span>
+                            <span class="room-feature"><i class="fas fa-broom"></i> Daily Housekeeping</span>
+                            <span class="room-feature"><i class="fas fa-water"></i> Lake View</span>
+                            <span class="room-feature"><i class="fas fa-couch"></i> Private Veranda</span>
                         </div>
-                        <a href="#" class="btn btn-outline">Book Now</a>
+                        <div class="room-link">
+                            <a href="#" class="btn btn-outline">Book Now</a>
+                            <a href="#" class="btn btn-link">View Details</a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="room-card">
-                    <img src="/api/placeholder/400/200" alt="Private Pool Villa" class="room-image">
+                    <div class="room-image-container">
+                        <img src="/api/placeholder/600/400" alt="Private Pool Villa" class="room-image">
+                        <div class="room-price">From $250/night</div>
+                    </div>
                     <div class="room-details">
                         <h3 class="room-title">Private Pool Villa</h3>
                         <p class="room-description">Indulge in ultimate luxury at our Private Pool Villa, a peaceful sanctuary with a comfortable Queen Bed and private pool. Enjoy complete seclusion and tranquility.</p>
                         <div class="room-features">
-                            <span class="room-feature">Free Wi-Fi</span>
-                            <span class="room-feature">Private Pool</span>
-                            <span class="room-feature">Luxury Amenities</span>
-                            <span class="room-feature">Exclusive Privacy</span>
+                            <span class="room-feature"><i class="fas fa-wifi"></i> Free Wi-Fi</span>
+                            <span class="room-feature"><i class="fas fa-swimming-pool"></i> Private Pool</span>
+                            <span class="room-feature"><i class="fas fa-concierge-bell"></i> Luxury Amenities</span>
+                            <span class="room-feature"><i class="fas fa-lock"></i> Exclusive Privacy</span>
                         </div>
-                        <a href="#" class="btn btn-outline">Book Now</a>
+                        <div class="room-link">
+                            <a href="#" class="btn btn-outline">Book Now</a>
+                            <a href="#" class="btn btn-link">View Details</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -773,41 +1628,66 @@
     <section class="section amenities" id="amenities">
         <div class="container">
             <div class="text-center">
-                <span class="section-subtitle">Features</span>
-                <h2 class="section-title">Resort Amenities</h2>
+                <span class="section-subtitle">Resort Features</span>
+                <h2 class="section-title">Luxury Amenities</h2>
+                <p class="section-description">Discover the wide range of facilities and services designed for your comfort and enjoyment</p>
             </div>
+            
+            <div class="amenity-tabs">
+                <button class="amenity-tab active">All</button>
+                <button class="amenity-tab">Recreation</button>
+                <button class="amenity-tab">Wellness</button>
+                <button class="amenity-tab">Dining</button>
+                <button class="amenity-tab">Services</button>
+            </div>
+            
             <div class="amenities-grid">
                 <div class="amenity-item">
-                    <div class="amenity-icon">🏊</div>
-                    <h3>Swimming Pool</h3>
+                    <div class="amenity-icon"><i class="fas fa-swimming-pool"></i></div>
+                    <h3 class="amenity-title">Swimming Pool</h3>
+                    <p class="amenity-text">Relax and unwind in our outdoor swimming pool with stunning views</p>
                 </div>
+                
                 <div class="amenity-item">
-                    <div class="amenity-icon">💆</div>
-                    <h3>Spa Services</h3>
+                    <div class="amenity-icon"><i class="fas fa-spa"></i></div>
+                    <h3 class="amenity-title">Spa Services</h3>
+                    <p class="amenity-text">Rejuvenate your mind and body with our therapeutic spa treatments</p>
                 </div>
+                
                 <div class="amenity-item">
-                    <div class="amenity-icon">🧘</div>
-                    <h3>Yoga Center</h3>
+                    <div class="amenity-icon"><i class="fas fa-om"></i></div>
+                    <h3 class="amenity-title">Yoga Center</h3>
+                    <p class="amenity-text">Find inner peace with daily yoga sessions led by experienced instructors</p>
                 </div>
+                
                 <div class="amenity-item">
-                    <div class="amenity-icon">🍽️</div>
-                    <h3>Fine Dining</h3>
+                    <div class="amenity-icon"><i class="fas fa-utensils"></i></div>
+                    <h3 class="amenity-title">Fine Dining</h3>
+                    <p class="amenity-text">Savor delicious local and international cuisine at our restaurant</p>
                 </div>
+                
                 <div class="amenity-item">
-                    <div class="amenity-icon">🔥</div>
-                    <h3>Campfire</h3>
+                    <div class="amenity-icon"><i class="fas fa-fire"></i></div>
+                    <h3 class="amenity-title">Campfire</h3>
+                    <p class="amenity-text">Enjoy evening gatherings around a cozy campfire under the stars</p>
                 </div>
+                
                 <div class="amenity-item">
-                    <div class="amenity-icon">🌳</div>
-                    <h3>Nature Walks</h3>
+                    <div class="amenity-icon"><i class="fas fa-hiking"></i></div>
+                    <h3 class="amenity-title">Nature Walks</h3>
+                    <p class="amenity-text">Explore the beautiful surroundings with guided nature walks</p>
                 </div>
+                
                 <div class="amenity-item">
-                    <div class="amenity-icon">🌐</div>
-                    <h3>Free Wi-Fi</h3>
+                    <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
+                    <h3 class="amenity-title">Free Wi-Fi</h3>
+                    <p class="amenity-text">Stay connected with complimentary high-speed internet access</p>
                 </div>
+                
                 <div class="amenity-item">
-                    <div class="amenity-icon">🦮</div>
-                    <h3>Pet Friendly</h3>
+                    <div class="amenity-icon"><i class="fas fa-paw"></i></div>
+                    <h3 class="amenity-title">Pet Friendly</h3>
+                    <p class="amenity-text">Bring your furry friends along for a memorable vacation experience</p>
                 </div>
             </div>
         </div>
@@ -817,27 +1697,72 @@
     <section class="section gallery" id="gallery">
         <div class="container">
             <div class="text-center">
-                <span class="section-subtitle">Glimpses</span>
-                <h2 class="section-title">Beautiful Gallery</h2>
+                <span class="section-subtitle">Visual Tour</span>
+                <h2 class="section-title">Resort Gallery</h2>
+                <p class="section-description">Experience the beauty and luxury of our resort through stunning imagery</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/400" alt="Resort View">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/400" alt="Lake View">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/400" alt="Room Interior">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/400" alt="Pool">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/400" alt="Restaurant">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/400" alt="Spa">
+            
+            <div class="gallery-container">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/800/600" alt="Resort Overview">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <h3 class="gallery-title">Resort Overview</h3>
+                                <span class="gallery-category">Exterior</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Lake View">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <h3 class="gallery-title">Banasura Lake</h3>
+                                <span class="gallery-category">Nature</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/600" alt="Luxury Room">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <h3 class="gallery-title">Luxury Suite</h3>
+                                <span class="gallery-category">Accommodation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Dining Experience">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <h3 class="gallery-title">Gourmet Dining</h3>
+                                <span class="gallery-category">Cuisine</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Spa Treatment">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <h3 class="gallery-title">Wellness Spa</h3>
+                                <span class="gallery-category">Relaxation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/300" alt="Pool View">
+                        <div class="gallery-overlay">
+                            <div class="gallery-caption">
+                                <h3 class="gallery-title">Infinity Pool</h3>
+                                <span class="gallery-category">Recreation</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -848,14 +1773,38 @@
         <div class="container">
             <div class="text-center">
                 <span class="section-subtitle">Guest Experiences</span>
-                <h2 class="section-title">Testimonials</h2>
+                <h2 class="section-title">What Our Guests Say</h2>
+                <p class="section-description">Discover the experiences of guests who have enjoyed our hospitality</p>
             </div>
+            
             <div class="testimonials-slider">
                 <div class="testimonial-item">
-                    <p class="testimonial-text">Excellent location. Overlooking the dam. Night views are amazing.. silent mode in the forest was calming. pleasant in the evening.. lovely and helpful staff.. restaurant serves some amazing kerala dishes.. had a wonderful stay. Will definitely come back</p>
-                    <p class="testimonial-author">— Joe Antony</p>
+                    <p class="testimonial-text">Excellent location overlooking the dam. Night views are amazing. Silent mode in the forest was calming and pleasant in the evening. Lovely and helpful staff. The restaurant serves some amazing Kerala dishes. Had a wonderful stay and will definitely come back!</p>
+                    
+                    <div class="testimonial-author-container">
+                        <img src="/api/placeholder/120/120" alt="Joe Antony" class="testimonial-author-image">
+                        <div>
+                            <h4 class="testimonial-author">Joe Antony</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Begin Your Luxury Retreat</h2>
+            <p class="cta-text">Experience the perfect blend of nature, luxury, and tranquility at Contour Island Resort & Spa. Book your stay now and create unforgettable memories.</p>
+            <a href="#" class="btn cta-btn">Book Your Stay</a>
         </div>
     </section>
 
@@ -865,41 +1814,78 @@
             <div class="text-center">
                 <span class="section-subtitle">Get In Touch</span>
                 <h2 class="section-title">Contact Us</h2>
+                <p class="section-description">We're here to answer any questions you may have about our resort</p>
             </div>
+            
             <div class="contact-container">
+                <div class="contact-form-container">
+                    <h3 class="contact-title">Send a Message</h3>
+                    <p class="contact-subtitle">We'll get back to you as soon as possible</p>
+                    
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="name" placeholder=" ">
+                            <label for="name" class="form-label">Your Name</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-input" id="email" placeholder=" ">
+                            <label for="email" class="form-label">Your Email</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="subject" placeholder=" ">
+                            <label for="subject" class="form-label">Subject</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-input form-textarea" id="message" placeholder=" "></textarea>
+                            <label for="message" class="form-label">Your Message</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                
                 <div class="contact-info">
+                    <h3 class="contact-info-title">Reach Us</h3>
+                    
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
                             <h3>Resort Address</h3>
-                            <p>Contour Island Resort & Spa<br>Kuttiyamvayal, Varambetta P.O,<br>Wayanad, Kerala - 673575</p>
+                            <p>Contour Island Resort & Spa</p>
+                            <p>Kuttiyamvayal, Varambetta P.O,</p>
+                            <p>Wayanad, Kerala - 673575</p>
                         </div>
                     </div>
+                    
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
                             <h3>Phone</h3>
                             <p>+91 7356777860</p>
                             <p>1800 2020 166 (Toll-Free)</p>
                         </div>
                     </div>
+                    
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
                             <h3>Email</h3>
                             <p>crs@citrinehotels.com</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🏢</div>
-                        <div>
-                            <h3>Corporate Office</h3>
-                            <p>Citrine Hotels & Resorts<br>T.C. 93/1744, V V Road, Pattoor,<br>Vanchiyoor, Pettah P.O,<br>Thiruvananthapuram - 695024</p>
-                        </div>
+                    
+                    <div class="contact-map">
+                        <img src="/api/placeholder/600/300" alt="Resort Location Map">
                     </div>
-                </div>
-                <div class="contact-map">
-                    <img src="/api/placeholder/600/400" alt="Resort Location Map">
                 </div>
             </div>
         </div>
@@ -910,36 +1896,75 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3 class="footer-title">Contour Island</h3>
-                    <p>Escape to tranquility on the shores of Banasura Sagar Lake, amidst the breathtaking landscapes of Wayanad.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">f</a>
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">ig</a>
+                    <a href="#" class="footer-logo">Contour Island</a>
+                    <p class="footer-description">Escape to tranquility on the shores of Banasura Sagar Lake, amidst the breathtaking landscapes of Wayanad. Experience luxury, comfort, and natural beauty.</p>
+                    
+                    <div class="footer-social">
+                        <h4 class="footer-social-title">Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="footer-column">
                     <h3 class="footer-title">Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#rooms">Rooms</a></li>
+                        <li><a href="#rooms">Rooms & Suites</a></li>
                         <li><a href="#amenities">Amenities</a></li>
                         <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-column">
-                    <h3 class="footer-title">Contact</h3>
-                    <ul class="footer-links">
-                        <li>crs@citrinehotels.com</li>
-                        <li>+91 7356777860</li>
-                        <li>1800 2020 166 (Toll-Free)</li>
-                    </ul>
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            Kuttiyamvayal, Varambetta P.O,<br>
+                            Wayanad, Kerala - 673575
+                        </div>
+                    </div>
+                    
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            +91 7356777860<br>
+                            1800 2020 166 (Toll-Free)
+                        </div>
+                    </div>
+                    
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            crs@citrinehotels.com
+                        </div>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h4 class="footer-newsletter-title">Subscribe to Newsletter</h4>
+                        <div class="footer-newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your Email">
+                            <button class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>Citrine Hotels and Resorts © 2024 - All Rights Reserved.</p>
+                <p class="copyright">Citrine Hotels and Resorts © 2024 - All Rights Reserved. Designed with <i class="fas fa-heart"></i> by <a href="#">Citrine</a></p>
             </div>
         </div>
     </footer>
@@ -962,6 +1987,16 @@
         
         mobileMenuBtn.addEventListener('click', function() {
             navLinks.classList.toggle('active');
+            
+            // Change icon based on menu state
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
         
         // Smooth scrolling for anchor links
@@ -974,15 +2009,31 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                     
                     // Close mobile menu if open
                     if (navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
                     }
                 }
+            });
+        });
+        
+        // Amenity tabs
+        const amenityTabs = document.querySelectorAll('.amenity-tab');
+        
+        amenityTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                amenityTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Add filtering functionality here if needed
             });
         });
     </script>
