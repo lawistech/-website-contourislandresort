@@ -1,2394 +1,2785 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contour Island Resort and Spa | Luxury Resort in Wayanad</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        /* Logo Style for when page is scrolled */
-        .scrolled .logo-svg path,
-        .scrolled .logo-svg text {
-            fill: var(--primary);
-            stroke: var(--primary);
-        }
-        
-        .scrolled .logo-svg path:nth-child(2),
-        .scrolled .logo-svg path:nth-of-type(n+13):nth-of-type(-n+18) {
-            fill: var(--gold);
-            stroke: var(--gold);
-        }
-        
-        /* Google Font Import */
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
-        
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #0a3d62;
-            --primary-light: #3c6382;
-            --secondary: #60a3bc;
-            --accent: #82ccdd;
-            --dark: #1e272e;
-            --light: #f5f6fa;
-            --gold: #e9bc66;
-            --white: #ffffff;
-            --gray: #f0f0f0;
-            --text: #333333;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 62.5%;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-size: 1.6rem;
-            background-color: var(--white);
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-        
-        p {
-            margin-bottom: 2rem;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 1.5rem 3.5rem;
-            border: none;
-            border-radius: 0;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.2rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--gold);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-        
-        .btn:hover:before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-        
-        .btn-primary:hover {
-            color: var(--dark);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:before {
-            background-color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            color: var(--white);
-        }
-        
-        .text-center {
-            text-align: center;
-        }
-        
-        .section {
-            padding: 10rem 0;
-            position: relative;
-        }
-        
-        .section-light {
-            background-color: var(--light);
-        }
-        
-        .section-white {
-            background-color: var(--white);
-        }
-        
-        .section-title-container {
-            margin-bottom: 6rem;
-            position: relative;
-        }
-        
-        .section-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        
-        .section-title {
-            font-size: 4.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-            color: var(--primary);
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6rem;
-            height: 2px;
-            background-color: var(--gold);
-        }
-        
-        .section-description {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.8rem;
-            color: var(--primary-light);
-        }
-        
-        /* Header and Navigation */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 2.5rem 0;
-            transition: all 0.4s ease;
-        }
-        
-        .header.scrolled {
-            background-color: var(--white);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem 0;
-        }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--white);
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        
-        .logo span {
-            font-size: 1.5rem;
-            position: absolute;
-            bottom: -0.5rem;
-            right: 0;
-            color: var(--gold);
-            letter-spacing: 2px;
-        }
-        
-        .scrolled .logo {
-            color: var(--primary);
-        }
-        
-        /* Enhanced Navbar and Dropdown Styles */
-        
-        /* Base navbar styles */
-        .nav-links {
-            display: flex;
-            list-style: none;
-            position: relative;
-        }
-        
-        .nav-links li {
-            margin-left: 3rem;
-            position: relative;
-        }
-        
-        .nav-links a {
-            color: var(--white);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            font-size: 1.4rem;
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .scrolled .nav-links a {
-            color: var(--primary);
-        }
-        
-        .nav-links a i {
-            margin-left: 0.5rem;
-            font-size: 1rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--gold);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        /* Dropdown menu styles */
-        .has-dropdown {
-            position: relative;
-        }
-        
-        .has-dropdown:hover > a i.fa-chevron-down {
-            transform: rotate(180deg);
-        }
-        
-        .has-dropdown:hover > a i.fa-chevron-right {
-            transform: rotate(90deg);
-        }
-        
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: -2rem;
-            width: 24rem;
-            background-color: white;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
-            border-radius: 0.5rem;
-            padding: 1rem 0;
-            visibility: hidden;
-            opacity: 0;
-            transform: translateY(1rem);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .has-dropdown:hover > .dropdown {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .dropdown li {
-            margin: 0;
-            position: relative;
-        }
-        
-        .dropdown a {
-            color: var(--primary) !important;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-left: 3px solid transparent;
-        }
-        
-        .dropdown a:hover {
-            background-color: rgba(233, 188, 102, 0.1);
-            border-left: 3px solid var(--gold);
-        }
-        
-        .dropdown a:after {
-            display: none;
-        }
-        
-        /* Submenu styles */
-        .dropdown-submenu {
-            position: absolute;
-            top: 0;
-            left: 100%;
-            width: 24rem;
-            background-color: white;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
-            border-radius: 0.5rem;
-            padding: 1rem 0;
-            visibility: hidden;
-            opacity: 0;
-            transform: translateX(1rem);
-            transition: all 0.3s ease;
-            z-index: 1001;
-        }
-        
-        .has-dropdown:hover > .dropdown-submenu {
-            visibility: visible;
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        /* Book now button styles */
-        .book-now-btn {
-            background-color: var(--gold);
-            color: var(--dark) !important;
-            padding: 1rem 2rem !important;
-            border-radius: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-        
-        .book-now-btn:hover {
-            background-color: var(--primary);
-            color: var(--white) !important;
-        }
-        
-        .book-now-btn:after {
-            display: none;
-        }
-        
-        /* Mobile menu button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 2.4rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .scrolled .mobile-menu-btn {
-            color: var(--primary);
-        }
-        
-        /* Responsive styles for the navbar */
-        @media (max-width: 1200px) {
-            .nav-links li {
-                margin-left: 2rem;
-            }
-            
-            .dropdown, .dropdown-submenu {
-                width: 22rem;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 30rem;
-                height: 100vh;
-                background-color: var(--white);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                padding: 8rem 0 0 0;
-                transition: all 0.4s ease;
-                overflow-y: auto;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 0;
-                width: 100%;
-            }
-            
-            .nav-links a {
-                color: var(--primary);
-                padding: 1.5rem 2rem;
-                width: 100%;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                z-index: 1001;
-            }
-            
-            .dropdown, .dropdown-submenu {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                visibility: visible;
-                opacity: 1;
-                transform: none;
-                display: none;
-                padding: 0;
-                background-color: rgba(10, 61, 98, 0.05);
-            }
-            
-            .dropdown.active, .dropdown-submenu.active {
-                display: block;
-            }
-            
-            .dropdown a, .dropdown-submenu a {
-                padding-left: 4rem;
-            }
-            
-            .dropdown-submenu a {
-                padding-left: 6rem;
-            }
-            
-            .book-now-btn {
-                width: calc(100% - 4rem);
-                margin: 1rem 2rem;
-                text-align: center;
-            }
-            
-            .has-dropdown > a i.fa-chevron-down,
-            .has-dropdown > a i.fa-chevron-right {
-                transition: transform 0.3s ease;
-            }
-            
-            .has-dropdown.active > a i.fa-chevron-down {
-                transform: rotate(180deg);
-            }
-            
-            .has-dropdown.active > a i.fa-chevron-right {
-                transform: rotate(90deg);
-            }
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(to right, rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.4)), url('https://cdn.pixabay.com/photo/2016/11/17/09/28/hotel-1831072_1280.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(to top, var(--white), transparent);
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-weight: 400;
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-            color: var(--gold);
-        }
-        
-        .hero-title {
-            font-size: 7rem;
-            margin-bottom: 3rem;
-            color: var(--white);
-            line-height: 1.2;
-        }
-        
-        .hero-description {
-            font-size: 2rem;
-            margin-bottom: 4rem;
-            font-weight: 300;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-        
-        .scroll-down {
-            position: absolute;
-            bottom: 5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 1.2rem;
-            color: var(--white);
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-        
-        .scroll-down i {
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-        
-        .awards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-        
-        .award {
-            padding: 1rem 2rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 5rem;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .award i {
-            color: var(--gold);
-            margin-right: 1rem;
-        }
-        
-        /* About Section */
-        .about {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .about:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background-color: var(--light);
-            z-index: -1;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            position: relative;
-        }
-        
-        .about-text {
-            flex: 0 0 50%;
-            padding-right: 5rem;
-        }
-        
-        .about-description {
-            font-size: 1.6rem;
-            color: var(--text);
-            margin-bottom: 3rem;
-        }
-        
-        .about-image {
-            flex: 0 0 50%;
-            position: relative;
-        }
-        
-        .about-img-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 5px;
-            box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
-        }
-        
-        .about-img {
-            width: 100%;
-            height: 55rem;
-            object-fit: cover;
-            transform: scale(1.1);
-            transition: all 0.5s ease;
-        }
-        
-        .about-img:hover {
-            transform: scale(1);
-        }
-        
-        .about-img-small {
-            position: absolute;
-            bottom: -5rem;
-            left: -5rem;
-            width: 25rem;
-            height: 25rem;
-            object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
-            border: 1rem solid var(--white);
-        }
-        
-        .about-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5rem;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 5rem;
-            font-weight: 600;
-            color: var(--primary);
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        .stat-text {
-            font-size: 1.4rem;
-            color: var(--text);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Room Section */
-        .rooms {
-            background-color: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .rooms:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(130, 204, 221, 0.1), transparent 70%);
-        }
-        
-        .room-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
-            gap: 4rem;
-            margin-top: 5rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .room-card {
-            background-color: var(--white);
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .room-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
-        }
-        
-        .room-image-container {
-            position: relative;
-            overflow: hidden;
-            height: 25rem;
-        }
-        
-        .room-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-        
-        .room-card:hover .room-image {
-            transform: scale(1.1);
-        }
-        
-        .room-price {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 1rem 1.5rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-        }
-        
-        .room-details {
-            padding: 3rem;
-            position: relative;
-        }
-        
-        .room-title {
-            font-size: 2.4rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .room-description {
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-            color: var(--text);
-        }
-        
-        .room-features {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .room-feature {
-            margin-right: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            color: var(--text);
-        }
-        
-        .room-feature i {
-            color: var(--gold);
-            margin-right: 0.5rem;
-            font-size: 1.6rem;
-        }
-        
-        .room-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        /* Amenities Section */
-        .amenities {
-            background-color: var(--white);
-            position: relative;
-        }
-        
-        .amenities:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom left, rgba(130, 204, 221, 0.1), transparent 70%);
-            z-index: 0;
-        }
-        
-        .amenity-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 5rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .amenity-tab {
-            padding: 1.5rem 3rem;
-            margin: 0 1rem 1rem;
-            background-color: transparent;
-            border: none;
-            border-bottom: 2px solid transparent;
-            font-size: 1.6rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--text);
-        }
-        
-        .amenity-tab.active {
-            border-color: var(--gold);
-            color: var(--primary);
-        }
-        
-        .amenity-tab:hover {
-            color: var(--primary);
-        }
-        
-        .amenities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-            gap: 4rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .amenity-item {
-            background-color: var(--white);
-            padding: 3rem;
-            border-radius: 5px;
-            text-align: center;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .amenity-item:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary);
-            z-index: -1;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .amenity-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
-        }
-        
-        .amenity-item:hover:before {
-            opacity: 1;
-        }
-        
-        .amenity-item:hover .amenity-title,
-        .amenity-item:hover .amenity-text {
-            color: var(--white);
-        }
-        
-        .amenity-item:hover .amenity-icon {
-            color: var(--gold);
-            transform: translateY(-10px);
-        }
-        
-        .amenity-icon {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            transition: all 0.3s ease;
-        }
-        
-        .amenity-title {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .amenity-text {
-            font-size: 1.4rem;
-            color: var(--text);
-            transition: all 0.3s ease;
-        }
-        
-        /* Gallery Section */
-        .gallery {
-            background-color: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gallery:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(130, 204, 221, 0.1), transparent 70%);
-        }
-        
-        .gallery-container {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 25rem);
-            gap: 2rem;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 5px;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
-        }
-        
-        .gallery-item:first-child {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        
-        .gallery-item:nth-child(3) {
-            grid-row: span 2;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(10, 61, 98, 0.8), transparent);
-            opacity: 0;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: flex-end;
-            padding: 2rem;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        
-        .gallery-caption {
-            color: var(--white);
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            transition-delay: 0.1s;
-        }
-        
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-        
-        .gallery-title {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-        
-        .gallery-category {
-            font-size: 1.2rem;
-            color: var(--accent);
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--white);
-            position: relative;
-        }
-        
-        .testimonials:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(130, 204, 221, 0.1), transparent 70%);
-            z-index: 0;
-        }
-        
-        .testimonials-slider {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .testimonial-item {
-            background-color: var(--white);
-            padding: 5rem;
-            border-radius: 5px;
-            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-        
-        .testimonial-item:before {
-            content: '\201C';
-            position: absolute;
-            top: 3rem;
-            left: 3rem;
-            font-size: 10rem;
-            color: var(--light);
-            font-family: serif;
-            line-height: 1;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 3rem;
-            font-size: 1.8rem;
-            color: var(--text);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author-container {
-            display: flex;
-            align-items: center;
-        }
-        
-        .testimonial-author-image {
-            width: 6rem;
-            height: 6rem;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 2rem;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            font-size: 1.8rem;
-            color: var(--primary);
-        }
-        
-        .testimonial-position {
-            font-size: 1.4rem;
-            color: var(--secondary);
-        }
-        
-        .testimonial-rating {
-            margin-top: 0.5rem;
-            color: var(--gold);
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(130, 204, 221, 0.1), transparent 70%);
-        }
-        
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .contact-form-container {
-            flex: 1;
-            min-width: 30rem;
-            background-color: var(--white);
-            padding: 4rem;
-            border-radius: 5px;
-            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
-        }
-        
-        .contact-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-subtitle {
-            font-size: 1.6rem;
-            color: var(--secondary);
-            margin-bottom: 3rem;
-        }
-        
-        .contact-form {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .form-group {
-            position: relative;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 1.5rem 2rem;
-            border: 1px solid #eee;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            font-size: 1.6rem;
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(96, 163, 188, 0.1);
-        }
-        
-        .form-label {
-            position: absolute;
-            top: 50%;
-            left: 2rem;
-            transform: translateY(-50%);
-            font-size: 1.6rem;
-            color: #999;
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .form-input:focus + .form-label,
-        .form-input:not(:placeholder-shown) + .form-label {
-            top: 0;
-            left: 1rem;
-            transform: translateY(-50%);
-            background-color: var(--white);
-            padding: 0 1rem;
-            font-size: 1.2rem;
-            color: var(--secondary);
-        }
-        
-        .form-textarea {
-            height: 15rem;
-            resize: none;
-        }
-        
-        .form-textarea + .form-label {
-            top: 2.5rem;
-        }
-        
-        .form-textarea:focus + .form-label,
-        .form-textarea:not(:placeholder-shown) + .form-label {
-            top: 0;
-        }
-        
-        .contact-info {
-            flex: 1;
-            min-width: 30rem;
-        }
-        
-        .contact-info-title {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .contact-item {
-            margin-bottom: 4rem;
-            display: flex;
-        }
-        
-        .contact-icon {
-            margin-right: 2rem;
-            width: 5rem;
-            height: 5rem;
-            background-color: var(--primary);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 2rem;
-            flex-shrink: 0;
-        }
-        
-        .contact-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-text p {
-            font-size: 1.6rem;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-map {
-            height: 40rem;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
-            margin-top: 4rem;
-        }
-        
-        .contact-map img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--primary-light));
-            color: var(--white);
-            text-align: center;
-            padding: 8rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('/api/placeholder/1900/1000?text=Resort+Panorama') center/cover no-repeat;
-            opacity: 0.1;
-        }
-        
-        .cta-title {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            color: var(--white);
-        }
-        
-        .cta-text {
-            font-size: 1.8rem;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-        
-        .cta-btn:before {
-            background-color: var(--gold);
-        }
-        
-        .cta-btn:hover {
-            color: var(--dark);
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: var(--dark);
-            color: #999;
-            padding: 8rem 0 2rem;
-            position: relative;
-        }
-        
-        .footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10rem;
-            background: linear-gradient(to bottom right, var(--primary) 0%, var(--primary) 50%, transparent 50%, transparent 100%);
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-            gap: 5rem;
-            margin-bottom: 5rem;
-        }
-        
-        .footer-logo {
-            color: var(--white);
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-        
-        .footer-description {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            max-width: 30rem;
-        }
-        
-        .footer-title {
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: var(--white);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-        
-        .footer-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 5rem;
-            height: 2px;
-            background-color: var(--gold);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links a {
-            color: #999;
-            font-size: 1.4rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .footer-links a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
-        }
-        
-        .footer-contact-item {
-            display: flex;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-contact-icon {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-right: 1.5rem;
-            margin-top: 0.3rem;
-        }
-        
-        .footer-contact-text {
-            font-size: 1.4rem;
-        }
-        
-        .footer-social {
-            margin-top: 2.5rem;
-        }
-        
-        .footer-social-title {
-            font-size: 1.6rem;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .social-link {
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background-color: var(--gold);
-            transform: translateY(-3px);
-        }
-        
-        .footer-newsletter {
-            margin-top: 2.5rem;
-        }
-        
-        .footer-newsletter-title {
-            font-size: 1.6rem;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-newsletter-form {
-            display: flex;
-        }
-        
-        .newsletter-input {
-            flex-grow: 1;
-            padding: 1.2rem 1.5rem;
-            border: none;
-            border-radius: 3px 0 0 3px;
-            font-size: 1.4rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--white);
-        }
-        
-        .newsletter-input:focus {
-            outline: none;
-        }
-        
-        .newsletter-btn {
-            padding: 0 1.5rem;
-            background-color: var(--gold);
-            color: var(--dark);
-            border: none;
-            border-radius: 0 3px 3px 0;
-            cursor: pointer;
-        }
-        
-        .newsletter-btn:hover {
-            background-color: #d4a849;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 3rem;
-            margin-top: 5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 1.4rem;
-        }
-        
-        .copyright {
-            color: #777;
-        }
-        
-        .copyright a {
-            color: var(--gold);
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            html {
-                font-size: 56.25%; /* 9px */
-            }
-            
-            .hero-title {
-                font-size: 6rem;
-            }
-            
-            .about-img-small {
-                width: 20rem;
-                height: 20rem;
-            }
-        }
-        
-        @media (max-width: 991px) {
-            html {
-                font-size: 50%; /* 8px */
-            }
-            
-            .section {
-                padding: 8rem 0;
-            }
-            
-            .hero-title {
-                font-size: 5rem;
-            }
-            
-            .about-text {
-                flex: 0 0 100%;
-                padding-right: 0;
-                margin-bottom: 5rem;
-            }
-            
-            .about-image {
-                flex: 0 0 100%;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .gallery-item:first-child {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-            
-            .gallery-item:nth-child(3) {
-                grid-row: span 1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 3.5rem;
-            }
-            
-            .hero-title {
-                font-size: 4.5rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            .about-img-small {
-                display: none;
-            }
-            
-            .testimonial-item {
-                padding: 3rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .section-title {
-                font-size: 3rem;
-            }
-            
-            .hero-title {
-                font-size: 3.5rem;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .award {
-                font-size: 1.2rem;
-                padding: 0.8rem 1.5rem;
-            }
-            
-            .stat-item {
-                flex: 0 0 50%;
-                margin-bottom: 3rem;
-            }
-            
-            .testimonial-author-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .testimonial-author-image {
-                margin-right: 0;
-                margin-bottom: 1.5rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
+      /* Logo Style for when page is scrolled */
+      .scrolled .logo-svg path,
+      .scrolled .logo-svg text {
+        fill: var(--primary);
+        stroke: var(--primary);
+      }
 
-<body>
+      .scrolled .logo-svg path:nth-child(2),
+      .scrolled .logo-svg path:nth-of-type(n + 13):nth-of-type(-n + 18) {
+        fill: var(--gold);
+        stroke: var(--gold);
+      }
+
+      /* Google Font Import */
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #0a3d62;
+        --primary-light: #3c6382;
+        --secondary: #60a3bc;
+        --accent: #82ccdd;
+        --dark: #1e272e;
+        --light: #f5f6fa;
+        --gold: #e9bc66;
+        --white: #ffffff;
+        --gray: #f0f0f0;
+        --text: #333333;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        font-size: 1.6rem;
+        background-color: var(--white);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+        color: var(--primary);
+        line-height: 1.2;
+      }
+
+      p {
+        margin-bottom: 2rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1.5rem 3.5rem;
+        border: none;
+        border-radius: 0;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1.2rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .btn:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--gold);
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+
+      .btn:hover:before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--white);
+      }
+
+      .btn-primary:hover {
+        color: var(--dark);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-outline:before {
+        background-color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        color: var(--white);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .section {
+        padding: 10rem 0;
+        position: relative;
+      }
+
+      .section-light {
+        background-color: var(--light);
+      }
+
+      .section-white {
+        background-color: var(--white);
+      }
+
+      .section-title-container {
+        margin-bottom: 6rem;
+        position: relative;
+      }
+
+      .section-subtitle {
+        font-family: "Montserrat", sans-serif;
+        color: var(--secondary);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+
+      .section-title {
+        font-size: 4.5rem;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+        color: var(--primary);
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6rem;
+        height: 2px;
+        background-color: var(--gold);
+      }
+
+      .section-description {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.8rem;
+        color: var(--primary-light);
+      }
+
+      /* Header and Navigation */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 2.5rem 0;
+        transition: all 0.4s ease;
+      }
+
+      .header.scrolled {
+        background-color: var(--white);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem 0;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--white);
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      .logo span {
+        font-size: 1.5rem;
+        position: absolute;
+        bottom: -0.5rem;
+        right: 0;
+        color: var(--gold);
+        letter-spacing: 2px;
+      }
+
+      .scrolled .logo {
+        color: var(--primary);
+      }
+
+      /* Enhanced Navbar and Dropdown Styles */
+
+      /* Base navbar styles */
+      .nav-links {
+        display: flex;
+        list-style: none;
+        position: relative;
+      }
+
+      .nav-links li {
+        margin-left: 3rem;
+        position: relative;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        font-size: 1.4rem;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .scrolled .nav-links a {
+        color: var(--primary);
+      }
+
+      .nav-links a i {
+        margin-left: 0.5rem;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--gold);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      /* Dropdown menu styles */
+      .has-dropdown {
+        position: relative;
+      }
+
+      .has-dropdown:hover > a i.fa-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      .has-dropdown:hover > a i.fa-chevron-right {
+        transform: rotate(90deg);
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: -2rem;
+        width: 24rem;
+        background-color: white;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+        padding: 1rem 0;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(1rem);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .has-dropdown:hover > .dropdown {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .dropdown li {
+        margin: 0;
+        position: relative;
+      }
+
+      .dropdown a {
+        color: var(--primary) !important;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 3px solid transparent;
+      }
+
+      .dropdown a:hover {
+        background-color: rgba(233, 188, 102, 0.1);
+        border-left: 3px solid var(--gold);
+      }
+
+      .dropdown a:after {
+        display: none;
+      }
+
+      /* Submenu styles */
+      .dropdown-submenu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 24rem;
+        background-color: white;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+        padding: 1rem 0;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(1rem);
+        transition: all 0.3s ease;
+        z-index: 1001;
+      }
+
+      .has-dropdown:hover > .dropdown-submenu {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Book now button styles */
+      .book-now-btn {
+        background-color: var(--gold);
+        color: var(--dark) !important;
+        padding: 1rem 2rem !important;
+        border-radius: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .book-now-btn:hover {
+        background-color: var(--primary);
+        color: var(--white) !important;
+      }
+
+      .book-now-btn:after {
+        display: none;
+      }
+
+      /* Mobile menu button */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 2.4rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .scrolled .mobile-menu-btn {
+        color: var(--primary);
+      }
+
+      /* Responsive styles for the navbar */
+      @media (max-width: 1200px) {
+        .nav-links li {
+          margin-left: 2rem;
+        }
+
+        .dropdown,
+        .dropdown-submenu {
+          width: 22rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 30rem;
+          height: 100vh;
+          background-color: var(--white);
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          padding: 8rem 0 0 0;
+          transition: all 0.4s ease;
+          overflow-y: auto;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 0;
+          width: 100%;
+        }
+
+        .nav-links a {
+          color: var(--primary);
+          padding: 1.5rem 2rem;
+          width: 100%;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-menu-btn {
+          display: block;
+          z-index: 1001;
+        }
+
+        .dropdown,
+        .dropdown-submenu {
+          position: static;
+          width: 100%;
+          box-shadow: none;
+          visibility: visible;
+          opacity: 1;
+          transform: none;
+          display: none;
+          padding: 0;
+          background-color: rgba(10, 61, 98, 0.05);
+        }
+
+        .dropdown.active,
+        .dropdown-submenu.active {
+          display: block;
+        }
+
+        .dropdown a,
+        .dropdown-submenu a {
+          padding-left: 4rem;
+        }
+
+        .dropdown-submenu a {
+          padding-left: 6rem;
+        }
+
+        .book-now-btn {
+          width: calc(100% - 4rem);
+          margin: 1rem 2rem;
+          text-align: center;
+        }
+
+        .has-dropdown > a i.fa-chevron-down,
+        .has-dropdown > a i.fa-chevron-right {
+          transition: transform 0.3s ease;
+        }
+
+        .has-dropdown.active > a i.fa-chevron-down {
+          transform: rotate(180deg);
+        }
+
+        .has-dropdown.active > a i.fa-chevron-right {
+          transform: rotate(90deg);
+        }
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(
+            to right,
+            rgba(10, 61, 98, 0.8),
+            rgba(10, 61, 98, 0.4)
+          ),
+          url("https://cdn.pixabay.com/photo/2016/11/17/09/28/hotel-1831072_1280.jpg")
+            center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+      }
+
+      .hero:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(to top, var(--white), transparent);
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-subtitle {
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: 400;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        color: var(--gold);
+      }
+
+      .hero-title {
+        font-size: 7rem;
+        margin-bottom: 3rem;
+        color: var(--white);
+        line-height: 1.2;
+      }
+
+      .hero-description {
+        font-size: 2rem;
+        margin-bottom: 4rem;
+        font-weight: 300;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.2rem;
+        color: var(--white);
+        transition: all 0.3s ease;
+        z-index: 2;
+      }
+
+      .scroll-down i {
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .awards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .award {
+        padding: 1rem 2rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 5rem;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .award i {
+        color: var(--gold);
+        margin-right: 1rem;
+      }
+
+      /* About Section */
+      .about {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        background-color: var(--light);
+        z-index: -1;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+      }
+
+      .about-text {
+        flex: 0 0 50%;
+        padding-right: 5rem;
+      }
+
+      .about-description {
+        font-size: 1.6rem;
+        color: var(--text);
+        margin-bottom: 3rem;
+      }
+
+      .about-image {
+        flex: 0 0 50%;
+        position: relative;
+      }
+
+      .about-img-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
+      }
+
+      .about-img {
+        width: 100%;
+        height: 55rem;
+        object-fit: cover;
+        transform: scale(1.1);
+        transition: all 0.5s ease;
+      }
+
+      .about-img:hover {
+        transform: scale(1);
+      }
+
+      .about-img-small {
+        position: absolute;
+        bottom: -5rem;
+        left: -5rem;
+        width: 25rem;
+        height: 25rem;
+        object-fit: cover;
+        border-radius: 5px;
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+        border: 1rem solid var(--white);
+      }
+
+      .about-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 5rem;
+        font-weight: 600;
+        color: var(--primary);
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .stat-text {
+        font-size: 1.4rem;
+        color: var(--text);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Room Section */
+      .rooms {
+        background-color: var(--light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .rooms:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at top right,
+          rgba(130, 204, 221, 0.1),
+          transparent 70%
+        );
+      }
+
+      .room-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+        gap: 4rem;
+        margin-top: 5rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .room-card {
+        background-color: var(--white);
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .room-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+      }
+
+      .room-image-container {
+        position: relative;
+        overflow: hidden;
+        height: 25rem;
+      }
+
+      .room-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .room-card:hover .room-image {
+        transform: scale(1.1);
+      }
+
+      .room-price {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        background-color: var(--primary);
+        color: var(--white);
+        padding: 1rem 1.5rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+
+      .room-details {
+        padding: 3rem;
+        position: relative;
+      }
+
+      .room-title {
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .room-description {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        color: var(--text);
+      }
+
+      .room-features {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .room-feature {
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        color: var(--text);
+      }
+
+      .room-feature i {
+        color: var(--gold);
+        margin-right: 0.5rem;
+        font-size: 1.6rem;
+      }
+
+      .room-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Amenities Section */
+      .amenities {
+        background-color: var(--white);
+        position: relative;
+      }
+
+      .amenities:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at bottom left,
+          rgba(130, 204, 221, 0.1),
+          transparent 70%
+        );
+        z-index: 0;
+      }
+
+      .amenity-tabs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 5rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .amenity-tab {
+        padding: 1.5rem 3rem;
+        margin: 0 1rem 1rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        font-size: 1.6rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text);
+      }
+
+      .amenity-tab.active {
+        border-color: var(--gold);
+        color: var(--primary);
+      }
+
+      .amenity-tab:hover {
+        color: var(--primary);
+      }
+
+      .amenities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 4rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .amenity-item {
+        background-color: var(--white);
+        padding: 3rem;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .amenity-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary);
+        z-index: -1;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .amenity-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+      }
+
+      .amenity-item:hover:before {
+        opacity: 1;
+      }
+
+      .amenity-item:hover .amenity-title,
+      .amenity-item:hover .amenity-text {
+        color: var(--white);
+      }
+
+      .amenity-item:hover .amenity-icon {
+        color: var(--gold);
+        transform: translateY(-10px);
+      }
+
+      .amenity-icon {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        color: var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .amenity-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .amenity-text {
+        font-size: 1.4rem;
+        color: var(--text);
+        transition: all 0.3s ease;
+      }
+
+      /* Gallery Section */
+      .gallery {
+        background-color: var(--light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gallery:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at center,
+          rgba(130, 204, 221, 0.1),
+          transparent 70%
+        );
+      }
+
+      .gallery-container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 25rem);
+        gap: 2rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .gallery-item:nth-child(3) {
+        grid-row: span 2;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(10, 61, 98, 0.8), transparent);
+        opacity: 0;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 2rem;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      .gallery-caption {
+        color: var(--white);
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        transition-delay: 0.1s;
+      }
+
+      .gallery-item:hover .gallery-caption {
+        transform: translateY(0);
+      }
+
+      .gallery-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        color: var(--white);
+      }
+
+      .gallery-category {
+        font-size: 1.2rem;
+        color: var(--accent);
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        background-color: var(--white);
+        position: relative;
+      }
+
+      .testimonials:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at top right,
+          rgba(130, 204, 221, 0.1),
+          transparent 70%
+        );
+        z-index: 0;
+      }
+
+      .testimonials-slider {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .testimonial-item {
+        background-color: var(--white);
+        padding: 5rem;
+        border-radius: 5px;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
+        position: relative;
+      }
+
+      .testimonial-item:before {
+        content: "\201C";
+        position: absolute;
+        top: 3rem;
+        left: 3rem;
+        font-size: 10rem;
+        color: var(--light);
+        font-family: serif;
+        line-height: 1;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 3rem;
+        font-size: 1.8rem;
+        color: var(--text);
+        position: relative;
+        z-index: 1;
+      }
+
+      .testimonial-author-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .testimonial-author-image {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 2rem;
+      }
+
+      .testimonial-author {
+        font-weight: 600;
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+
+      .testimonial-position {
+        font-size: 1.4rem;
+        color: var(--secondary);
+      }
+
+      .testimonial-rating {
+        margin-top: 0.5rem;
+        color: var(--gold);
+      }
+
+      /* Contact Section */
+      .contact {
+        background-color: var(--light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at bottom right,
+          rgba(130, 204, 221, 0.1),
+          transparent 70%
+        );
+      }
+
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-form-container {
+        flex: 1;
+        min-width: 30rem;
+        background-color: var(--white);
+        padding: 4rem;
+        border-radius: 5px;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-subtitle {
+        font-size: 1.6rem;
+        color: var(--secondary);
+        margin-bottom: 3rem;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .form-group {
+        position: relative;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        border: 1px solid #eee;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        font-size: 1.6rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 3px rgba(96, 163, 188, 0.1);
+      }
+
+      .form-label {
+        position: absolute;
+        top: 50%;
+        left: 2rem;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        color: #999;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .form-input:focus + .form-label,
+      .form-input:not(:placeholder-shown) + .form-label {
+        top: 0;
+        left: 1rem;
+        transform: translateY(-50%);
+        background-color: var(--white);
+        padding: 0 1rem;
+        font-size: 1.2rem;
+        color: var(--secondary);
+      }
+
+      .form-textarea {
+        height: 15rem;
+        resize: none;
+      }
+
+      .form-textarea + .form-label {
+        top: 2.5rem;
+      }
+
+      .form-textarea:focus + .form-label,
+      .form-textarea:not(:placeholder-shown) + .form-label {
+        top: 0;
+      }
+
+      .contact-info {
+        flex: 1;
+        min-width: 30rem;
+      }
+
+      .contact-info-title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-item {
+        margin-bottom: 4rem;
+        display: flex;
+      }
+
+      .contact-icon {
+        margin-right: 2rem;
+        width: 5rem;
+        height: 5rem;
+        background-color: var(--primary);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 2rem;
+        flex-shrink: 0;
+      }
+
+      .contact-text h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-text p {
+        font-size: 1.6rem;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-map {
+        height: 40rem;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+        margin-top: 4rem;
+      }
+
+      .contact-map img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* CTA Section */
+      .cta {
+        background: linear-gradient(
+          to right,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: var(--white);
+        text-align: center;
+        padding: 8rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("/api/placeholder/1900/1000?text=Resort+Panorama")
+          center/cover no-repeat;
+        opacity: 0.1;
+      }
+
+      .cta-title {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        color: var(--white);
+      }
+
+      .cta-text {
+        font-size: 1.8rem;
+        margin-bottom: 4rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-btn {
+        background-color: var(--white);
+        color: var(--primary);
+      }
+
+      .cta-btn:before {
+        background-color: var(--gold);
+      }
+
+      .cta-btn:hover {
+        color: var(--dark);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--dark);
+        color: #999;
+        padding: 8rem 0 2rem;
+        position: relative;
+      }
+
+      .footer:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10rem;
+        background: linear-gradient(
+          to bottom right,
+          var(--primary) 0%,
+          var(--primary) 50%,
+          transparent 50%,
+          transparent 100%
+        );
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 5rem;
+        margin-bottom: 5rem;
+      }
+
+      .footer-logo {
+        color: var(--white);
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+      }
+
+      .footer-description {
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+        max-width: 30rem;
+      }
+
+      .footer-title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+        color: var(--white);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 1rem;
+      }
+
+      .footer-title:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 5rem;
+        height: 2px;
+        background-color: var(--gold);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links a {
+        color: #999;
+        font-size: 1.4rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--gold);
+        transform: translateX(5px);
+      }
+
+      .footer-contact-item {
+        display: flex;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-contact-icon {
+        color: var(--gold);
+        font-size: 1.8rem;
+        margin-right: 1.5rem;
+        margin-top: 0.3rem;
+      }
+
+      .footer-contact-text {
+        font-size: 1.4rem;
+      }
+
+      .footer-social {
+        margin-top: 2.5rem;
+      }
+
+      .footer-social-title {
+        font-size: 1.6rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .social-link {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      .footer-newsletter {
+        margin-top: 2.5rem;
+      }
+
+      .footer-newsletter-title {
+        font-size: 1.6rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-newsletter-form {
+        display: flex;
+      }
+
+      .newsletter-input {
+        flex-grow: 1;
+        padding: 1.2rem 1.5rem;
+        border: none;
+        border-radius: 3px 0 0 3px;
+        font-size: 1.4rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--white);
+      }
+
+      .newsletter-input:focus {
+        outline: none;
+      }
+
+      .newsletter-btn {
+        padding: 0 1.5rem;
+        background-color: var(--gold);
+        color: var(--dark);
+        border: none;
+        border-radius: 0 3px 3px 0;
+        cursor: pointer;
+      }
+
+      .newsletter-btn:hover {
+        background-color: #d4a849;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        margin-top: 5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 1.4rem;
+      }
+
+      .copyright {
+        color: #777;
+      }
+
+      .copyright a {
+        color: var(--gold);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1200px) {
+        html {
+          font-size: 56.25%; /* 9px */
+        }
+
+        .hero-title {
+          font-size: 6rem;
+        }
+
+        .about-img-small {
+          width: 20rem;
+          height: 20rem;
+        }
+      }
+
+      @media (max-width: 991px) {
+        html {
+          font-size: 50%; /* 8px */
+        }
+
+        .section {
+          padding: 8rem 0;
+        }
+
+        .hero-title {
+          font-size: 5rem;
+        }
+
+        .about-text {
+          flex: 0 0 100%;
+          padding-right: 0;
+          margin-bottom: 5rem;
+        }
+
+        .about-image {
+          flex: 0 0 100%;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .gallery-item:first-child {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .gallery-item:nth-child(3) {
+          grid-row: span 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 3.5rem;
+        }
+
+        .hero-title {
+          font-size: 4.5rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        .about-img-small {
+          display: none;
+        }
+
+        .testimonial-item {
+          padding: 3rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .section-title {
+          font-size: 3rem;
+        }
+
+        .hero-title {
+          font-size: 3.5rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .award {
+          font-size: 1.2rem;
+          padding: 0.8rem 1.5rem;
+        }
+
+        .stat-item {
+          flex: 0 0 50%;
+          margin-bottom: 3rem;
+        }
+
+        .testimonial-author-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .testimonial-author-image {
+          margin-right: 0;
+          margin-bottom: 1.5rem;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
     <!-- Header -->
     <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo">
-                    <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2"/>
-                        <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2"/>
-                        <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff"/>
-                        <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff"/>
-                        <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff"/>
-                        <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff"/>
-                        <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff"/>
-                        <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff"/>
-                        <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff"/>
-                        <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff"/>
-                        <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff"/>
-                        <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66"/>
-                        <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66"/>
-                        <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66"/>
-                        <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66"/>
-                        <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66"/>
-                        <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66"/>
-                        <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">HOTELS & RESORTS</text>
-                    </svg>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="has-dropdown">
-                        <a href="#">Destinations <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown">
-                            <li class="has-dropdown">
-                                <a href="#">Wayanad <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Contour Island Resort & Spa</a></li>
-                                    <li><a href="#">The Wave Lakeview Resort</a></li>
-                                    <li><a href="#">Talenresort Vythiri Villas</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Nelliampathi <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Vanya Holiday Resort</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Munnar <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Anubhav Resort</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Changanassery <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Contour Backwaters Hotel & Convention Centre</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Trivandrum <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Sunview Beach Resort</a></li>
-                                    <li><a href="#">Indimasi Healing Village</a></li>
-                                    <li><a href="#">The Terrace Business Hotel</a></li>
-                                    <li><a href="#">Poovar Island Resort & Spa</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Coorg <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Wind Chimes Retreat</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Tamil Nadu <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Contour Farm Resort</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Malaysia <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Lotus Desaru Beach Resort & Spa</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Spain <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Torres De Selma</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="logo">
+            <svg
+              class="logo-svg"
+              width="180"
+              height="40"
+              viewBox="0 0 180 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17"
+                stroke="#fff"
+                stroke-width="2"
+              />
+              <path
+                d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17"
+                stroke="#e9bc66"
+                stroke-width="2"
+              />
+              <path
+                d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z"
+                fill="#fff"
+              />
+              <path
+                d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z"
+                fill="#fff"
+              />
+              <path
+                d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z"
+                fill="#fff"
+              />
+              <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff" />
+              <path
+                d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z"
+                fill="#e9bc66"
+              />
+              <text
+                x="44"
+                y="30"
+                font-family="Montserrat"
+                font-size="6"
+                fill="#fff"
+              >
+                HOTELS & RESORTS
+              </text>
+            </svg>
+          </a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home Nie Ann</a></li>
+            <li class="has-dropdown">
+              <a href="#">Destinations <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown">
+                <li class="has-dropdown">
+                  <a href="#">Wayanad <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                    <li><a href="#">The Wave Lakeview Resort</a></li>
+                    <li><a href="#">Talenresort Vythiri Villas</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Nelliampathi <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Vanya Holiday Resort</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Munnar <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Anubhav Resort</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Changanassery <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li>
+                      <a href="#"
+                        >Contour Backwaters Hotel & Convention Centre</a
+                      >
                     </li>
-                    <li class="has-dropdown">
-                        <a href="#">Other Products <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown">
-                            <li><a href="#">MICE</a></li>
-                            <li><a href="#">Coffee Tree Spa</a></li>
-                            <li><a href="#">Ruchikoot By Citrine</a></li>
-                            <li class="has-dropdown">
-                                <a href="#">Wellness Resorts <i class="fas fa-chevron-right"></i></a>
-                                <ul class="dropdown-submenu">
-                                    <li><a href="#">Poovar Island Resort & Spa</a></li>
-                                    <li><a href="#">Contour Island Resort & Spa</a></li>
-                                    <li><a href="#">Indimasi Healing Village</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="our_story.html">Our Story</a></li>
-                    <li><a href="contact.html">Reach Us</a></li>
-                    <li><a href="#" class="book-now-btn">Book Now</a></li>
-                </ul>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Trivandrum <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Sunview Beach Resort</a></li>
+                    <li><a href="#">Indimasi Healing Village</a></li>
+                    <li><a href="#">The Terrace Business Hotel</a></li>
+                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Coorg <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Wind Chimes Retreat</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Tamil Nadu <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Contour Farm Resort</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Malaysia <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Lotus Desaru Beach Resort & Spa</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Spain <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Torres De Selma</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Other Products <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown">
+                <li><a href="#">MICE</a></li>
+                <li><a href="#">Coffee Tree Spa</a></li>
+                <li><a href="#">Ruchikoot By Citrine</a></li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Wellness Resorts <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                    <li><a href="#">Indimasi Healing Village</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="our_story.html">Our Story</a></li>
+            <li><a href="contact.html">Reach Us</a></li>
+            <li><a href="#" class="book-now-btn">Book Now</a></li>
+          </ul>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <span class="hero-subtitle">LUXURY RETREAT IN WAYANAD</span>
-            <h1 class="hero-title">Contour Island Resort & Spa</h1>
-            <p class="hero-description">Escape to tranquility on the shores of Banasura Sagar Lake, surrounded by the breathtaking landscapes of Wayanad</p>
-            
-            <div class="hero-buttons">
-                <a href="#rooms" class="btn btn-primary">Explore Rooms</a>
-                <a href="#contact" class="btn btn-outline">Contact Us</a>
-            </div>
-            
-            <div class="awards">
-                <div class="award"><i class="fas fa-award"></i> Trip Advisor Choice 2023</div>
-                <div class="award"><i class="fas fa-award"></i> Radio City Awards 2019</div>
-                <div class="award"><i class="fas fa-award"></i> Best Tribal Cuisine 2024</div>
-            </div>
+      <div class="hero-content">
+        <span class="hero-subtitle">LUXURY RETREAT IN WAYANAD</span>
+        <h1 class="hero-title">Contour Island Resort & Spa</h1>
+        <p class="hero-description">
+          Escape to tranquility on the shores of Banasura Sagar Lake, surrounded
+          by the breathtaking landscapes of Wayanad
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#rooms" class="btn btn-primary">Explore Rooms</a>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
         </div>
-        
-        <a href="#about" class="scroll-down">
-            <span>Scroll Down</span>
-            <i class="fas fa-chevron-down"></i>
-        </a>
+
+        <div class="awards">
+          <div class="award">
+            <i class="fas fa-award"></i> Trip Advisor Choice 2023
+          </div>
+          <div class="award">
+            <i class="fas fa-award"></i> Radio City Awards 2019
+          </div>
+          <div class="award">
+            <i class="fas fa-award"></i> Best Tribal Cuisine 2024
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-down">
+        <span>Scroll Down</span>
+        <i class="fas fa-chevron-down"></i>
+      </a>
     </section>
 
     <!-- About Section -->
     <section class="section about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <span class="section-subtitle">Discover</span>
-                    <h2 class="section-title">About Our Resort</h2>
-                    <p class="about-description">Welcome to Contour Island Resort & Spa, nestled on the tranquil shores of Banasura Sagar Lake amidst the breathtaking landscapes of Wayanad. Surrounded by lush greenery and serene waters, our idyllic retreat offers a sanctuary from everyday life.</p>
-                    <p class="about-description">Immerse yourself in nature's beauty, from mist-covered hills to dense forests and cascading waterfalls. Whether seeking adventure or solace, find your perfect getaway here to unwind and reconnect.</p>
-                    <img src="https://cdn.pixabay.com/photo/2021/08/27/01/33/bedroom-6577523_1280.jpg" alt="Vacation Scenery" class="about-new-image">
-                    <a href="#" class="btn btn-primary">Learn More</a>
-                    
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">10+</div>
-                            <div class="stat-text">Years of Excellence</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5</div>
-                            <div class="stat-text">Star Rating</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3</div>
-                            <div class="stat-text">Award Winning</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-image">
-                    <div class="about-img-container">
-                        <img src="https://cdn.pixabay.com/photo/2019/08/19/13/58/bed-4416515_1280.jpg" alt="Contour Island Resort" class="about-img">
-                    </div>
-                    <img src="https://cdn.pixabay.com/photo/2015/01/10/11/39/hotel-595121_1280.jpg" alt="Resort Detail" class="about-img-small">
-                </div>
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <span class="section-subtitle">Discover</span>
+            <h2 class="section-title">About Our Resort</h2>
+            <p class="about-description">
+              Welcome to Contour Island Resort & Spa, nestled on the tranquil
+              shores of Banasura Sagar Lake amidst the breathtaking landscapes
+              of Wayanad. Surrounded by lush greenery and serene waters, our
+              idyllic retreat offers a sanctuary from everyday life.
+            </p>
+            <p class="about-description">
+              Immerse yourself in nature's beauty, from mist-covered hills to
+              dense forests and cascading waterfalls. Whether seeking adventure
+              or solace, find your perfect getaway here to unwind and reconnect.
+            </p>
+            <img
+              src="https://cdn.pixabay.com/photo/2021/08/27/01/33/bedroom-6577523_1280.jpg"
+              alt="Vacation Scenery"
+              class="about-new-image"
+            />
+            <a href="#" class="btn btn-primary">Learn More</a>
+
+            <div class="about-stats">
+              <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-text">Years of Excellence</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-text">Star Rating</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-text">Award Winning</div>
+              </div>
             </div>
+          </div>
+
+          <div class="about-image">
+            <div class="about-img-container">
+              <img
+                src="https://cdn.pixabay.com/photo/2019/08/19/13/58/bed-4416515_1280.jpg"
+                alt="Contour Island Resort"
+                class="about-img"
+              />
+            </div>
+            <img
+              src="https://cdn.pixabay.com/photo/2015/01/10/11/39/hotel-595121_1280.jpg"
+              alt="Resort Detail"
+              class="about-img-small"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Rooms Section -->
     <section class="section rooms" id="rooms">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-subtitle">Luxury Accommodation</span>
-                <h2 class="section-title">Our Rooms & Suites</h2>
-                <p class="section-description">Experience unparalleled comfort and elegant design in our carefully crafted accommodations</p>
-            </div>
-            
-            <div class="room-grid">
-                <div class="room-card">
-                    <div class="room-image-container">
-                        <img src="https://cdn.pixabay.com/photo/2016/03/28/09/34/bedroom-1285156_1280.jpg" alt="Superior Room" class="room-image">
-                        <div class="room-price">From $120/night</div>
-                    </div>
-                    <div class="room-details">
-                        <h3 class="room-title">Superior Room</h3>
-                        <p class="room-description">Enjoy comfort and charm in our Superior Room, where modern luxury meets timeless architecture. Unwind in your private retreat with a plush Queen Bed and a well-appointed bathroom.</p>
-                        <div class="room-features">
-                            <span class="room-feature"><i class="fas fa-wifi"></i> Free Wi-Fi</span>
-                            <span class="room-feature"><i class="fas fa-broom"></i> Daily Housekeeping</span>
-                            <span class="room-feature"><i class="fas fa-bed"></i> Queen Bed</span>
-                            <span class="room-feature"><i class="fas fa-shower"></i> Luxury Bathroom</span>
-                        </div>
-                        <div class="room-link">
-                            <a href="#" class="btn btn-outline">Book Now</a>
-                            <a href="#" class="btn btn-link">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="room-card">
-                    <div class="room-image-container">
-                        <img src="https://cdn.pixabay.com/photo/2019/05/28/00/15/indoors-4234071_1280.jpg" alt="Lake View Cottage" class="room-image">
-                        <div class="room-price">From $180/night</div>
-                    </div>
-                    <div class="room-details">
-                        <h3 class="room-title">Lake View Cottage</h3>
-                        <p class="room-description">Our Lake View Cottages offer luxury and serenity with mesmerizing views of Banasura Sagar Lake. Each cottage features a comfortable Queen Bed and a private veranda.</p>
-                        <div class="room-features">
-                            <span class="room-feature"><i class="fas fa-wifi"></i> Free Wi-Fi</span>
-                            <span class="room-feature"><i class="fas fa-broom"></i> Daily Housekeeping</span>
-                            <span class="room-feature"><i class="fas fa-water"></i> Lake View</span>
-                            <span class="room-feature"><i class="fas fa-couch"></i> Private Veranda</span>
-                        </div>
-                        <div class="room-link">
-                            <a href="#" class="btn btn-outline">Book Now</a>
-                            <a href="#" class="btn btn-link">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="room-card">
-                    <div class="room-image-container">
-                        <img src="https://cdn.pixabay.com/photo/2016/10/13/09/06/travel-1737168_1280.jpg" alt="Private Pool Villa" class="room-image">
-                        <div class="room-price">From $250/night</div>
-                    </div>
-                    <div class="room-details">
-                        <h3 class="room-title">Private Pool Villa</h3>
-                        <p class="room-description">Indulge in ultimate luxury at our Private Pool Villa, a peaceful sanctuary with a comfortable Queen Bed and private pool. Enjoy complete seclusion and tranquility.</p>
-                        <div class="room-features">
-                            <span class="room-feature"><i class="fas fa-wifi"></i> Free Wi-Fi</span>
-                            <span class="room-feature"><i class="fas fa-swimming-pool"></i> Private Pool</span>
-                            <span class="room-feature"><i class="fas fa-concierge-bell"></i> Luxury Amenities</span>
-                            <span class="room-feature"><i class="fas fa-lock"></i> Exclusive Privacy</span>
-                        </div>
-                        <div class="room-link">
-                            <a href="#" class="btn btn-outline">Book Now</a>
-                            <a href="#" class="btn btn-link">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">Luxury Accommodation</span>
+          <h2 class="section-title">Our Rooms & Suites</h2>
+          <p class="section-description">
+            Experience unparalleled comfort and elegant design in our carefully
+            crafted accommodations
+          </p>
         </div>
+
+        <div class="room-grid">
+          <div class="room-card">
+            <div class="room-image-container">
+              <img
+                src="https://cdn.pixabay.com/photo/2016/03/28/09/34/bedroom-1285156_1280.jpg"
+                alt="Superior Room"
+                class="room-image"
+              />
+              <div class="room-price">From $120/night</div>
+            </div>
+            <div class="room-details">
+              <h3 class="room-title">Superior Room</h3>
+              <p class="room-description">
+                Enjoy comfort and charm in our Superior Room, where modern
+                luxury meets timeless architecture. Unwind in your private
+                retreat with a plush Queen Bed and a well-appointed bathroom.
+              </p>
+              <div class="room-features">
+                <span class="room-feature"
+                  ><i class="fas fa-wifi"></i> Free Wi-Fi</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-broom"></i> Daily Housekeeping</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-bed"></i> Queen Bed</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-shower"></i> Luxury Bathroom</span
+                >
+              </div>
+              <div class="room-link">
+                <a href="#" class="btn btn-outline">Book Now</a>
+                <a href="#" class="btn btn-link">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card">
+            <div class="room-image-container">
+              <img
+                src="https://cdn.pixabay.com/photo/2019/05/28/00/15/indoors-4234071_1280.jpg"
+                alt="Lake View Cottage"
+                class="room-image"
+              />
+              <div class="room-price">From $180/night</div>
+            </div>
+            <div class="room-details">
+              <h3 class="room-title">Lake View Cottage</h3>
+              <p class="room-description">
+                Our Lake View Cottages offer luxury and serenity with
+                mesmerizing views of Banasura Sagar Lake. Each cottage features
+                a comfortable Queen Bed and a private veranda.
+              </p>
+              <div class="room-features">
+                <span class="room-feature"
+                  ><i class="fas fa-wifi"></i> Free Wi-Fi</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-broom"></i> Daily Housekeeping</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-water"></i> Lake View</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-couch"></i> Private Veranda</span
+                >
+              </div>
+              <div class="room-link">
+                <a href="#" class="btn btn-outline">Book Now</a>
+                <a href="#" class="btn btn-link">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card">
+            <div class="room-image-container">
+              <img
+                src="https://cdn.pixabay.com/photo/2016/10/13/09/06/travel-1737168_1280.jpg"
+                alt="Private Pool Villa"
+                class="room-image"
+              />
+              <div class="room-price">From $250/night</div>
+            </div>
+            <div class="room-details">
+              <h3 class="room-title">Private Pool Villa</h3>
+              <p class="room-description">
+                Indulge in ultimate luxury at our Private Pool Villa, a peaceful
+                sanctuary with a comfortable Queen Bed and private pool. Enjoy
+                complete seclusion and tranquility.
+              </p>
+              <div class="room-features">
+                <span class="room-feature"
+                  ><i class="fas fa-wifi"></i> Free Wi-Fi</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-swimming-pool"></i> Private Pool</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-concierge-bell"></i> Luxury Amenities</span
+                >
+                <span class="room-feature"
+                  ><i class="fas fa-lock"></i> Exclusive Privacy</span
+                >
+              </div>
+              <div class="room-link">
+                <a href="#" class="btn btn-outline">Book Now</a>
+                <a href="#" class="btn btn-link">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Amenities Section -->
     <section class="section amenities" id="amenities">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-subtitle">Resort Features</span>
-                <h2 class="section-title">Luxury Amenities</h2>
-                <p class="section-description">Discover the wide range of facilities and services designed for your comfort and enjoyment</p>
-            </div>
-            
-            <div class="amenity-tabs">
-                <button class="amenity-tab active">All</button>
-                <button class="amenity-tab">Recreation</button>
-                <button class="amenity-tab">Wellness</button>
-                <button class="amenity-tab">Dining</button>
-                <button class="amenity-tab">Services</button>
-            </div>
-            
-            <div class="amenities-grid">
-                <div class="amenity-item">
-                    <div class="amenity-icon"><i class="fas fa-swimming-pool"></i></div>
-                    <h3 class="amenity-title">Swimming Pool</h3>
-                    <p class="amenity-text">Relax and unwind in our outdoor swimming pool with stunning views</p>
-                </div>
-                
-                <div class="amenity-item">
-                    <div class="amenity-icon"><i class="fas fa-spa"></i></div>
-                    <h3 class="amenity-title">Spa Services</h3>
-                    <p class="amenity-text">Rejuvenate your mind and body with our therapeutic spa treatments</p>
-                </div>
-                
-                <div class="amenity-item">
-                    <div class="amenity-icon"><i class="fas fa-om"></i></div>
-                    <h3 class="amenity-title">Yoga Center</h3>
-                    <p class="amenity-text">Find inner peace with daily yoga sessions led by experienced instructors</p>
-                </div>
-                
-                <div class="amenity-item">
-                    <div class="amenity-icon"><i class="fas fa-utensils"></i></div>
-                    <h3 class="amenity-title">Fine Dining</h3>
-                    <p class="amenity-text">Savor delicious local and international cuisine at our restaurant</p>
-                </div>
-                
-                <div class="amenity-item">
-                    <div class="amenity-icon"><i class="fas fa-fire"></i></div>
-                    <h3 class="amenity-title">Campfire</h3>
-                    <p class="amenity-text">Enjoy evening gatherings around a cozy campfire under the stars</p>
-                </div>
-                
-                <div class="amenity-item">
-                    <div class="amenity-icon"><i class="fas fa-hiking"></i></div>
-                    <h3 class="amenity-title">Nature Walks</h3>
-                    <p class="amenity-text">Explore the beautiful surroundings with guided nature walks</p>
-                </div>
-                
-                <div class="amenity-item">
-                    <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
-                    <h3 class="amenity-title">Free Wi-Fi</h3>
-                    <p class="amenity-text">Stay connected with complimentary high-speed internet access</p>
-                </div>
-                
-                <div class="amenity-item">
-                    <div class="amenity-icon"><i class="fas fa-paw"></i></div>
-                    <h3 class="amenity-title">Pet Friendly</h3>
-                    <p class="amenity-text">Bring your furry friends along for a memorable vacation experience</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">Resort Features</span>
+          <h2 class="section-title">Luxury Amenities</h2>
+          <p class="section-description">
+            Discover the wide range of facilities and services designed for your
+            comfort and enjoyment
+          </p>
         </div>
+
+        <div class="amenity-tabs">
+          <button class="amenity-tab active">All</button>
+          <button class="amenity-tab">Recreation</button>
+          <button class="amenity-tab">Wellness</button>
+          <button class="amenity-tab">Dining</button>
+          <button class="amenity-tab">Services</button>
+        </div>
+
+        <div class="amenities-grid">
+          <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-swimming-pool"></i></div>
+            <h3 class="amenity-title">Swimming Pool</h3>
+            <p class="amenity-text">
+              Relax and unwind in our outdoor swimming pool with stunning views
+            </p>
+          </div>
+
+          <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-spa"></i></div>
+            <h3 class="amenity-title">Spa Services</h3>
+            <p class="amenity-text">
+              Rejuvenate your mind and body with our therapeutic spa treatments
+            </p>
+          </div>
+
+          <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-om"></i></div>
+            <h3 class="amenity-title">Yoga Center</h3>
+            <p class="amenity-text">
+              Find inner peace with daily yoga sessions led by experienced
+              instructors
+            </p>
+          </div>
+
+          <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-utensils"></i></div>
+            <h3 class="amenity-title">Fine Dining</h3>
+            <p class="amenity-text">
+              Savor delicious local and international cuisine at our restaurant
+            </p>
+          </div>
+
+          <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-fire"></i></div>
+            <h3 class="amenity-title">Campfire</h3>
+            <p class="amenity-text">
+              Enjoy evening gatherings around a cozy campfire under the stars
+            </p>
+          </div>
+
+          <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-hiking"></i></div>
+            <h3 class="amenity-title">Nature Walks</h3>
+            <p class="amenity-text">
+              Explore the beautiful surroundings with guided nature walks
+            </p>
+          </div>
+
+          <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
+            <h3 class="amenity-title">Free Wi-Fi</h3>
+            <p class="amenity-text">
+              Stay connected with complimentary high-speed internet access
+            </p>
+          </div>
+
+          <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-paw"></i></div>
+            <h3 class="amenity-title">Pet Friendly</h3>
+            <p class="amenity-text">
+              Bring your furry friends along for a memorable vacation experience
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Gallery Section -->
     <section class="section gallery" id="gallery">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-subtitle">Visual Tour</span>
-                <h2 class="section-title">Resort Gallery</h2>
-                <p class="section-description">Experience the beauty and luxury of our resort through stunning imagery</p>
-            </div>
-            
-            <div class="gallery-container">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://cdn.pixabay.com/photo/2015/01/10/11/39/hotel-595121_1280.jpg" alt="Resort Overview">
-                        <div class="gallery-overlay">
-                            <div class="gallery-caption">
-                                <h3 class="gallery-title">Resort Overview</h3>
-                                <span class="gallery-category">Exterior</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg" alt="Lake View">
-                        <div class="gallery-overlay">
-                            <div class="gallery-caption">
-                                <h3 class="gallery-title">Banasura Lake</h3>
-                                <span class="gallery-category">Nature</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://cdn.pixabay.com/photo/2016/04/15/11/46/bedroom-1330846_1280.jpg" alt="Luxury Suite">
-                        <div class="gallery-overlay">
-                            <div class="gallery-caption">
-                                <h3 class="gallery-title">Luxury Suite</h3>
-                                <span class="gallery-category">Accommodation</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://cdn.pixabay.com/photo/2017/12/10/14/47/pexels-3010062_1280.jpg" alt="Dining Experience">
-                        <div class="gallery-overlay">
-                            <div class="gallery-caption">
-                                <h3 class="gallery-title">Gourmet Dining</h3>
-                                <span class="gallery-category">Cuisine</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center" style="margin-top: 4rem;">
-                    <a href="#" class="btn btn-primary">View More Images</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">Visual Tour</span>
+          <h2 class="section-title">Resort Gallery</h2>
+          <p class="section-description">
+            Experience the beauty and luxury of our resort through stunning
+            imagery
+          </p>
         </div>
+
+        <div class="gallery-container">
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img
+                src="https://cdn.pixabay.com/photo/2015/01/10/11/39/hotel-595121_1280.jpg"
+                alt="Resort Overview"
+              />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <h3 class="gallery-title">Resort Overview</h3>
+                  <span class="gallery-category">Exterior</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item">
+              <img
+                src="https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg"
+                alt="Lake View"
+              />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <h3 class="gallery-title">Banasura Lake</h3>
+                  <span class="gallery-category">Nature</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item">
+              <img
+                src="https://cdn.pixabay.com/photo/2016/04/15/11/46/bedroom-1330846_1280.jpg"
+                alt="Luxury Suite"
+              />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <h3 class="gallery-title">Luxury Suite</h3>
+                  <span class="gallery-category">Accommodation</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item">
+              <img
+                src="https://cdn.pixabay.com/photo/2017/12/10/14/47/pexels-3010062_1280.jpg"
+                alt="Dining Experience"
+              />
+              <div class="gallery-overlay">
+                <div class="gallery-caption">
+                  <h3 class="gallery-title">Gourmet Dining</h3>
+                  <span class="gallery-category">Cuisine</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center" style="margin-top: 4rem">
+            <a href="#" class="btn btn-primary">View More Images</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-subtitle">Guest Experiences</span>
-                <h2 class="section-title">What Our Guests Say</h2>
-                <p class="section-description">Discover the experiences of guests who have enjoyed our hospitality</p>
-            </div>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial-item">
-                    <p class="testimonial-text">Excellent location overlooking the dam. Night views are amazing. Silent mode in the forest was calming and pleasant in the evening. Lovely and helpful staff. The restaurant serves some amazing Kerala dishes. Had a wonderful stay and will definitely come back!</p>
-                    
-                    <div class="testimonial-author-container">
-                        <img src="https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_1280.jpg" alt="Joe Antony" class="testimonial-author-image">
-                        <div>
-                            <h4 class="testimonial-author">Joe Antony</h4>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">Guest Experiences</span>
+          <h2 class="section-title">What Our Guests Say</h2>
+          <p class="section-description">
+            Discover the experiences of guests who have enjoyed our hospitality
+          </p>
         </div>
+
+        <div class="testimonials-slider">
+          <div class="testimonial-item">
+            <p class="testimonial-text">
+              Excellent location overlooking the dam. Night views are amazing.
+              Silent mode in the forest was calming and pleasant in the evening.
+              Lovely and helpful staff. The restaurant serves some amazing
+              Kerala dishes. Had a wonderful stay and will definitely come back!
+            </p>
+
+            <div class="testimonial-author-container">
+              <img
+                src="https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_1280.jpg"
+                alt="Joe Antony"
+                class="testimonial-author-image"
+              />
+              <div>
+                <h4 class="testimonial-author">Joe Antony</h4>
+                <div class="testimonial-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
-        <div class="container">
-            <h2 class="cta-title">Begin Your Luxury Retreat</h2>
-            <p class="cta-text">Experience the perfect blend of nature, luxury, and tranquility at Contour Island Resort & Spa. Book your stay now and create unforgettable memories.</p>
-            <a href="#" class="btn cta-btn">Book Your Stay</a>
-        </div>
+      <div class="container">
+        <h2 class="cta-title">Begin Your Luxury Retreat</h2>
+        <p class="cta-text">
+          Experience the perfect blend of nature, luxury, and tranquility at
+          Contour Island Resort & Spa. Book your stay now and create
+          unforgettable memories.
+        </p>
+        <a href="#" class="btn cta-btn">Book Your Stay</a>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-subtitle">Get In Touch</span>
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-description">We're here to answer any questions you may have about our resort</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-form-container">
-                    <h3 class="contact-title">Send a Message</h3>
-                    <p class="contact-subtitle">We'll get back to you as soon as possible</p>
-                    
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <input type="text" class="form-input" id="name" placeholder=" ">
-                            <label for="name" class="form-label">Your Name</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="email" class="form-input" id="email" placeholder=" ">
-                            <label for="email" class="form-label">Your Email</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" class="form-input" id="subject" placeholder=" ">
-                            <label for="subject" class="form-label">Subject</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea class="form-input form-textarea" id="message" placeholder=" "></textarea>
-                            <label for="message" class="form-label">Your Message</label>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-                
-                <div class="contact-info">
-                    <h3 class="contact-info-title">Reach Us</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Resort Address</h3>
-                            <p>Contour Island Resort & Spa</p>
-                            <p>Kuttiyamvayal, Varambetta P.O,</p>
-                            <p>Wayanad, Kerala - 673575</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Phone</h3>
-                            <p>+91 7356777860</p>
-                            <p>1800 2020 166 (Toll-Free)</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p>crs@citrinehotels.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-map">
-                        <img src="https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_1280.png" alt="Resort Location Map">
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">Get In Touch</span>
+          <h2 class="section-title">Contact Us</h2>
+          <p class="section-description">
+            We're here to answer any questions you may have about our resort
+          </p>
         </div>
+
+        <div class="contact-container">
+          <div class="contact-form-container">
+            <h3 class="contact-title">Send a Message</h3>
+            <p class="contact-subtitle">
+              We'll get back to you as soon as possible
+            </p>
+
+            <form class="contact-form">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-input"
+                  id="name"
+                  placeholder=" "
+                />
+                <label for="name" class="form-label">Your Name</label>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-input"
+                  id="email"
+                  placeholder=" "
+                />
+                <label for="email" class="form-label">Your Email</label>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-input"
+                  id="subject"
+                  placeholder=" "
+                />
+                <label for="subject" class="form-label">Subject</label>
+              </div>
+
+              <div class="form-group">
+                <textarea
+                  class="form-input form-textarea"
+                  id="message"
+                  placeholder=" "
+                ></textarea>
+                <label for="message" class="form-label">Your Message</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-info">
+            <h3 class="contact-info-title">Reach Us</h3>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Resort Address</h3>
+                <p>Contour Island Resort & Spa</p>
+                <p>Kuttiyamvayal, Varambetta P.O,</p>
+                <p>Wayanad, Kerala - 673575</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Phone</h3>
+                <p>+91 7356777860</p>
+                <p>1800 2020 166 (Toll-Free)</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Email</h3>
+                <p>crs@citrinehotels.com</p>
+              </div>
+            </div>
+
+            <div class="contact-map">
+              <img
+                src="https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_1280.png"
+                alt="Resort Location Map"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <a href="#" class="footer-logo">
-                        <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2"/>
-                            <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2"/>
-                            <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff"/>
-                            <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff"/>
-                            <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff"/>
-                            <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff"/>
-                            <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff"/>
-                            <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff"/>
-                            <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff"/>
-                            <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff"/>
-                            <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff"/>
-                            <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66"/>
-                            <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66"/>
-                            <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66"/>
-                            <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66"/>
-                            <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66"/>
-                            <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66"/>
-                            <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">RESORT & SPA</text>
-                        </svg>
-                    </a>
-                    <p class="footer-description">Escape to tranquility on the shores of Banasura Sagar Lake, amidst the breathtaking landscapes of Wayanad. Experience luxury, comfort, and natural beauty.</p>
-                    
-                    <div class="footer-social">
-                        <h4 class="footer-social-title">Follow Us</h4>
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#rooms">Rooms & Suites</a></li>
-                        <li><a href="#amenities">Amenities</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 class="footer-title">Contact Info</h3>
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="footer-contact-text">
-                            Kuttiyamvayal, Varambetta P.O,<br>
-                            Wayanad, Kerala - 673575
-                        </div>
-                    </div>
-                    
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="footer-contact-text">
-                            +91 7356777860<br>
-                            1800 2020 166 (Toll-Free)
-                        </div>
-                    </div>
-                    
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="footer-contact-text">
-                            crs@citrinehotels.com
-                        </div>
-                    </div>
-                    
-                    <div class="footer-newsletter">
-                        <h4 class="footer-newsletter-title">Subscribe to Newsletter</h4>
-                        <div class="footer-newsletter-form">
-                            <input type="email" class="newsletter-input" placeholder="Your Email">
-                            <button class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <a href="#" class="footer-logo">
+              <svg
+                class="logo-svg"
+                width="180"
+                height="40"
+                viewBox="0 0 180 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17"
+                  stroke="#fff"
+                  stroke-width="2"
+                />
+                <path
+                  d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17"
+                  stroke="#e9bc66"
+                  stroke-width="2"
+                />
+                <path
+                  d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z"
+                  fill="#fff"
+                />
+                <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff" />
+                <path
+                  d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z"
+                  fill="#e9bc66"
+                />
+                <text
+                  x="44"
+                  y="30"
+                  font-family="Montserrat"
+                  font-size="6"
+                  fill="#fff"
+                >
+                  RESORT & SPA
+                </text>
+              </svg>
+            </a>
+            <p class="footer-description">
+              Escape to tranquility on the shores of Banasura Sagar Lake, amidst
+              the breathtaking landscapes of Wayanad. Experience luxury,
+              comfort, and natural beauty.
+            </p>
+
+            <div class="footer-social">
+              <h4 class="footer-social-title">Follow Us</h4>
+              <div class="social-links">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p class="copyright">Citrine Hotels and Resorts © 2024 - All Rights Reserved. Designed with <i class="fas fa-heart"></i> by <a href="#">Citrine</a></p>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#rooms">Rooms & Suites</a></li>
+              <li><a href="#amenities">Amenities</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-title">Contact Info</h3>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="footer-contact-text">
+                Kuttiyamvayal, Varambetta P.O,<br />
+                Wayanad, Kerala - 673575
+              </div>
             </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="footer-contact-text">
+                +91 7356777860<br />
+                1800 2020 166 (Toll-Free)
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="footer-contact-text">crs@citrinehotels.com</div>
+            </div>
+
+            <div class="footer-newsletter">
+              <h4 class="footer-newsletter-title">Subscribe to Newsletter</h4>
+              <div class="footer-newsletter-form">
+                <input
+                  type="email"
+                  class="newsletter-input"
+                  placeholder="Your Email"
+                />
+                <button class="newsletter-btn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">
+            Citrine Hotels and Resorts © 2024 - All Rights Reserved. Designed
+            with <i class="fas fa-heart"></i> by <a href="#">Citrine</a>
+          </p>
+        </div>
+      </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // JavaScript for enhanced dropdown functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Header scroll effect
-            window.addEventListener('scroll', function() {
-                const header = document.getElementById('header');
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                    document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
-                        if (element.getAttribute('fill') === '#fff') {
-                            element.setAttribute('fill', '#0a3d62');
-                        }
-                        if (element.getAttribute('stroke') === '#fff') {
-                            element.setAttribute('stroke', '#0a3d62');
-                        }
-                    });
-                } else {
-                    header.classList.remove('scrolled');
-                    document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
-                        if (element.getAttribute('fill') === '#0a3d62') {
-                            element.setAttribute('fill', '#fff');
-                        }
-                        if (element.getAttribute('stroke') === '#0a3d62') {
-                            element.setAttribute('stroke', '#fff');
-                        }
-                    });
+      // JavaScript for enhanced dropdown functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Header scroll effect
+        window.addEventListener("scroll", function () {
+          const header = document.getElementById("header");
+          if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+            document
+              .querySelectorAll(".logo-svg path, .logo-svg text")
+              .forEach((element) => {
+                if (element.getAttribute("fill") === "#fff") {
+                  element.setAttribute("fill", "#0a3d62");
                 }
-            });
-            
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                
-                // Change icon based on menu state
-                const icon = this.querySelector('i');
-                if (navLinks.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                if (element.getAttribute("stroke") === "#fff") {
+                  element.setAttribute("stroke", "#0a3d62");
                 }
-            });
-            
-            // Mobile dropdown toggle
-            const windowWidth = window.innerWidth;
-            
-            if (windowWidth < 992) {
-                const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
-                
-                dropdownToggles.forEach(toggle => {
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const parent = this.parentElement;
-                        const dropdown = parent.querySelector('.dropdown, .dropdown-submenu');
-                        
-                        // Close all other open dropdowns first
-                        const allDropdowns = document.querySelectorAll('.dropdown, .dropdown-submenu');
-                        const allDropdownParents = document.querySelectorAll('.has-dropdown');
-                        
-                        // If clicking on a submenu toggle, don't close parent dropdowns
-                        if (!parent.parentElement.classList.contains('dropdown')) {
-                            allDropdowns.forEach(drop => {
-                                if (drop !== dropdown && drop !== parent.parentElement) {
-                                    drop.classList.remove('active');
-                                }
-                            });
-                            
-                            allDropdownParents.forEach(drparent => {
-                                if (drparent !== parent && drparent !== parent.parentElement.parentElement) {
-                                    drparent.classList.remove('active');
-                                }
-                            });
-                        }
-                        
-                        // Toggle current dropdown
-                        parent.classList.toggle('active');
-                        dropdown.classList.toggle('active');
-                    });
-                });
-            }
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    if (this.getAttribute('href') === '#') return;
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        if (navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
-                            const icon = mobileMenuBtn.querySelector('i');
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    }
-                });
-            });
-            
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 992) {
-                    // Reset mobile menu styles when switching to desktop
-                    const activeDropdowns = document.querySelectorAll('.dropdown.active, .dropdown-submenu.active');
-                    const activeParents = document.querySelectorAll('.has-dropdown.active');
-                    
-                    activeDropdowns.forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
-                    
-                    activeParents.forEach(parent => {
-                        parent.classList.remove('active');
-                    });
+              });
+          } else {
+            header.classList.remove("scrolled");
+            document
+              .querySelectorAll(".logo-svg path, .logo-svg text")
+              .forEach((element) => {
+                if (element.getAttribute("fill") === "#0a3d62") {
+                  element.setAttribute("fill", "#fff");
                 }
-            });
-            
-            // Amenity tabs functionality
-            const amenityTabs = document.querySelectorAll('.amenity-tab');
-            
-            amenityTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    amenityTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    
-                    // Add filtering functionality here if needed
-                });
-            });
+                if (element.getAttribute("stroke") === "#0a3d62") {
+                  element.setAttribute("stroke", "#fff");
+                }
+              });
+          }
         });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+
+          // Change icon based on menu state
+          const icon = this.querySelector("i");
+          if (navLinks.classList.contains("active")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+          } else {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
+        });
+
+        // Mobile dropdown toggle
+        const windowWidth = window.innerWidth;
+
+        if (windowWidth < 992) {
+          const dropdownToggles =
+            document.querySelectorAll(".has-dropdown > a");
+
+          dropdownToggles.forEach((toggle) => {
+            toggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              const parent = this.parentElement;
+              const dropdown = parent.querySelector(
+                ".dropdown, .dropdown-submenu"
+              );
+
+              // Close all other open dropdowns first
+              const allDropdowns = document.querySelectorAll(
+                ".dropdown, .dropdown-submenu"
+              );
+              const allDropdownParents =
+                document.querySelectorAll(".has-dropdown");
+
+              // If clicking on a submenu toggle, don't close parent dropdowns
+              if (!parent.parentElement.classList.contains("dropdown")) {
+                allDropdowns.forEach((drop) => {
+                  if (drop !== dropdown && drop !== parent.parentElement) {
+                    drop.classList.remove("active");
+                  }
+                });
+
+                allDropdownParents.forEach((drparent) => {
+                  if (
+                    drparent !== parent &&
+                    drparent !== parent.parentElement.parentElement
+                  ) {
+                    drparent.classList.remove("active");
+                  }
+                });
+              }
+
+              // Toggle current dropdown
+              parent.classList.toggle("active");
+              dropdown.classList.toggle("active");
+            });
+          });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            if (this.getAttribute("href") === "#") return;
+
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+              e.preventDefault();
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+
+              // Close mobile menu if open
+              if (navLinks.classList.contains("active")) {
+                navLinks.classList.remove("active");
+                const icon = mobileMenuBtn.querySelector("i");
+                icon.classList.remove("fa-times");
+                icon.classList.add("fa-bars");
+              }
+            }
+          });
+        });
+
+        // Handle window resize
+        window.addEventListener("resize", function () {
+          if (window.innerWidth >= 992) {
+            // Reset mobile menu styles when switching to desktop
+            const activeDropdowns = document.querySelectorAll(
+              ".dropdown.active, .dropdown-submenu.active"
+            );
+            const activeParents = document.querySelectorAll(
+              ".has-dropdown.active"
+            );
+
+            activeDropdowns.forEach((dropdown) => {
+              dropdown.classList.remove("active");
+            });
+
+            activeParents.forEach((parent) => {
+              parent.classList.remove("active");
+            });
+          }
+        });
+
+        // Amenity tabs functionality
+        const amenityTabs = document.querySelectorAll(".amenity-tab");
+
+        amenityTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            amenityTabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            // Add filtering functionality here if needed
+          });
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
