@@ -6,6 +6,19 @@
     <title>Contour Island Resort and Spa | Luxury Resort in Wayanad</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Logo Style for when page is scrolled */
+        .scrolled .logo-svg path,
+        .scrolled .logo-svg text {
+            fill: var(--primary);
+            stroke: var(--primary);
+        }
+        
+        .scrolled .logo-svg path:nth-child(2),
+        .scrolled .logo-svg path:nth-of-type(n+13):nth-of-type(-n+18) {
+            fill: var(--gold);
+            stroke: var(--gold);
+        }
+        
         /* Google Font Import */
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
         
@@ -306,7 +319,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(to right, rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.4)), url('/api/placeholder/1900/1000') center/cover no-repeat;
+            background: linear-gradient(to right, rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.4)), url('/api/placeholder/1900/1000?text=Luxury+Resort+View') center/cover no-repeat;
             display: flex;
             align-items: center;
             color: var(--white);
@@ -1100,7 +1113,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/api/placeholder/1900/1000') center/cover no-repeat;
+            background: url('/api/placeholder/1900/1000?text=Resort+Panorama') center/cover no-repeat;
             opacity: 0.1;
         }
         
@@ -1469,7 +1482,28 @@
     <header class="header" id="header">
         <div class="container">
             <nav class="nav">
-                <a href="#" class="logo">Contour Island <span>Resort & Spa</span></a>
+                <a href="#" class="logo">
+                <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2"/>
+                    <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2"/>
+                    <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff"/>
+                    <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff"/>
+                    <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff"/>
+                    <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff"/>
+                    <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff"/>
+                    <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff"/>
+                    <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff"/>
+                    <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff"/>
+                    <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff"/>
+                    <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66"/>
+                    <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66"/>
+                    <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66"/>
+                    <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66"/>
+                    <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66"/>
+                    <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66"/>
+                    <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">RESORT & SPA</text>
+                </svg>
+            </a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -1540,9 +1574,9 @@
                 
                 <div class="about-image">
                     <div class="about-img-container">
-                        <img src="/api/placeholder/600/700" alt="Contour Island Resort" class="about-img">
+                        <img src="/api/placeholder/600/700?text=Lakeside+View" alt="Contour Island Resort" class="about-img">
                     </div>
-                    <img src="/api/placeholder/300/300" alt="Resort Detail" class="about-img-small">
+                    <img src="/api/placeholder/300/300?text=Resort+Detail" alt="Resort Detail" class="about-img-small">
                 </div>
             </div>
         </div>
@@ -1560,7 +1594,7 @@
             <div class="room-grid">
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="/api/placeholder/600/400" alt="Superior Room" class="room-image">
+                        <img src="/api/placeholder/600/400?text=Superior+Room" alt="Superior Room" class="room-image">
                         <div class="room-price">From $120/night</div>
                     </div>
                     <div class="room-details">
@@ -1581,7 +1615,7 @@
                 
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="/api/placeholder/600/400" alt="Lake View Cottage" class="room-image">
+                        <img src="/api/placeholder/600/400?text=Lake+View+Cottage" alt="Lake View Cottage" class="room-image">
                         <div class="room-price">From $180/night</div>
                     </div>
                     <div class="room-details">
@@ -1602,7 +1636,7 @@
                 
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="/api/placeholder/600/400" alt="Private Pool Villa" class="room-image">
+                        <img src="/api/placeholder/600/400?text=Private+Pool+Villa" alt="Private Pool Villa" class="room-image">
                         <div class="room-price">From $250/night</div>
                     </div>
                     <div class="room-details">
@@ -1705,7 +1739,7 @@
             <div class="gallery-container">
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="/api/placeholder/800/600" alt="Resort Overview">
+                        <img src="/api/placeholder/800/600?text=Resort+Overview" alt="Resort Overview">
                         <div class="gallery-overlay">
                             <div class="gallery-caption">
                                 <h3 class="gallery-title">Resort Overview</h3>
@@ -1715,7 +1749,7 @@
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/300" alt="Lake View">
+                        <img src="/api/placeholder/400/300?text=Lake+View" alt="Lake View">
                         <div class="gallery-overlay">
                             <div class="gallery-caption">
                                 <h3 class="gallery-title">Banasura Lake</h3>
@@ -1725,7 +1759,7 @@
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/600" alt="Luxury Room">
+                        <img src="/api/placeholder/400/600?text=Luxury+Suite" alt="Luxury Room">
                         <div class="gallery-overlay">
                             <div class="gallery-caption">
                                 <h3 class="gallery-title">Luxury Suite</h3>
@@ -1735,7 +1769,7 @@
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/300" alt="Dining Experience">
+                        <img src="/api/placeholder/400/300?text=Fine+Dining" alt="Dining Experience">
                         <div class="gallery-overlay">
                             <div class="gallery-caption">
                                 <h3 class="gallery-title">Gourmet Dining</h3>
@@ -1745,7 +1779,7 @@
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/300" alt="Spa Treatment">
+                        <img src="/api/placeholder/400/300?text=Spa+Treatment" alt="Spa Treatment">
                         <div class="gallery-overlay">
                             <div class="gallery-caption">
                                 <h3 class="gallery-title">Wellness Spa</h3>
@@ -1755,7 +1789,7 @@
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="/api/placeholder/400/300" alt="Pool View">
+                        <img src="/api/placeholder/400/300?text=Infinity+Pool" alt="Pool View">
                         <div class="gallery-overlay">
                             <div class="gallery-caption">
                                 <h3 class="gallery-title">Infinity Pool</h3>
@@ -1763,6 +1797,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="text-center" style="margin-top: 4rem;">
+                    <a href="#" class="btn btn-primary">View More Images</a>
                 </div>
             </div>
         </div>
@@ -1782,7 +1819,7 @@
                     <p class="testimonial-text">Excellent location overlooking the dam. Night views are amazing. Silent mode in the forest was calming and pleasant in the evening. Lovely and helpful staff. The restaurant serves some amazing Kerala dishes. Had a wonderful stay and will definitely come back!</p>
                     
                     <div class="testimonial-author-container">
-                        <img src="/api/placeholder/120/120" alt="Joe Antony" class="testimonial-author-image">
+                        <img src="/api/placeholder/120/120?text=Guest" alt="Joe Antony" class="testimonial-author-image">
                         <div>
                             <h4 class="testimonial-author">Joe Antony</h4>
                             <div class="testimonial-rating">
@@ -1884,7 +1921,7 @@
                     </div>
                     
                     <div class="contact-map">
-                        <img src="/api/placeholder/600/300" alt="Resort Location Map">
+                        <img src="/api/placeholder/600/300?text=Resort+Location+Map" alt="Resort Location Map">
                     </div>
                 </div>
             </div>
@@ -1896,7 +1933,28 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <a href="#" class="footer-logo">Contour Island</a>
+                    <a href="#" class="footer-logo">
+                        <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2"/>
+                            <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2"/>
+                            <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff"/>
+                            <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff"/>
+                            <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff"/>
+                            <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff"/>
+                            <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff"/>
+                            <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff"/>
+                            <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff"/>
+                            <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff"/>
+                            <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff"/>
+                            <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66"/>
+                            <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66"/>
+                            <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66"/>
+                            <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66"/>
+                            <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66"/>
+                            <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66"/>
+                            <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">RESORT & SPA</text>
+                        </svg>
+                    </a>
                     <p class="footer-description">Escape to tranquility on the shores of Banasura Sagar Lake, amidst the breathtaking landscapes of Wayanad. Experience luxury, comfort, and natural beauty.</p>
                     
                     <div class="footer-social">
@@ -1976,8 +2034,24 @@
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
+                document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
+                    if (element.getAttribute('fill') === '#fff') {
+                        element.setAttribute('fill', '#0a3d62');
+                    }
+                    if (element.getAttribute('stroke') === '#fff') {
+                        element.setAttribute('stroke', '#0a3d62');
+                    }
+                });
             } else {
                 header.classList.remove('scrolled');
+                document.querySelectorAll('.logo-svg path, .logo-svg text').forEach(element => {
+                    if (element.getAttribute('fill') === '#0a3d62') {
+                        element.setAttribute('fill', '#fff');
+                    }
+                    if (element.getAttribute('stroke') === '#0a3d62') {
+                        element.setAttribute('stroke', '#fff');
+                    }
+                });
             }
         });
         
