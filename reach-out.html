@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Citrine Hotels and Resorts</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Logo Style for when page is scrolled */
+      .scrolled .logo-svg path,
+      .scrolled .logo-svg text {
+        fill: var(--primary);
+        stroke: var(--primary);
+      }
+
+      .scrolled .logo-svg path:nth-child(2),
+      .scrolled .logo-svg path:nth-of-type(n + 13):nth-of-type(-n + 18) {
+        fill: var(--gold);
+        stroke: var(--gold);
+      }
+
+      /* Google Font Import */
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #0a3d62;
+        --primary-light: #3c6382;
+        --secondary: #60a3bc;
+        --accent: #82ccdd;
+        --dark: #1e272e;
+        --light: #f5f6fa;
+        --gold: #e9bc66;
+        --white: #ffffff;
+        --gray: #f0f0f0;
+        --text: #333333;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        font-size: 1.6rem;
+        background-color: var(--white);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+        color: var(--primary);
+        line-height: 1.2;
+      }
+
+      p {
+        margin-bottom: 2rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Contact Page Specific Styles */
+      .contact-hero {
+        height: 40vh;
+        min-height: 30rem;
+        background: linear-gradient(
+            to right,
+            rgba(10, 61, 98, 0.8),
+            rgba(10, 61, 98, 0.4)
+          ),
+          url("https://cdn.pixabay.com/photo/2015/01/10/11/39/hotel-595121_1280.jpg")
+            center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+      }
+
+      .contact-hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-hero-title {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        color: var(--white);
+      }
+
+      .contact-page {
+        background-color: var(--light);
+        padding: 8rem 0;
+      }
+
+      .contact-page-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+
+      /* Corporate Info Section */
+      .corporate-info {
+        background-color: var(--white);
+        padding: 4rem;
+        border-radius: 5px;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-section-title {
+        font-size: 2.8rem;
+        color: var(--primary);
+        margin-bottom: 3rem;
+        position: relative;
+        padding-bottom: 1.5rem;
+      }
+
+      .contact-section-title:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 6rem;
+        height: 2px;
+        background-color: var(--gold);
+      }
+
+      .contact-info-list {
+        list-style: none;
+        margin-bottom: 4rem;
+      }
+
+      .contact-info-item {
+        display: flex;
+        margin-bottom: 2rem;
+      }
+
+      .contact-info-icon {
+        color: var(--gold);
+        font-size: 2rem;
+        margin-right: 1.5rem;
+        margin-top: 0.5rem;
+        flex-shrink: 0;
+      }
+
+      .contact-info-content h3 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-info-content p {
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-social {
+        margin-top: 3rem;
+      }
+
+      .contact-social-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .social-link {
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 50%;
+        background-color: var(--primary-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      /* Enquiry Form */
+      .enquiry-form {
+        background-color: var(--white);
+        padding: 4rem;
+        border-radius: 5px;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 2.5rem;
+        position: relative;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        border: 1px solid #eee;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        font-size: 1.6rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 3px rgba(96, 163, 188, 0.1);
+      }
+
+      .form-label {
+        position: absolute;
+        top: 50%;
+        left: 2rem;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        color: #999;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .form-control:focus + .form-label,
+      .form-control:not(:placeholder-shown) + .form-label {
+        top: 0;
+        left: 1rem;
+        transform: translateY(-50%);
+        background-color: var(--white);
+        padding: 0 1rem;
+        font-size: 1.2rem;
+        color: var(--secondary);
+      }
+
+      .form-textarea {
+        height: 15rem;
+        resize: none;
+      }
+
+      .form-textarea + .form-label {
+        top: 2.5rem;
+      }
+
+      .form-textarea:focus + .form-label,
+      .form-textarea:not(:placeholder-shown) + .form-label {
+        top: 0;
+      }
+
+      select.form-control {
+        appearance: none;
+        padding-right: 3rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230a3d62' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1.5rem;
+      }
+
+      select.form-control:focus {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2360a3bc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      }
+
+      select.form-control + .form-label {
+        background-color: transparent;
+      }
+
+      .captcha-group {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .captcha-text {
+        font-size: 1.8rem;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .captcha-input {
+        width: 8rem;
+      }
+
+      .btn-submit {
+        padding: 1.5rem 3.5rem;
+        border: none;
+        background-color: var(--primary);
+        color: var(--white);
+        border-radius: 0;
+        cursor: pointer;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1.4rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-submit:hover {
+        background-color: var(--gold);
+        color: var(--dark);
+      }
+
+      /* Map Section */
+      .map-section {
+        padding: 6rem 0;
+        background-color: var(--white);
+      }
+
+      .map-container {
+        height: 50rem;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Sitemap Section */
+      .sitemap-section {
+        padding: 6rem 0;
+        background-color: var(--light);
+      }
+
+      .sitemap-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 4rem;
+      }
+
+      .sitemap-column h3 {
+        font-size: 2.4rem;
+        margin-bottom: 2.5rem;
+        color: var(--primary);
+        position: relative;
+        padding-bottom: 1.5rem;
+      }
+
+      .sitemap-column h3:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 5rem;
+        height: 2px;
+        background-color: var(--gold);
+      }
+
+      .sitemap-links {
+        list-style: none;
+      }
+
+      .sitemap-links li {
+        margin-bottom: 1.5rem;
+      }
+
+      .sitemap-links a {
+        color: var(--text);
+        font-size: 1.6rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+      }
+
+      .sitemap-links a:before {
+        content: "\f105";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-right: 1rem;
+        color: var(--gold);
+      }
+
+      .sitemap-links a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .sitemap-contact {
+        margin-top: 2rem;
+      }
+
+      .sitemap-contact-item {
+        display: flex;
+        margin-bottom: 1.5rem;
+        align-items: flex-start;
+      }
+
+      .sitemap-contact-icon {
+        color: var(--gold);
+        font-size: 1.8rem;
+        margin-right: 1.5rem;
+        margin-top: 0.3rem;
+      }
+
+      .sitemap-contact-text {
+        font-size: 1.4rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .contact-page-container {
+          grid-template-columns: 1fr;
+        }
+        
+        .contact-hero-title {
+          font-size: 4rem;
+        }
+        
+        .sitemap-container {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .contact-hero-title {
+          font-size: 3rem;
+        }
+        
+        .corporate-info,
+        .enquiry-form {
+          padding: 3rem;
+        }
+        
+        .sitemap-container {
+          grid-template-columns: 1fr;
+        }
+        
+        .captcha-group {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        
+        .captcha-input {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="https://contourislandresort.com" class="logo">
+            <svg
+              class="logo-svg"
+              width="180"
+              height="40"
+              viewBox="0 0 180 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17"
+                stroke="#fff"
+                stroke-width="2"
+              />
+              <path
+                d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17"
+                stroke="#e9bc66"
+                stroke-width="2"
+              />
+              <path
+                d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z"
+                fill="#fff"
+              />
+              <path
+                d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z"
+                fill="#fff"
+              />
+              <path
+                d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z"
+                fill="#fff"
+              />
+              <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff" />
+              <path
+                d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z"
+                fill="#fff"
+              />
+              <path
+                d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z"
+                fill="#e9bc66"
+              />
+              <path
+                d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z"
+                fill="#e9bc66"
+              />
+              <text
+                x="44"
+                y="30"
+                font-family="Montserrat"
+                font-size="6"
+                fill="#fff"
+              >
+                HOTELS & RESORTS
+              </text>
+            </svg>
+          </a>
+          <ul class="nav-links">
+            <li><a href="https://contourislandresort.com">Home</a></li>
+            <li class="has-dropdown">
+              <a href="#">Destinations <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown">
+                <li class="has-dropdown">
+                  <a href="#">Wayanad <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                    <li><a href="#">The Wave Lakeview Resort</a></li>
+                    <li><a href="#">Talenresort Vythiri Villas</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Nelliampathi <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Vanya Holiday Resort</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Munnar <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Anubhav Resort</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Changanassery <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li>
+                      <a href="#"
+                        >Contour Backwaters Hotel & Convention Centre</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Trivandrum <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Sunview Beach Resort</a></li>
+                    <li><a href="#">Indimasi Healing Village</a></li>
+                    <li><a href="#">The Terrace Business Hotel</a></li>
+                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Coorg <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Wind Chimes Retreat</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Tamil Nadu <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Contour Farm Resort</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown"></li>
+                  <a href="#">Malaysia <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Lotus Desaru Beach Resort & Spa</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Spain <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Torres De Selma</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Other Products <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown">
+                <li><a href="#">MICE</a></li>
+                <li><a href="#">Coffee Tree Spa</a></li>
+                <li><a href="#">Ruchikoot By Citrine</a></li>
+                <li class="has-dropdown">
+                  <a href="#"
+                    >Wellness Resorts <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="dropdown-submenu">
+                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                    <li><a href="#">Indimasi Healing Village</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="our_story.html">Our Story</a></li>
+            <li><a href="contact.html">Reach Us</a></li>
+            <li><a href="#" class="book-now-btn">Book Now</a></li>
+          </ul>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+      <div class="contact-hero-content">
+        <h1 class="contact-hero-title">Contact Us</h1>
+      </div>
+    </section>
+
+    <!-- Contact Page Main Content -->
+    <section class="contact-page">
+      <div class="container">
+        <div class="contact-page-container">
+          <!-- Corporate Address Information -->
+          <div class="corporate-info">
+            <h2 class="contact-section-title">Corporate Address</h2>
+            <ul class="contact-info-list">
+              <li class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h3>Head Office</h3>
+                  <p>Citrine Hotels & Resorts</p>
+                  <p>T.C. 93/1744, V V Road, Pattoor,</p>
+                  <p>Vanchiyoor, Pettah .P.O,</p>
+                  <p>Thiruvananthapuram - 695024.</p>
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h3>Email address</h3>
+                  <p>crs@citrinehotels.com</p>
+                </div>
+              </li>
+              <li class="contact-info-item"></li>
+                <div class="contact-info-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h3>Telephone</h3>
+                  <p>+91 73567 77860 / 861 / 862</p>
+                  <p>1800 2020 166 (Toll-Free)</p>
+                  <p>Monday to Friday 9am - 7pm</p>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Social Profiles -->
+            <div class="contact-social">
+              <h3 class="contact-social-title">Social Profiles</h3>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reservation Enquiry Form -->
+          <div class="enquiry-form">
+            <h2 class="contact-section-title">Reservation Enquiry</h2>
+            <form id="reservationForm">
+              <div class="form-group">
+                <select class="form-control" id="resort" required>
+                  <option value="" disabled selected>--Select Resort--</option>
+                  <option value="contour-island">Contour Island Resort & Spa</option>
+                  <option value="wave-lakeview">The Wave Lakeview Resort</option>
+                  <option value="talenresort">Talenresort Vythiri Villas</option>
+                  <option value="vanya">Vanya Holiday Resort</option>
+                  <option value="anubhav">Anubhav Resort</option>
+                  <option value="contour-backwaters">Contour Backwaters Hotel & Convention Centre</option>
+                  <option value="sunview">Sunview Beach Resort</option>
+                  <option value="indimasi">Indimasi Healing Village</option>
+                  <option value="terrace">The Terrace Business Hotel</option>
+                  <option value="poovar">Poovar Island Resort & Spa</option>
+                  <option value="wind-chimes">Wind Chimes Retreat</option>
+                  <option value="contour-farm">Contour Farm Resort</option>
+                  <option value="lotus">Lotus Desaru Beach Resort & Spa</option>
+                  <option value="torres">Torres De Selma</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="name" placeholder=" " required>
+                <label for="name" class="form-label">Full Name</label>
+              </div>
+
+              <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder=" " required>
+                <label for="email" class="form-label">Email</label>
+              </div>
+
+              <div class="form-group">
+                <input type="tel" class="form-control" id="whatsapp" placeholder=" " required>
+                <label for="whatsapp" class="form-label">WhatsApp Number</label>
+              </div>
+
+              <div class="form-group">
+                <input type="tel" class="form-control" id="telephone" placeholder=" " required>
+                <label for="telephone" class="form-label">Mobile Number</label>
+              </div>
+
+              <div class="form-group">
+                <textarea class="form-control form-textarea" id="message" placeholder=" " required></textarea>
+                <label for="message" class="form-label">Message</label>
+              </div>
+
+              <div class="form-group">
+                <div class="captcha-group">
+                  <span class="captcha-text">Are you human? 3 + 1 =</span>
+                  <input type="number" class="form-control captcha-input" id="captcha" placeholder=" " required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit">Submit Enquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="container">
+        <h2 class="section-title text-center">Location</h2>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.344759086701!2d76.95566267518752!3d8.973303891164837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bec79541c2cf%3A0x731653ca4d2880f8!2sCitrine%20Group!5e0!3m2!1sen!2sin!4v1691458372047!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sitemap Section -->
+    <section class="sitemap-section">
+      <div class="container">
+        <div class="sitemap-container"></div>
+          <div class="sitemap-column">
+            <h3>Sitemap</h3>
+            <ul class="sitemap-links">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="our_story.html">Our Story</a></li>
+              <li><a href="#">Our Resorts</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="https://www.linkedin.com/">Other Products</a></li>
+              <li><a href="reach-out.html">Reach Us</a></li>
+            </ul>
+          </div>
+
+          <div class="sitemap-column">
+            <h3>Citrine Hotels & Resorts</h3>
+            <div class="sitemap-contact">
+              <div class="sitemap-contact-item">
+                <div class="sitemap-contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="sitemap-contact-text">
+                  T.C. 93/1744, V V Road, Pattoor,<br>
+                  Vanchiyoor, Pettah .P.O,<br>
+                  Thiruvananthapuram - 695024
+                </div>
+              </div>
+
+              <div class="sitemap-contact-item">
+                <div class="sitemap-contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="sitemap-contact-text">crs@citrinehotels.com</div>
+              </div>
+
+              <div class="sitemap-contact-item"></div>
+                <div class="sitemap-contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="sitemap-contact-text">
+                  +91 73567 77860 / 861 / 862<br>
+                  1800 2020 166 (Toll-Free)
+                </div>
+              </div>
+
+              <div class="social-links" style="margin-top: 2rem;">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <a href="#" class="footer-logo">
+              <svg
+                class="logo-svg"
+                width="180"
+                height="40"
+                viewBox="0 0 180 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17"
+                  stroke="#fff"
+                  stroke-width="2"
+                />
+                <path
+                  d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17"
+                  stroke="#e9bc66"
+                  stroke-width="2"
+                />
+                <path
+                  d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z"
+                  fill="#fff"
+                />
+                <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff" />
+                <path
+                  d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z"
+                  fill="#fff"
+                />
+                <path
+                  d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z"
+                  fill="#e9bc66"
+                />
+                <path
+                  d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z"
+                  fill="#e9bc66"
+                />
+                <text
+                  x="44"
+                  y="30"
+                  font-family="Montserrat"
+                  font-size="6"
+                  fill="#fff"
+                >
+                  RESORT & SPA
+                </text>
+              </svg>
+            </a>
+            <p class="footer-description">
+              Escape to tranquility on the shores of Banasura Sagar Lake, amidst
+              the breathtaking landscapes of Wayanad. Experience luxury,
+              comfort, and natural beauty.
+            </p>
+
+            <div class="footer-social">
+              <h4 class="footer-social-title">Follow Us</h4>
+              <div class="social-links">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-link"
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#rooms">Rooms & Suites</a></li>
+              <li><a href="#amenities">Amenities</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-title">Contact Info</h3>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="footer-contact-text">
+                Kuttiyamvayal, Varambetta P.O,<br />
+                Wayanad, Kerala - 673575
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="footer-contact-text">
+                +91 7356777860<br />
+                1800 2020 166 (Toll-Free)
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="footer-contact-text">crs@citrinehotels.com</div>
+            </div>
+
+            <div class="footer-newsletter">
+              <h4 class="footer-newsletter-title">Subscribe to Newsletter</h4>
+              <div class="footer-newsletter-form">
+                <input
+                  type="email"
+                  class="newsletter-input"
+                  placeholder="Your Email"
+                />
+                <button class="newsletter-btn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">
+            Citrine Hotels and Resorts © 2024 - All Rights Reserved. Designed
+            with <i class="fas fa-heart"></i> by <a href="#">Citrine</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // JavaScript for enhanced dropdown functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Header scroll effect
+        window.addEventListener("scroll", function () {
+          const header = document.getElementById("header");
+          if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+            document
+              .querySelectorAll(".logo-svg path, .logo-svg text")
+              .forEach((element) => {
+                if (element.getAttribute("fill") === "#fff") {
+                  element.setAttribute("fill", "#0a3d62");
+                }
+                if (element.getAttribute("stroke") === "#fff") {
+                  element.setAttribute("stroke", "#0a3d62");
+                }
+              });
+          } else {
+            header.classList.remove("scrolled");
+            document
+              .querySelectorAll(".logo-svg path, .logo-svg text")
+              .forEach((element) => {
+                if (element.getAttribute("fill") === "#0a3d62") {
+                  element.setAttribute("fill", "#fff");
+                }
+                if (element.getAttribute("stroke") === "#0a3d62") {
+                  element.setAttribute("stroke", "#fff");
+                }
+              });
+          }
+        });
+
+        // Form validation for the reservation form
+        const reservationForm = document.getElementById('reservationForm');
+        if (reservationForm) {
+          reservationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate captcha
+            const captcha = document.getElementById('captcha');
+            if (captcha.value !== '4') {
+              alert('Please correctly answer the captcha question.');
+              return;
+            }
+            
+            // Form submission would happen here
+            alert('Thank you for your enquiry! We will contact you soon.');
+            this.reset();
+          });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (mobileMenuBtn) {
+          mobileMenuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+
+            // Change icon based on menu state
+            const icon = this.querySelector("i");
+            if (navLinks.classList.contains("active")) {
+              icon.classList.remove("fa-bars");
+              icon.classList.add("fa-times");
+            } else {
+              icon.classList.remove("fa-times");
+              icon.classList.add("fa-bars");
+            }
+          });
+        }
+
+        // Mobile dropdown toggle
+        const windowWidth = window.innerWidth;
+
+        if (windowWidth < 992) {
+          const dropdownToggles = document.querySelectorAll(".has-dropdown > a");
+
+          dropdownToggles.forEach((toggle) => {
+            toggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              const parent = this.parentElement;
+              const dropdown = parent.querySelector(
+                ".dropdown, .dropdown-submenu"
+              );
+
+              // Toggle current dropdown
+              parent.classList.toggle("active");
+              dropdown.classList.toggle("active");
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
