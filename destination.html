@@ -1434,269 +1434,267 @@
             });
         });
 
-
-
         document.addEventListener('DOMContentLoaded', function() {
-                // Add all the missing destination cards with appropriate data-category attributes
-                const masonry = document.querySelector('.masonry-grid');
+            // Add all the missing destination cards with appropriate data-category attributes
+            const masonry = document.querySelector('.masonry-grid');
+            
+            // Create data structure for all destinations
+            const destinations = [
+                // Existing cards are already in the HTML, add the rest below
+                {
+                    category: 'kerala',
+                    location: 'Wayanad, Kerala',
+                    image: 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                    name: 'Talenresort Vythiri Villas',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Vythiri, Wayanad',
+                    meta2: '<i class="fas fa-mountain"></i> Hill Resort',
+                    rating: 4.8,
+                    description: 'Talenmark Developers is a real estate development company. It is committed to providing spectacular projects that deliver the best value for customer\'s money. The developer aims to transform the property dreams of the customers into reality.',
+                },
+                {
+                    category: 'kerala',
+                    location: 'Munnar, Kerala',
+                    image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
+                    name: 'Anubhav Resort',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Munnar, Kerala',
+                    meta2: '<i class="fas fa-temperature-low"></i> Hill Station',
+                    rating: 4.6,
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    featured: true
+                },
+                {
+                    category: 'kerala',
+                    location: 'Nelliampathi, Kerala',
+                    image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=749&q=80',
+                    name: 'Vanya Holiday Resort',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Nelliampathi, Kerala',
+                    meta2: '<i class="fas fa-tree"></i> Forest Resort',
+                    rating: 4.7,
+                    description: 'The Vanya Holiday Resort is a vibrant haven located amidst the lush greenery of the Nelliampathi forests. addition to the magnificent views & soothing atmosphere, the resort boasts a range of modern facilities to ensure a delightful stay.',
+                },
+                {
+                    category: 'kerala',
+                    location: 'Changanassery, Kerala',
+                    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                    name: 'Contour Backwaters Hotel',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Changanassery, Kerala',
+                    meta2: '<i class="fas fa-water"></i> Backwater Resort',
+                    rating: 4.9,
+                    description: 'Located in the Kerala, Changanacherry, Contour Backwaters Resort Hotel & Convention Centre is a property that relishes its charm & beauty to its guests. Modern & traditional architecture is blended well with the nature.',
+                },
+                {
+                    category: 'kerala',
+                    location: 'Varkala, Kerala',
+                    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                    name: 'Sunview Beach Resort',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Varkala, Kerala',
+                    meta2: '<i class="fas fa-umbrella-beach"></i> Beach Resort',
+                    rating: 4.5,
+                    description: 'Sunview Beach Resort & Spa, managed by Citrine Hotels & Resorts is one of the leading Resorts in Varkala, is truly an exquisite place for your holidays situated at the amazing coastline of Varkala Beach, Trivandrum, Kerala.',
+                },
+                {
+                    category: 'kerala',
+                    location: 'Trivandrum, Kerala',
+                    image: 'https://images.unsplash.com/photo-1596178060810-69d47b8a59f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                    name: 'Indimasi Healing Village',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Trivandrum, Kerala',
+                    meta2: '<i class="fas fa-spa"></i> Ayurveda Resort',
+                    rating: 4.8,
+                    description: 'Indimasi healing village is a NABH (National Accreditation Board for Hospitals & Healthcare) certified Ayurveda and Siddha hospital established on the principle of leading a life of sharing and caring in co-existence with Mother Nature.',
+                },
+                {
+                    category: 'kerala',
+                    location: 'Trivandrum, Kerala',
+                    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                    name: 'The Terrace Business Hotel',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Thampanoor, Trivandrum',
+                    meta2: '<i class="fas fa-briefcase"></i> Business Hotel',
+                    rating: 4.3,
+                    description: 'The Terrace is a great choice for travellers looking for a 4 star hotel in Trivandrum. It is located in Thampanoor. This Hotel stands out as one of the highly recommended hotel in Trivandrum and is recommended by 100% of our guests.',
+                },
+                {
+                    category: 'kerala',
+                    location: 'Trivandrum, Kerala',
+                    image: 'https://images.unsplash.com/photo-1561501900-3701fa6a0864?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                    name: 'Poovar Island Resort & Spa',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Poovar, Trivandrum',
+                    meta2: '<i class="fas fa-umbrella-beach"></i> Island Resort',
+                    rating: 5.0,
+                    description: 'Enveloped in serene Kerala backwaters, flanked by the Arabian Sea on the East and the majestic towering Ghats to the West, opening out to the ocean and a dream golden beach, Poovar Island Resort is a tropical paradise.',
+                    featured: true
+                },
+                {
+                    category: 'tamilnadu',
+                    location: 'Madurai, Tamil Nadu',
+                    image: 'https://images.unsplash.com/photo-1501117716987-67effeb75d14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                    name: 'Contour Farm Resort',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Madurai, Tamil Nadu',
+                    meta2: '<i class="fas fa-seedling"></i> Farm Resort',
+                    rating: 4.4,
+                    description: 'A homogeneous and eco-friendly blend of healthy living and farming. Ensure that the system is self- reliant and self-sufficient. While assuring that all our endeavours will be in consonance with our mission and vision.',
+                },
+                {
+                    category: 'international',
+                    location: 'Cataluna, Spain',
+                    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                    name: 'Torres De Selma Eco-Wellness Resort',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Cataluna, Spain',
+                    meta2: '<i class="fas fa-globe-europe"></i> International',
+                    rating: 4.9,
+                    description: 'Torres de Selma offers the perfect ambience to improve your health and well-being. Our team of certified holistic Indian therapists is ready to give you an authentic Ayurvedic treatment.',
+                    featured: true
+                },
+                {
+                    category: 'international',
+                    location: 'Johor, Malaysia',
+                    image: 'https://cdn.pixabay.com/photo/2016/11/17/09/28/hotel-1831072_1280.jpg',
+                    name: 'Lotus Desaru Beach Resort & Spa',
+                    meta1: '<i class="fas fa-map-marker-alt"></i> Johor, Malaysia',
+                    meta2: '<i class="fas fa-globe-asia"></i> International',
+                    rating: 4.7,
+                    description: 'Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.',
+                }
+            ];
+            
+            // Generate HTML for each destination
+            destinations.forEach((dest, index) => {
+                const card = document.createElement('div');
+                card.className = 'destination-card';
+                card.setAttribute('data-category', dest.category);
                 
-                // Create data structure for all destinations
-                const destinations = [
-                    // Existing cards are already in the HTML, add the rest below
-                    {
-                        category: 'kerala',
-                        location: 'Wayanad, Kerala',
-                        image: 'https://cdn.pixabay.com/photo/2022/01/08/14/26/trees-6924186_1280.jpg',
-                        name: 'Talenresort Vythiri Villas',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Vythiri, Wayanad',
-                        meta2: '<i class="fas fa-mountain"></i> Hill Resort',
-                        rating: 4.8,
-                        description: 'Talenmark Developers is a real estate development company. It is committed to providing spectacular projects that deliver the best value for customer\'s money. The developer aims to transform the property dreams of the customers into reality.',
-                    },
-                    {
-                        category: 'kerala',
-                        location: 'Munnar, Kerala',
-                        image: 'https://cdn.pixabay.com/photo/2019/09/28/07/48/mountains-4510169_1280.jpg',
-                        name: 'Anubhav Resort',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Munnar, Kerala',
-                        meta2: '<i class="fas fa-temperature-low"></i> Hill Station',
-                        rating: 4.6,
-                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                        featured: true
-                    },
-                    {
-                        category: 'kerala',
-                        location: 'Nelliampathi, Kerala',
-                        image: 'https://cdn.pixabay.com/photo/2019/05/20/15/41/wilderness-4216754_1280.jpg',
-                        name: 'Vanya Holiday Resort',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Nelliampathi, Kerala',
-                        meta2: '<i class="fas fa-tree"></i> Forest Resort',
-                        rating: 4.7,
-                        description: 'The Vanya Holiday Resort is a vibrant haven located amidst the lush greenery of the Nelliampathi forests. addition to the magnificent views & soothing atmosphere, the resort boasts a range of modern facilities to ensure a delightful stay.',
-                    },
-                    {
-                        category: 'kerala',
-                        location: 'Changanassery, Kerala',
-                        image: 'https://cdn.pixabay.com/photo/2016/11/17/16/21/backwaters-1832002_1280.jpg',
-                        name: 'Contour Backwaters Hotel',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Changanassery, Kerala',
-                        meta2: '<i class="fas fa-water"></i> Backwater Resort',
-                        rating: 4.9,
-                        description: 'Located in the Kerala, Changanacherry, Contour Backwaters Resort Hotel & Convention Centre is a property that relishes its charm & beauty to its guests. Modern & traditional architecture is blended well with the nature.',
-                    },
-                    {
-                        category: 'kerala',
-                        location: 'Varkala, Kerala',
-                        image: 'https://cdn.pixabay.com/photo/2016/11/08/04/49/jetty-1807471_1280.jpg',
-                        name: 'Sunview Beach Resort',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Varkala, Kerala',
-                        meta2: '<i class="fas fa-umbrella-beach"></i> Beach Resort',
-                        rating: 4.5,
-                        description: 'Sunview Beach Resort & Spa, managed by Citrine Hotels & Resorts is one of the leading Resorts in Varkala, is truly an exquisite place for your holidays situated at the amazing coastline of Varkala Beach, Trivandrum, Kerala.',
-                    },
-                    {
-                        category: 'kerala',
-                        location: 'Trivandrum, Kerala',
-                        image: 'https://cdn.pixabay.com/photo/2016/10/22/20/55/wellness-1761927_1280.jpg',
-                        name: 'Indimasi Healing Village',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Trivandrum, Kerala',
-                        meta2: '<i class="fas fa-spa"></i> Ayurveda Resort',
-                        rating: 4.8,
-                        description: 'Indimasi healing village is a NABH (National Accreditation Board for Hospitals & Healthcare) certified Ayurveda and Siddha hospital established on the principle of leading a life of sharing and caring in co-existence with Mother Nature.',
-                    },
-                    {
-                        category: 'kerala',
-                        location: 'Trivandrum, Kerala',
-                        image: 'https://cdn.pixabay.com/photo/2019/10/08/18/46/hotel-4536489_1280.jpg',
-                        name: 'The Terrace Business Hotel',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Thampanoor, Trivandrum',
-                        meta2: '<i class="fas fa-briefcase"></i> Business Hotel',
-                        rating: 4.3,
-                        description: 'The Terrace is a great choice for travellers looking for a 4 star hotel in Trivandrum. It is located in Thampanoor. This Hotel stands out as one of the highly recommended hotel in Trivandrum and is recommended by 100% of our guests.',
-                    },
-                    {
-                        category: 'kerala',
-                        location: 'Trivandrum, Kerala',
-                        image: 'https://cdn.pixabay.com/photo/2021/08/14/22/10/beach-6546684_1280.jpg',
-                        name: 'Poovar Island Resort & Spa',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Poovar, Trivandrum',
-                        meta2: '<i class="fas fa-umbrella-beach"></i> Island Resort',
-                        rating: 5.0,
-                        description: 'Enveloped in serene Kerala backwaters, flanked by the Arabian Sea on the East and the majestic towering Ghats to the West, opening out to the ocean and a dream golden beach, Poovar Island Resort is a tropical paradise.',
-                        featured: true
-                    },
-                    {
-                        category: 'tamilnadu',
-                        location: 'Madurai, Tamil Nadu',
-                        image: 'https://cdn.pixabay.com/photo/2021/12/21/18/45/farm-6886398_1280.jpg',
-                        name: 'Contour Farm Resort',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Madurai, Tamil Nadu',
-                        meta2: '<i class="fas fa-seedling"></i> Farm Resort',
-                        rating: 4.4,
-                        description: 'A homogeneous and eco-friendly blend of healthy living and farming. Ensure that the system is self- reliant and self-sufficient. While assuring that all our endeavours will be in consonance with our mission and vision.',
-                    },
-                    {
-                        category: 'international',
-                        location: 'Cataluna, Spain',
-                        image: 'https://cdn.pixabay.com/photo/2017/01/14/20/55/wall-1980346_1280.jpg',
-                        name: 'Torres De Selma Eco-Wellness Resort',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Cataluna, Spain',
-                        meta2: '<i class="fas fa-globe-europe"></i> International',
-                        rating: 4.9,
-                        description: 'Torres de Selma offers the perfect ambience to improve your health and well-being. Our team of certified holistic Indian therapists is ready to give you an authentic Ayurvedic treatment.',
-                        featured: true
-                    },
-                    {
-                        category: 'international',
-                        location: 'Johor, Malaysia',
-                        image: 'https://cdn.pixabay.com/photo/2016/11/17/09/28/hotel-1831072_1280.jpg',
-                        name: 'Lotus Desaru Beach Resort & Spa',
-                        meta1: '<i class="fas fa-map-marker-alt"></i> Johor, Malaysia',
-                        meta2: '<i class="fas fa-globe-asia"></i> International',
-                        rating: 4.7,
-                        description: 'Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.',
-                    }
-                ];
+                // Star display logic
+                let stars = '';
+                const fullStars = Math.floor(dest.rating);
+                const hasHalfStar = dest.rating % 1 >= 0.3;
                 
-                // Generate HTML for each destination
-                destinations.forEach((dest, index) => {
-                    const card = document.createElement('div');
-                    card.className = 'destination-card';
-                    card.setAttribute('data-category', dest.category);
-                    
-                    // Star display logic
-                    let stars = '';
-                    const fullStars = Math.floor(dest.rating);
-                    const hasHalfStar = dest.rating % 1 >= 0.3;
-                    
-                    for (let i = 0; i < 5; i++) {
-                        if (i < fullStars) {
-                            stars += '<i class="fas fa-star"></i>';
-                        } else if (i === fullStars && hasHalfStar) {
-                            stars += '<i class="fas fa-star-half-alt"></i>';
-                        } else {
-                            stars += '<i class="far fa-star"></i>';
-                        }
-                    }
-                    
-                    card.innerHTML = `
-                        <div class="destination-image">
-                            <div class="destination-location-tag">${dest.location}</div>
-                            ${dest.featured ? '<span class="destination-badge">FEATURED</span>' : ''}
-                            <img src="${dest.image}" alt="${dest.name}">
-                            <div class="destination-overlay">
-                                <div class="destination-rating">
-                                    ${stars}
-                                    <span>${dest.rating}/5</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">${dest.name}</h3>
-                            <div class="destination-meta">
-                                <span>${dest.meta1}</span>
-                                <span>${dest.meta2}</span>
-                            </div>
-                            <p class="destination-description">${dest.description}</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">View More</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    `;
-                    
-                    masonry.appendChild(card);
-                });
-                
-                // Now setup filtering and pagination properly
-                const filterButtons = document.querySelectorAll('.filter-btn');
-                const destinationCards = document.querySelectorAll('.destination-card');
-                const totalCount = document.getElementById('total-count');
-                const showingCount = document.getElementById('showing-count');
-                const loadMoreBtn = document.getElementById('load-more');
-                
-                // Set initial counts
-                const allDestinationsCount = destinationCards.length;
-                totalCount.textContent = allDestinationsCount;
-                
-                // Configure pagination
-                const itemsPerPage = 6;
-                let currentPage = 1;
-                let currentFilter = 'all';
-                
-                // Initial setup - show only first page
-                updateDestinationsDisplay();
-                
-                // Load more button functionality
-                loadMoreBtn.addEventListener('click', function() {
-                    currentPage++;
-                    updateDestinationsDisplay();
-                });
-                
-                // Filter functionality
-                filterButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        // Reset pagination when filter changes
-                        currentPage = 1;
-                        
-                        // Remove active class from all buttons
-                        filterButtons.forEach(btn => btn.classList.remove('active'));
-                        
-                        // Add active class to clicked button
-                        button.classList.add('active');
-                        
-                        // Update current filter
-                        currentFilter = button.getAttribute('data-filter');
-                        
-                        // Update display
-                        updateDestinationsDisplay();
-                    });
-                });
-                
-                // Function to update destinations display based on current filter and page
-                function updateDestinationsDisplay() {
-                    let visibleCount = 0;
-                    let displayedCount = 0;
-                    
-                    destinationCards.forEach((card, index) => {
-                        // Reset animations and visibility
-                        card.style.animation = 'none';
-                        card.classList.add('hidden');
-                        
-                        // Check if card matches current filter
-                        const matchesFilter = currentFilter === 'all' || card.getAttribute('data-category') === currentFilter;
-                        
-                        if (matchesFilter) {
-                            visibleCount++;
-                            
-                            // Check if card should be displayed on current page
-                            if (visibleCount <= currentPage * itemsPerPage) {
-                                card.classList.remove('hidden');
-                                card.offsetHeight; // Trigger reflow
-                                
-                                // Apply animation with delay
-                                const delayIndex = displayedCount % itemsPerPage;
-                                card.style.animation = `fadeInUp 0.5s ease-out forwards ${delayIndex * 0.1}s`;
-                                
-                                displayedCount++;
-                            }
-                        }
-                    });
-                    
-                    // Update showing count
-                    showingCount.textContent = Math.min(visibleCount, currentPage * itemsPerPage);
-                    
-                    // Update total count
-                    totalCount.textContent = visibleCount;
-                    
-                    // Show/hide load more button
-                    if (visibleCount <= currentPage * itemsPerPage) {
-                        loadMoreBtn.style.display = 'none';
+                for (let i = 0; i < 5; i++) {
+                    if (i < fullStars) {
+                        stars += '<i class="fas fa-star"></i>';
+                    } else if (i === fullStars && hasHalfStar) {
+                        stars += '<i class="fas fa-star-half-alt"></i>';
                     } else {
-                        loadMoreBtn.style.display = 'inline-block';
+                        stars += '<i class="far fa-star"></i>';
                     }
                 }
+                
+                card.innerHTML = `
+                    <div class="destination-image">
+                        <div class="destination-location-tag">${dest.location}</div>
+                        ${dest.featured ? '<span class="destination-badge">FEATURED</span>' : ''}
+                        <img src="${dest.image}" alt="${dest.name}">
+                        <div class="destination-overlay">
+                            <div class="destination-rating">
+                                ${stars}
+                                <span>${dest.rating}/5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-details">
+                        <h3 class="destination-name">${dest.name}</h3>
+                        <div class="destination-meta">
+                            <span>${dest.meta1}</span>
+                            <span>${dest.meta2}</span>
+                        </div>
+                        <p class="destination-description">${dest.description}</p>
+                        <div class="destination-buttons">
+                            <a href="#" class="btn btn-outline btn-sm">View More</a>
+                            <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                        </div>
+                    </div>
+                `;
+                
+                masonry.appendChild(card);
             });
+            
+            // Now setup filtering and pagination properly
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const destinationCards = document.querySelectorAll('.destination-card');
+            const totalCount = document.getElementById('total-count');
+            const showingCount = document.getElementById('showing-count');
+            const loadMoreBtn = document.getElementById('load-more');
+            
+            // Set initial counts
+            const allDestinationsCount = destinationCards.length;
+            totalCount.textContent = allDestinationsCount;
+            
+            // Configure pagination
+            const itemsPerPage = 6;
+            let currentPage = 1;
+            let currentFilter = 'all';
+            
+            // Initial setup - show only first page
+            updateDestinationsDisplay();
+            
+            // Load more button functionality
+            loadMoreBtn.addEventListener('click', function() {
+                currentPage++;
+                updateDestinationsDisplay();
+            });
+            
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Reset pagination when filter changes
+                    currentPage = 1;
+                    
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Update current filter
+                    currentFilter = button.getAttribute('data-filter');
+                    
+                    // Update display
+                    updateDestinationsDisplay();
+                });
+            });
+            
+            // Function to update destinations display based on current filter and page
+            function updateDestinationsDisplay() {
+                let visibleCount = 0;
+                let displayedCount = 0;
+                
+                destinationCards.forEach((card, index) => {
+                    // Reset animations and visibility
+                    card.style.animation = 'none';
+                    card.classList.add('hidden');
+                    
+                    // Check if card matches current filter
+                    const matchesFilter = currentFilter === 'all' || card.getAttribute('data-category') === currentFilter;
+                    
+                    if (matchesFilter) {
+                        visibleCount++;
+                        
+                        // Check if card should be displayed on current page
+                        if (visibleCount <= currentPage * itemsPerPage) {
+                            card.classList.remove('hidden');
+                            card.offsetHeight; // Trigger reflow
+                            
+                            // Apply animation with delay
+                            const delayIndex = displayedCount % itemsPerPage;
+                            card.style.animation = `fadeInUp 0.5s ease-out forwards ${delayIndex * 0.1}s`;
+                            
+                            displayedCount++;
+                        }
+                    }
+                });
+                
+                // Update showing count
+                showingCount.textContent = Math.min(visibleCount, currentPage * itemsPerPage);
+                
+                // Update total count
+                totalCount.textContent = visibleCount;
+                
+                // Show/hide load more button
+                if (visibleCount <= currentPage * itemsPerPage) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'inline-block';
+                }
+            }
+        });
     </script>
 </body>
 </html>
