@@ -391,435 +391,201 @@
             color: var(--white);
         }
 
-        /* Wellness Products Styles */
-        .section {
-            padding: 10rem 0;
+        /* Enhanced Wellness Styles */
+        .wellness-intro {
+            padding-bottom: 5rem;
+        }
+        
+        .wellness-feature {
+            padding: 8rem 0;
             position: relative;
         }
-
-        .section-white {
-            background-color: var(--white);
-        }
-
-        .section-light {
+        
+        .wellness-feature:nth-child(odd) {
             background-color: var(--light);
         }
-
-        .section-title-container {
-            margin-bottom: 6rem;
-            position: relative;
-            text-align: center;
+        
+        .wellness-feature-container {
+            display: flex;
+            align-items: center;
+            gap: 6rem;
         }
-
-        .section-subtitle {
-            font-family: "Montserrat", sans-serif;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            display: block;
+        
+        .wellness-feature-reverse .wellness-feature-container {
+            flex-direction: row-reverse;
         }
-
-        .section-title {
-            font-size: 4.5rem;
+        
+        .wellness-feature-content, 
+        .wellness-feature-image {
+            flex: 1;
+        }
+        
+        .wellness-feature-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wellness-feature-content h3 {
+            font-size: 3.2rem;
             margin-bottom: 2rem;
             position: relative;
-            display: inline-block;
-            color: var(--primary);
+            padding-bottom: 1.5rem;
         }
-
-        .section-title:after {
-            content: "";
+        
+        .wellness-feature-content h3:after {
+            content: '';
             position: absolute;
-            bottom: -1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6rem;
+            bottom: 0;
+            left: 0;
+            width: 60px;
             height: 2px;
             background-color: var(--gold);
         }
-
-        .section-description {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.8rem;
-            color: var(--primary-light);
+        
+        .wellness-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
         }
-
+        
+        .wellness-grid-section {
+            padding: 10rem 0;
+        }
+        
         .wellness-products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 4rem;
             margin-top: 5rem;
         }
-
+        
         .wellness-product {
             background-color: var(--white);
             padding: 4rem;
-            border-radius: 5px;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
             position: relative;
             text-align: center;
         }
-
+        
         .wellness-product:hover {
             transform: translateY(-10px);
-            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-
+        
+        .wellness-product-icon {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+        
         .wellness-product h3 {
             font-size: 2.4rem;
             margin-bottom: 2rem;
             color: var(--primary);
         }
-
+        
         .wellness-product p {
             font-size: 1.5rem;
             color: var(--text);
             margin-bottom: 3rem;
         }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
+        
+        .wellness-testimonials {
+            background-color: var(--white);
+            padding: 10rem 0;
         }
-
-        .primary {
-            background-color: var(--primary);
-            color: var(--white);
+        
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
         }
-
-        .primary:hover {
-            color: var(--dark);
-        }
-
-        .secondary {
-            background-color: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .secondary:before {
-            background-color: var(--primary);
-        }
-
-        .secondary:hover {
-            color: var(--white);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--dark);
-            color: #999;
-            padding: 8rem 0 2rem;
+        
+        .testimonial-content {
+            background-color: var(--light);
+            padding: 4rem;
+            border-radius: 8px;
             position: relative;
-        }
-
-        .footer:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10rem;
-            background: linear-gradient(
-                to bottom right,
-                var(--primary) 0%,
-                var(--primary) 50%,
-                transparent 50%,
-                transparent 100%
-            );
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-            gap: 5rem;
-            margin-bottom: 5rem;
-        }
-
-        .footer-logo {
-            color: var(--white);
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .footer-description {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            max-width: 30rem;
-        }
-
-        .footer-title {
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: var(--white);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-
-        .footer-title:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 5rem;
-            height: 2px;
-            background-color: var(--gold);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links a {
-            color: #999;
-            font-size: 1.4rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
-        }
-
-        .footer-contact-item {
-            display: flex;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-contact-icon {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-right: 1.5rem;
-            margin-top: 0.3rem;
-        }
-
-        .footer-contact-text {
-            font-size: 1.4rem;
-        }
-
-        .footer-social {
-            margin-top: 2.5rem;
-        }
-
-        .footer-social-title {
-            font-size: 1.6rem;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-link {
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background-color: var(--gold);
-            transform: translateY(-3px);
-        }
-
-        .footer-newsletter {
-            margin-top: 2.5rem;
-        }
-
-        .footer-newsletter-title {
-            font-size: 1.6rem;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-newsletter-form {
-            display: flex;
-        }
-
-        .newsletter-input {
-            flex-grow: 1;
-            padding: 1.2rem 1.5rem;
-            border: none;
-            border-radius: 3px 0 0 3px;
-            font-size: 1.4rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--white);
-        }
-
-        .newsletter-input:focus {
-            outline: none;
-        }
-
-        .newsletter-btn {
-            padding: 0 1.5rem;
-            background-color: var(--gold);
-            color: var(--dark);
-            border: none;
-            border-radius: 0 3px 3px 0;
-            cursor: pointer;
-        }
-
-        .newsletter-btn:hover {
-            background-color: #d4a849;
-        }
-
-        .footer-bottom {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             text-align: center;
-            padding-top: 3rem;
-            margin-top: 5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 1.4rem;
         }
-
-        .copyright {
-            color: #777;
-        }
-
-        .copyright a {
+        
+        .quote-icon {
+            font-size: 3rem;
             color: var(--gold);
+            margin-bottom: 2rem;
         }
-
-        /* Responsive styles */
-        @media (max-width: 1200px) {
-            html {
-                font-size: 56.25%; /* 9px */
-            }
-            .wellness-products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-            }
+        
+        .testimonial-content p {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--primary);
+            margin-bottom: 2rem;
         }
-
+        
+        .testimonial-author h4 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-author p {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+        
+        .wellness-cta {
+            background: linear-gradient(to right, rgba(10, 61, 98, 0.9), rgba(10, 61, 98, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80') center/cover no-repeat;
+            padding: 10rem 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .cta-content h2 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.8rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .btn-large {
+            padding: 1.8rem 4rem;
+            font-size: 1.6rem;
+        }
+        
         @media (max-width: 991px) {
-            html {
-                font-size: 50%; /* 8px */
-            }
-            .section {
-                padding: 8rem 0;
-            }
-            .page-title {
-                font-size: 4rem;
-            }
-            .wellness-products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 30rem;
-                height: 100vh;
-                background-color: var(--white);
+            .wellness-feature-container {
                 flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                padding: 8rem 0 0 0;
-                transition: all 0.4s ease;
-                overflow-y: auto;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
+                gap: 4rem;
             }
             
-            .nav-links.active {
-                right: 0;
+            .wellness-feature-reverse .wellness-feature-container {
+                flex-direction: column;
             }
             
-            .nav-links li {
-                margin: 0;
-                width: 100%;
-            }
-            
-            .nav-links a {
-                color: var(--primary);
-                padding: 1.5rem 2rem;
-                width: 100%;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                z-index: 1001;
-            }
-            
-            .dropdown,
-            .dropdown-submenu {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                visibility: visible;
-                opacity: 1;
-                transform: none;
-                display: none;
-                padding: 0;
-                background-color: rgba(10, 61, 98, 0.05);
-            }
-            
-            .dropdown.active,
-            .dropdown-submenu.active {
-                display: block;
-            }
-            
-            .dropdown a,
-            .dropdown-submenu a {
-                padding-left: 4rem;
-            }
-            
-            .dropdown-submenu a {
-                padding-left: 6rem;
-            }
-            
-            .book-now-btn {
-                width: calc(100% - 4rem);
-                margin: 1rem 2rem;
-                text-align: center;
+            .wellness-products-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
-
+        
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 3.5rem;
-            }
-            .page-title {
-                font-size: 3.5rem;
-            }
-            .buttons {
-                flex-direction: column;
-            }
             .wellness-products-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        @media (max-width: 576px) {
-            .section-title {
-                font-size: 3rem;
-            }
-            .page-title {
-                font-size: 3rem;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
+            
+            .wellness-feature-image img {
+                height: 350px;
             }
         }
     </style>
@@ -955,16 +721,25 @@
     </section>
 
     <!-- Main Content -->
-    <main class="section section-white">
-        <div class="container">
-            <div class="section-title-container">
-                <span class="section-subtitle">HOLISTIC APPROACH</span>
-                <h2 class="section-title">Wellness at Contour Island Resort & Spa</h2>
-                <p class="section-description">Experience rejuvenation and healing with our premium wellness offerings. Rooted in ancient traditions and modern therapeutic practices, our wellness products are designed to nurture mind, body, and soul.</p>
+    <main>
+        <!-- Intro Section -->
+        <section class="section section-white wellness-intro">
+            <div class="container">
+                <div class="section-title-container">
+                    <span class="section-subtitle">HOLISTIC APPROACH</span>
+                    <h2 class="section-title">Wellness at Contour Island Resort & Spa</h2>
+                    <p class="section-description">Experience rejuvenation and healing with our premium wellness offerings. Rooted in ancient traditions and modern therapeutic practices, our wellness products are designed to nurture mind, body, and soul.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="wellness-products-grid">
-                <div class="wellness-product">
+        <!-- Ayurvedic Treatments -->
+        <section class="section wellness-feature">
+            <div class="container wellness-feature-container">
+                <div class="wellness-feature-content">
+                    <div class="wellness-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
                     <h3>Ayurvedic Treatments</h3>
                     <p>Embrace the ancient healing science of Ayurveda with our authentic treatments performed by certified practitioners. Experience personalized therapies that restore balance and promote holistic well-being.</p>
                     <div class="buttons">
@@ -972,8 +747,22 @@
                         <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
                     </div>
                 </div>
+                <div class="wellness-feature-image">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="Ayurvedic Treatment">
+                </div>
+            </div>
+        </section>
 
-                <div class="wellness-product">
+        <!-- Spa Packages -->
+        <section class="section wellness-feature wellness-feature-reverse">
+            <div class="container wellness-feature-container">
+                <div class="wellness-feature-image">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="Spa Package">
+                </div>
+                <div class="wellness-feature-content">
+                    <div class="wellness-icon">
+                        <i class="fas fa-hot-tub"></i>
+                    </div>
                     <h3>Spa Packages</h3>
                     <p>Indulge in our signature spa experiences featuring organic products and specialized techniques. Our spa packages combine traditional wisdom with modern luxury for ultimate relaxation.</p>
                     <div class="buttons">
@@ -981,8 +770,16 @@
                         <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="wellness-product">
+        <!-- Yoga & Meditation -->
+        <section class="section wellness-feature">
+            <div class="container wellness-feature-container">
+                <div class="wellness-feature-content">
+                    <div class="wellness-icon">
+                        <i class="fas fa-pray"></i>
+                    </div>
                     <h3>Yoga & Meditation</h3>
                     <p>Reconnect with yourself through our guided yoga and meditation sessions. Located amidst serene natural surroundings, these sessions are designed to calm the mind and strengthen the body.</p>
                     <div class="buttons">
@@ -990,35 +787,93 @@
                         <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
                     </div>
                 </div>
-
-                <div class="wellness-product">
-                    <h3>Natural Skincare Products</h3>
-                    <p>Take home the essence of our wellness philosophy with our exclusive range of natural skincare products. Crafted from local ingredients using traditional methods, these products extend the spa experience.</p>
-                    <div class="buttons">
-                        <a href="skincare.html" class="btn primary">Shop Now</a>
-                        <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
-                    </div>
+                <div class="wellness-feature-image">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="Yoga and Meditation">
                 </div>
+            </div>
+        </section>
 
-                <div class="wellness-product">
-                    <h3>Wellness Retreats</h3>
-                    <p>Embark on a transformative journey with our curated wellness retreats. From detox programs to mindfulness retreats, we offer specialized experiences to address specific wellness goals.</p>
-                    <div class="buttons">
-                        <a href="retreats.html" class="btn primary">View Retreats</a>
-                        <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
-                    </div>
+        <!-- Other Wellness Products Grid -->
+        <section class="section section-light wellness-grid-section">
+            <div class="container">
+                <div class="section-title-container">
+                    <span class="section-subtitle">MORE OFFERINGS</span>
+                    <h2 class="section-title">Complete Your Wellness Journey</h2>
                 </div>
+                
+                <div class="wellness-products-grid">
+                    <div class="wellness-product">
+                        <div class="wellness-product-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Natural Skincare Products</h3>
+                        <p>Take home the essence of our wellness philosophy with our exclusive range of natural skincare products. Crafted from local ingredients using traditional methods.</p>
+                        <div class="buttons">
+                            <a href="skincare.html" class="btn primary">Shop Now</a>
+                            <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                        </div>
+                    </div>
 
-                <div class="wellness-product">
-                    <h3>Nutritional Counseling</h3>
-                    <p>Discover personalized nutrition plans developed by our expert nutritionists. Learn how to incorporate wellness into your daily diet with guidance tailored to your unique body type and needs.</p>
-                    <div class="buttons">
-                        <a href="nutrition.html" class="btn primary">Learn More</a>
-                        <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                    <div class="wellness-product">
+                        <div class="wellness-product-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3>Wellness Retreats</h3>
+                        <p>Embark on a transformative journey with our curated wellness retreats. From detox programs to mindfulness retreats, we offer specialized experiences.</p>
+                        <div class="buttons">
+                            <a href="retreats.html" class="btn primary">View Retreats</a>
+                            <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <div class="wellness-product">
+                        <div class="wellness-product-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3>Nutritional Counseling</h3>
+                        <p>Discover personalized nutrition plans developed by our expert nutritionists. Learn how to incorporate wellness into your daily diet with tailored guidance.</p>
+                        <div class="buttons">
+                            <a href="nutrition.html" class="btn primary">Learn More</a>
+                            <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="section section-white wellness-testimonials">
+            <div class="container">
+                <div class="section-title-container">
+                    <span class="section-subtitle">GUEST EXPERIENCES</span>
+                    <h2 class="section-title">What Our Clients Say</h2>
+                </div>
+                
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                            <p>"The Ayurvedic treatments at Contour Island Resort transformed my wellness journey. The expert practitioners and serene environment made it a truly healing experience."</p>
+                            <div class="testimonial-author">
+                                <h4>Sarah Williams</h4>
+                                <p>United Kingdom</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="wellness-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Begin Your Wellness Journey Today</h2>
+                    <p>Contact our wellness specialists to create a personalized experience tailored to your needs.</p>
+                    <a href="https://wa.me/917356777860" class="btn primary btn-large">Contact Wellness Team</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
