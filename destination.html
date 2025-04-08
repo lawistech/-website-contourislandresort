@@ -517,115 +517,6 @@
             margin-right: auto;
         }
         
-        /* Destination Section */
-        .destinations {
-            position: relative;
-            overflow: hidden;
-            padding: 8rem 0;
-        }
-        
-        .destination-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4rem;
-        }
-        
-        .destination-location {
-            width: 100%;
-            margin-bottom: 2rem;
-            margin-top: 4rem;
-            position: relative;
-        }
-        
-        .destination-location:first-child {
-            margin-top: 0;
-        }
-        
-        .location-title {
-            font-size: 3.6rem;
-            color: var(--primary);
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 1rem;
-            margin-bottom: 3rem;
-        }
-        
-        .destination-card {
-            flex: 0 0 calc(33.333% - 2.67rem);
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            min-height: 52rem;
-        }
-        
-        .destination-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
-        }
-        
-        .destination-image {
-            height: 25rem;
-            overflow: hidden;
-        }
-        
-        .destination-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .destination-card:hover .destination-image img {
-            transform: scale(1.1);
-        }
-        
-        .destination-details {
-            padding: 3rem;
-        }
-        
-        .destination-name {
-            font-size: 2.4rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .destination-description {
-            font-size: 1.4rem;
-            color: var(--text);
-            margin-bottom: 3rem;
-        }
-        
-        .destination-buttons {
-            position: absolute;
-            bottom: 3rem;
-            left: 3rem;
-            right: 3rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        @media (max-width: 1200px) {
-            .destination-card {
-                flex: 0 0 calc(50% - 2rem);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .destination-card {
-                flex: 0 0 100%;
-            }
-            .destination-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .destination-buttons .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-                
         /* Footer */
         .footer {
             background-color: var(--primary);
@@ -872,251 +763,482 @@
     <!-- Destinations Section -->
     <section class="section destinations" id="destinations">
         <div class="container">
-            <div class="destination-grid">
+            <div class="destination-filter-container">
+                <div class="filter-title">
+                    <h3>Browse by Location</h3>
+                    <p>Filter our properties by region</p>
+                </div>
+                <div class="destination-filters">
+                    <button class="filter-btn active" data-filter="all">All Destinations</button>
+                    <button class="filter-btn" data-filter="kerala">Kerala</button>
+                    <button class="filter-btn" data-filter="karnataka">Karnataka</button>
+                    <button class="filter-btn" data-filter="tamilnadu">Tamil Nadu</button>
+                    <button class="filter-btn" data-filter="international">International</button>
+                </div>
+            </div>
+            
+            <div class="destination-grid masonry-grid">
                 <!-- Karnataka -->
-                <div class="destination-location">
-                    <h2 class="location-title">Coorg, Karnataka</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2020/01/31/08/34/coffee-4807173_1280.jpg" alt="Wind Chimes Retreat">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Wind Chimes Retreat</h3>
-                            <p class="destination-description">Nestled within a sprawling 50-acre coffee estate in Virajpet, Coorg, The Windchimes Retreat captivates with its Chettinad-themed allure. Crafted to star-category standards, this retreat seamlessly blends a touch of tradition with contemporary elegance.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                <div class="destination-card" data-category="karnataka">
+                    <div class="destination-image">
+                        <div class="destination-location-tag">Coorg, Karnataka</div>
+                        <img src="https://cdn.pixabay.com/photo/2017/09/09/17/08/wooden-house-2732939_1280.jpg" alt="Wind Chimes Retreat">
+                        <div class="destination-overlay">
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.5/5</span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="destination-details">
+                        <h3 class="destination-name">Wind Chimes Retreat</h3>
+                        <div class="destination-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Virajpet, Coorg</span>
+                            <span><i class="fas fa-tree"></i> Coffee Estate</span>
+                        </div>
+                        <p class="destination-description">Nestled within a sprawling 50-acre coffee estate in Virajpet, Coorg, The Windchimes Retreat captivates with its Chettinad-themed allure. Crafted to star-category standards, this retreat seamlessly blends a touch of tradition with contemporary elegance.</p>
+                        <div class="destination-buttons">
+                            <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
+                            <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Kerala: Wayanad -->
-                <div class="destination-location">
-                    <h2 class="location-title">Wayanad, Kerala</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2022/11/29/16/40/lake-7624620_1280.jpg" alt="The Wave Lakeview Resort">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">The Wave Lakeview Resort</h3>
-                            <p class="destination-description">Nestled in lush greenery, facing the beatific Karapuzha lake, Wave by Citrine is a serene haven where luxury meets authenticity. A waterfront luxury resort and spa in Wayanad - designed to provide a delightful and relaxing experience for you and your family.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">View More</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                <!-- Wayanad -->
+                <div class="destination-card" data-category="kerala">
+                    <div class="destination-image">
+                        <div class="destination-location-tag">Wayanad, Kerala</div>
+                        <img src="https://cdn.pixabay.com/photo/2020/04/21/06/41/resort-5071166_1280.jpg" alt="The Wave Lakeview Resort">
+                        <div class="destination-overlay">
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5/5</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_1280.jpg" alt="Contour Island Resort & Spa">
+                    <div class="destination-details">
+                        <h3 class="destination-name">The Wave Lakeview Resort</h3>
+                        <div class="destination-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Karapuzha, Wayanad</span>
+                            <span><i class="fas fa-water"></i> Lakeside Resort</span>
                         </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Contour Island Resort & Spa</h3>
-                            <p class="destination-description">Escape to Contour Island Resort & Spa, nestled on the tranquil shores of Banasura Sagar Lake amidst the breathtaking landscapes of Wayanad. Surrounded by lush greenery and serene waters, our idyllic retreat offers a sanctuary from everyday life.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">View More</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2022/01/08/14/26/trees-6924186_1280.jpg" alt="Talenresort Vythiri Villas">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Talenresort Vythiri Villas</h3>
-                            <p class="destination-description">Talenmark Developers is a real estate development company. It is committed to providing spectacular projects that deliver the best value for customer's money. The developer aims to transform the property dreams of the customers into reality.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">View More</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
+                        <p class="destination-description">Nestled in lush greenery, facing the beatific Karapuzha lake, Wave by Citrine is a serene haven where luxury meets authenticity. A waterfront luxury resort and spa in Wayanad - designed to provide a delightful and relaxing experience for you and your family.</p>
+                        <div class="destination-buttons">
+                            <a href="#" class="btn btn-outline btn-sm">View More</a>
+                            <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Kerala: Munnar -->
-                <div class="destination-location">
-                    <h2 class="location-title">Munnar, Kerala</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2019/09/28/07/48/mountains-4510169_1280.jpg" alt="Anubhav Resort">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Anubhav Resort</h3>
-                            <p class="destination-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit More</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                <div class="destination-card" data-category="kerala">
+                    <div class="destination-image">
+                        <div class="destination-location-tag">Wayanad, Kerala</div>
+                        <span class="destination-badge">FEATURED</span>
+                        <img src="https://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_1280.jpg" alt="Contour Island Resort & Spa">
+                        <div class="destination-overlay">
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5/5</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Kerala: Nelliampathi -->
-                <div class="destination-location">
-                    <h2 class="location-title">Nelliampathi, Kerala</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2019/05/20/15/41/wilderness-4216754_1280.jpg" alt="Vanya Holiday Resort">
+                    <div class="destination-details">
+                        <h3 class="destination-name">Contour Island Resort & Spa</h3>
+                        <div class="destination-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Banasura Sagar, Wayanad</span>
+                            <span><i class="fas fa-umbrella-beach"></i> Island Resort</span>
                         </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Vanya Holiday Resort</h3>
-                            <p class="destination-description">The Vanya Holiday Resort is a vibrant haven located amidst the lush greenery of the Nelliampathi forests. addition to the magnificent views & soothing atmosphere, the resort boasts a range of modern facilities to ensure a delightful stay.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">View More</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Kerala: Changanassery -->
-                <div class="destination-location">
-                    <h2 class="location-title">Changanassery, Kerala</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/17/16/21/backwaters-1832002_1280.jpg" alt="Contour Backwaters Hotel">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Contour Backwaters Hotel & Convention Centre</h3>
-                            <p class="destination-description">Located in the Kerala, Changanacherry, Contour Backwaters Resort Hotel & Convention Centre is a property that relishes its charm & beauty to its guests. Modern & traditional architecture is blended well with the nature.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Kerala: Varkala -->
-                <div class="destination-location">
-                    <h2 class="location-title">Varkala, Kerala</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/08/04/49/jetty-1807471_1280.jpg" alt="Sunview Beach Resort">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Sunview Beach Resort</h3>
-                            <p class="destination-description">Sunview Beach Resort & Spa, managed by Citrine Hotels & Resorts is one of the leading Resorts in Varkala, is truly an exquisite place for your holidays situated at the amazing coastline of Varkala Beach, Trivandrum, Kerala.</p>
-                            <div class="destination-buttons">
-                                <a href="destination-4.html" class="btn btn-outline btn-sm">View More</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Kerala: Trivandrum -->
-                <div class="destination-location">
-                    <h2 class="location-title">Trivandrum, Kerala</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2016/10/22/20/55/wellness-1761927_1280.jpg" alt="Indimasi Healing Village">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Indimasi Healing Village</h3>
-                            <p class="destination-description">Indimasi healing village is a NABH (National Accreditation Board for Hospitals & Healthcare) certified Ayurveda and Siddha hospital established on the principle of leading a life of sharing and caring in co-existence with Mother Nature.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2019/10/08/18/46/hotel-4536489_1280.jpg" alt="The Terrace Business Hotel">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">The Terrace Business Hotel</h3>
-                            <p class="destination-description">The Terrace is a great choice for travellers looking for a 4 star hotel in Trivandrum. It is located in Thampanoor. This Hotel stands out as one of the highly recommended hotel in Trivandrum and is recommended by 100% of our guests.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2021/08/14/22/10/beach-6546684_1280.jpg" alt="Poovar Island Resort & Spa">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Poovar Island Resort & Spa</h3>
-                            <p class="destination-description">Enveloped in serene Kerala backwaters, flanked by the Arabian Sea on the East and the majestic towering Ghats to the West, opening out to the ocean and a dream golden beach, Poovar Island Resort is a tropical paradise.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tamil Nadu -->
-                <div class="destination-location">
-                    <h2 class="location-title">Madurai, Tamil Nadu</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2021/12/21/18/45/farm-6886398_1280.jpg" alt="Contour Farm Resort">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Contour Farm Resort</h3>
-                            <p class="destination-description">A homogeneous and eco-friendly blend of healthy living and farming. Ensure that the system is self- reliant and self-sufficient. While assuring that all our endeavours will be in consonance with our mission and vision.</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- International -->
-                <div class="destination-location">
-                    <h2 class="location-title">International Destinations</h2>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2017/01/14/20/55/wall-1980346_1280.jpg" alt="Torres De Selma">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Torres De Selma Eco-Wellness Resort</h3>
-                            <p class="destination-description">Torres de Selma offers the perfect ambience to improve your health and well-being. Our team of certified holistic Indian therapists is ready to give you an authentic Ayurvedic treatment.</p>
-                            <p class="destination-description"><strong>Location: </strong>Cataluna, Spain</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image">
-                            <img src="https://cdn.pixabay.com/photo/2016/11/17/09/28/hotel-1831072_1280.jpg" alt="Lotus Desaru Beach Resort">
-                        </div>
-                        <div class="destination-details">
-                            <h3 class="destination-name">Lotus Desaru Beach Resort & Spa</h3>
-                            <p class="destination-description">Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.</p>
-                            <p class="destination-description"><strong>Location: </strong>Johor, Malaysia</p>
-                            <div class="destination-buttons">
-                                <a href="#" class="btn btn-outline btn-sm">Visit Website</a>
-                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
-                            </div>
+                        <p class="destination-description">Escape to Contour Island Resort & Spa, nestled on the tranquil shores of Banasura Sagar Lake amidst the breathtaking landscapes of Wayanad. Surrounded by lush greenery and serene waters, our idyllic retreat offers a sanctuary from everyday life.</p>
+                        <div class="destination-buttons">
+                            <a href="#" class="btn btn-outline btn-sm">View More</a>
+                            <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="destination-pagination">
+                <span class="pagination-stats">Showing <span id="showing-count">12</span> of <span id="total-count">12</span> properties</span>
+                <button class="btn btn-outline load-more-btn" id="load-more">Load More</button>
+            </div>
         </div>
+        
+        <!-- Add new CSS for the redesigned section -->
+        <style>
+            /* Destination Section Redesign */
+            .destinations {
+                position: relative;
+                overflow: hidden;
+                padding: 8rem 0;
+                background-color: var(--light);
+            }
+            
+            .destination-filter-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 4rem;
+                flex-wrap: wrap;
+            }
+            
+            .filter-title {
+                margin-bottom: 2rem;
+            }
+            
+            .filter-title h3 {
+                font-size: 2.4rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+            
+            .filter-title p {
+                font-size: 1.6rem;
+                color: var(--primary-light);
+                margin-bottom: 0;
+            }
+            
+            .destination-filters {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .filter-btn {
+                padding: 1rem 2rem;
+                background-color: transparent;
+                border: 1px solid var(--primary);
+                color: var(--primary);
+                border-radius: 3rem;
+                cursor: pointer;
+                font-size: 1.4rem;
+                transition: all 0.3s ease;
+            }
+            
+            .filter-btn:hover, .filter-btn.active {
+                background-color: var(--primary);
+                color: var(--white);
+            }
+            
+            .masonry-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                grid-gap: 3rem;
+                grid-auto-flow: dense;
+            }
+            
+            .destination-card {
+                background-color: var(--white);
+                border-radius: 1.2rem;
+                overflow: hidden;
+                box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08);
+                transition: all 0.4s ease;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                min-height: auto;
+            }
+            
+            .destination-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+            }
+            
+            .destination-card.hidden {
+                display: none;
+                opacity: 0;
+                visibility: hidden;
+                height: 0;
+                margin: 0;
+            }
+            
+            .destination-image {
+                height: 25rem;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .destination-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.7s ease;
+            }
+            
+            .destination-card:hover .destination-image img {
+                transform: scale(1.1);
+            }
+            
+            .destination-location-tag {
+                position: absolute;
+                top: 2rem;
+                left: 0;
+                background-color: var(--primary);
+                color: var(--white);
+                padding: 0.7rem 1.5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                z-index: 2;
+                border-radius: 0 3rem 3rem 0;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .destination-badge {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                background-color: var(--gold);
+                color: var(--dark);
+                padding: 0.7rem 1.5rem;
+                font-size: 1.2rem;
+                font-weight: 600;
+                z-index: 2;
+                border-radius: 3rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .destination-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 2rem;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+                transition: all 0.3s ease;
+            }
+            
+            .destination-rating {
+                color: var(--gold);
+                font-size: 1.4rem;
+            }
+            
+            .destination-rating span {
+                color: var(--white);
+                margin-left: 0.5rem;
+                font-weight: 500;
+            }
+            
+            .destination-details {
+                padding: 3rem;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .destination-name {
+                font-size: 2.2rem;
+                margin-bottom: 1.5rem;
+                color: var(--primary);
+                position: relative;
+                padding-bottom: 1.5rem;
+            }
+            
+            .destination-name:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 5rem;
+                height: 2px;
+                background-color: var(--gold);
+            }
+            
+            .destination-meta {
+                display: flex;
+                gap: 2rem;
+                margin-bottom: 2rem;
+                font-size: 1.3rem;
+                color: var(--primary-light);
+            }
+            
+            .destination-meta i {
+                color: var(--gold);
+                margin-right: 0.5rem;
+            }
+            
+            .destination-description {
+                font-size: 1.4rem;
+                color: var(--text);
+                margin-bottom: 3rem;
+                line-height: 1.8;
+                flex-grow: 1;
+            }
+            
+            .destination-buttons {
+                display: flex;
+                gap: 1.5rem;
+                margin-top: auto;
+            }
+            
+            .destination-pagination {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 5rem;
+                padding-top: 3rem;
+                border-top: 1px solid rgba(10, 61, 98, 0.1);
+            }
+            
+            .pagination-stats {
+                font-size: 1.4rem;
+                color: var(--primary-light);
+            }
+            
+            .load-more-btn {
+                padding: 1.2rem 3rem;
+            }
+            
+            /* Animation for card appearance */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .destination-card {
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
+            
+            /* Add a delay to each card */
+            .destination-card:nth-child(1) { animation-delay: 0.1s; }
+            .destination-card:nth-child(2) { animation-delay: 0.2s; }
+            .destination-card:nth-child(3) { animation-delay: 0.3s; }
+            .destination-card:nth-child(4) { animation-delay: 0.4s; }
+            .destination-card:nth-child(5) { animation-delay: 0.5s; }
+            .destination-card:nth-child(6) { animation-delay: 0.6s; }
+            
+            /* Responsive adjustments */
+            @media (max-width: 992px) {
+                .masonry-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                }
+                
+                .destination-filter-container {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .destination-filters {
+                    width: 100%;
+                    overflow-x: auto;
+                    padding-bottom: 1rem;
+                    flex-wrap: nowrap;
+                }
+                
+                .destination-buttons {
+                    flex-direction: column;
+                }
+                
+                .destination-buttons .btn {
+                    width: 100%;
+                    text-align: center;
+                }
+                
+                .destination-pagination {
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+            }
+            
+            @media (max-width: 576px) {
+                .masonry-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .destination-meta {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+            }
+
+
+            /* Additional fixes for destination cards */
+            .destination-card {
+                opacity: 0; /* Start invisible for animation */
+            }
+            
+            /* Fix for animation sequencing */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            /* Fixed sizing for better grid layout */
+            .destination-image {
+                height: 25rem;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            /* Improved destination rating display */
+            .destination-rating .far.fa-star {
+                opacity: 0.5;
+            }
+            
+            /* Fix margin for filtered items */
+            .destination-card.hidden {
+                margin: 0;
+                padding: 0;
+                height: 0;
+                min-height: 0;
+                opacity: 0;
+                overflow: hidden;
+            }
+            
+            /* Improve spacing in destination filters */
+            .destination-filters .filter-btn {
+                white-space: nowrap;
+                margin: 0.5rem 0;
+            }
+            
+            /* Add scroll indicator for mobile filters */
+            @media (max-width: 768px) {
+                .destination-filters:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 30px;
+                    background: linear-gradient(to right, transparent, var(--light));
+                    pointer-events: none;
+                }
+                
+                .destination-filters {
+                    position: relative;
+                    padding-right: 30px;
+                }
+            }
+        </style>
+        
     </section>
 
     <!-- Footer -->
@@ -1311,6 +1433,270 @@
                 }
             });
         });
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+                // Add all the missing destination cards with appropriate data-category attributes
+                const masonry = document.querySelector('.masonry-grid');
+                
+                // Create data structure for all destinations
+                const destinations = [
+                    // Existing cards are already in the HTML, add the rest below
+                    {
+                        category: 'kerala',
+                        location: 'Wayanad, Kerala',
+                        image: 'https://cdn.pixabay.com/photo/2022/01/08/14/26/trees-6924186_1280.jpg',
+                        name: 'Talenresort Vythiri Villas',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Vythiri, Wayanad',
+                        meta2: '<i class="fas fa-mountain"></i> Hill Resort',
+                        rating: 4.8,
+                        description: 'Talenmark Developers is a real estate development company. It is committed to providing spectacular projects that deliver the best value for customer\'s money. The developer aims to transform the property dreams of the customers into reality.',
+                    },
+                    {
+                        category: 'kerala',
+                        location: 'Munnar, Kerala',
+                        image: 'https://cdn.pixabay.com/photo/2019/09/28/07/48/mountains-4510169_1280.jpg',
+                        name: 'Anubhav Resort',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Munnar, Kerala',
+                        meta2: '<i class="fas fa-temperature-low"></i> Hill Station',
+                        rating: 4.6,
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                        featured: true
+                    },
+                    {
+                        category: 'kerala',
+                        location: 'Nelliampathi, Kerala',
+                        image: 'https://cdn.pixabay.com/photo/2019/05/20/15/41/wilderness-4216754_1280.jpg',
+                        name: 'Vanya Holiday Resort',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Nelliampathi, Kerala',
+                        meta2: '<i class="fas fa-tree"></i> Forest Resort',
+                        rating: 4.7,
+                        description: 'The Vanya Holiday Resort is a vibrant haven located amidst the lush greenery of the Nelliampathi forests. addition to the magnificent views & soothing atmosphere, the resort boasts a range of modern facilities to ensure a delightful stay.',
+                    },
+                    {
+                        category: 'kerala',
+                        location: 'Changanassery, Kerala',
+                        image: 'https://cdn.pixabay.com/photo/2016/11/17/16/21/backwaters-1832002_1280.jpg',
+                        name: 'Contour Backwaters Hotel',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Changanassery, Kerala',
+                        meta2: '<i class="fas fa-water"></i> Backwater Resort',
+                        rating: 4.9,
+                        description: 'Located in the Kerala, Changanacherry, Contour Backwaters Resort Hotel & Convention Centre is a property that relishes its charm & beauty to its guests. Modern & traditional architecture is blended well with the nature.',
+                    },
+                    {
+                        category: 'kerala',
+                        location: 'Varkala, Kerala',
+                        image: 'https://cdn.pixabay.com/photo/2016/11/08/04/49/jetty-1807471_1280.jpg',
+                        name: 'Sunview Beach Resort',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Varkala, Kerala',
+                        meta2: '<i class="fas fa-umbrella-beach"></i> Beach Resort',
+                        rating: 4.5,
+                        description: 'Sunview Beach Resort & Spa, managed by Citrine Hotels & Resorts is one of the leading Resorts in Varkala, is truly an exquisite place for your holidays situated at the amazing coastline of Varkala Beach, Trivandrum, Kerala.',
+                    },
+                    {
+                        category: 'kerala',
+                        location: 'Trivandrum, Kerala',
+                        image: 'https://cdn.pixabay.com/photo/2016/10/22/20/55/wellness-1761927_1280.jpg',
+                        name: 'Indimasi Healing Village',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Trivandrum, Kerala',
+                        meta2: '<i class="fas fa-spa"></i> Ayurveda Resort',
+                        rating: 4.8,
+                        description: 'Indimasi healing village is a NABH (National Accreditation Board for Hospitals & Healthcare) certified Ayurveda and Siddha hospital established on the principle of leading a life of sharing and caring in co-existence with Mother Nature.',
+                    },
+                    {
+                        category: 'kerala',
+                        location: 'Trivandrum, Kerala',
+                        image: 'https://cdn.pixabay.com/photo/2019/10/08/18/46/hotel-4536489_1280.jpg',
+                        name: 'The Terrace Business Hotel',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Thampanoor, Trivandrum',
+                        meta2: '<i class="fas fa-briefcase"></i> Business Hotel',
+                        rating: 4.3,
+                        description: 'The Terrace is a great choice for travellers looking for a 4 star hotel in Trivandrum. It is located in Thampanoor. This Hotel stands out as one of the highly recommended hotel in Trivandrum and is recommended by 100% of our guests.',
+                    },
+                    {
+                        category: 'kerala',
+                        location: 'Trivandrum, Kerala',
+                        image: 'https://cdn.pixabay.com/photo/2021/08/14/22/10/beach-6546684_1280.jpg',
+                        name: 'Poovar Island Resort & Spa',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Poovar, Trivandrum',
+                        meta2: '<i class="fas fa-umbrella-beach"></i> Island Resort',
+                        rating: 5.0,
+                        description: 'Enveloped in serene Kerala backwaters, flanked by the Arabian Sea on the East and the majestic towering Ghats to the West, opening out to the ocean and a dream golden beach, Poovar Island Resort is a tropical paradise.',
+                        featured: true
+                    },
+                    {
+                        category: 'tamilnadu',
+                        location: 'Madurai, Tamil Nadu',
+                        image: 'https://cdn.pixabay.com/photo/2021/12/21/18/45/farm-6886398_1280.jpg',
+                        name: 'Contour Farm Resort',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Madurai, Tamil Nadu',
+                        meta2: '<i class="fas fa-seedling"></i> Farm Resort',
+                        rating: 4.4,
+                        description: 'A homogeneous and eco-friendly blend of healthy living and farming. Ensure that the system is self- reliant and self-sufficient. While assuring that all our endeavours will be in consonance with our mission and vision.',
+                    },
+                    {
+                        category: 'international',
+                        location: 'Cataluna, Spain',
+                        image: 'https://cdn.pixabay.com/photo/2017/01/14/20/55/wall-1980346_1280.jpg',
+                        name: 'Torres De Selma Eco-Wellness Resort',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Cataluna, Spain',
+                        meta2: '<i class="fas fa-globe-europe"></i> International',
+                        rating: 4.9,
+                        description: 'Torres de Selma offers the perfect ambience to improve your health and well-being. Our team of certified holistic Indian therapists is ready to give you an authentic Ayurvedic treatment.',
+                        featured: true
+                    },
+                    {
+                        category: 'international',
+                        location: 'Johor, Malaysia',
+                        image: 'https://cdn.pixabay.com/photo/2016/11/17/09/28/hotel-1831072_1280.jpg',
+                        name: 'Lotus Desaru Beach Resort & Spa',
+                        meta1: '<i class="fas fa-map-marker-alt"></i> Johor, Malaysia',
+                        meta2: '<i class="fas fa-globe-asia"></i> International',
+                        rating: 4.7,
+                        description: 'Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.',
+                    }
+                ];
+                
+                // Generate HTML for each destination
+                destinations.forEach((dest, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'destination-card';
+                    card.setAttribute('data-category', dest.category);
+                    
+                    // Star display logic
+                    let stars = '';
+                    const fullStars = Math.floor(dest.rating);
+                    const hasHalfStar = dest.rating % 1 >= 0.3;
+                    
+                    for (let i = 0; i < 5; i++) {
+                        if (i < fullStars) {
+                            stars += '<i class="fas fa-star"></i>';
+                        } else if (i === fullStars && hasHalfStar) {
+                            stars += '<i class="fas fa-star-half-alt"></i>';
+                        } else {
+                            stars += '<i class="far fa-star"></i>';
+                        }
+                    }
+                    
+                    card.innerHTML = `
+                        <div class="destination-image">
+                            <div class="destination-location-tag">${dest.location}</div>
+                            ${dest.featured ? '<span class="destination-badge">FEATURED</span>' : ''}
+                            <img src="${dest.image}" alt="${dest.name}">
+                            <div class="destination-overlay">
+                                <div class="destination-rating">
+                                    ${stars}
+                                    <span>${dest.rating}/5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-details">
+                            <h3 class="destination-name">${dest.name}</h3>
+                            <div class="destination-meta">
+                                <span>${dest.meta1}</span>
+                                <span>${dest.meta2}</span>
+                            </div>
+                            <p class="destination-description">${dest.description}</p>
+                            <div class="destination-buttons">
+                                <a href="#" class="btn btn-outline btn-sm">View More</a>
+                                <a href="#" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Enquiry on WhatsApp</a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    masonry.appendChild(card);
+                });
+                
+                // Now setup filtering and pagination properly
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                const destinationCards = document.querySelectorAll('.destination-card');
+                const totalCount = document.getElementById('total-count');
+                const showingCount = document.getElementById('showing-count');
+                const loadMoreBtn = document.getElementById('load-more');
+                
+                // Set initial counts
+                const allDestinationsCount = destinationCards.length;
+                totalCount.textContent = allDestinationsCount;
+                
+                // Configure pagination
+                const itemsPerPage = 6;
+                let currentPage = 1;
+                let currentFilter = 'all';
+                
+                // Initial setup - show only first page
+                updateDestinationsDisplay();
+                
+                // Load more button functionality
+                loadMoreBtn.addEventListener('click', function() {
+                    currentPage++;
+                    updateDestinationsDisplay();
+                });
+                
+                // Filter functionality
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Reset pagination when filter changes
+                        currentPage = 1;
+                        
+                        // Remove active class from all buttons
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        
+                        // Add active class to clicked button
+                        button.classList.add('active');
+                        
+                        // Update current filter
+                        currentFilter = button.getAttribute('data-filter');
+                        
+                        // Update display
+                        updateDestinationsDisplay();
+                    });
+                });
+                
+                // Function to update destinations display based on current filter and page
+                function updateDestinationsDisplay() {
+                    let visibleCount = 0;
+                    let displayedCount = 0;
+                    
+                    destinationCards.forEach((card, index) => {
+                        // Reset animations and visibility
+                        card.style.animation = 'none';
+                        card.classList.add('hidden');
+                        
+                        // Check if card matches current filter
+                        const matchesFilter = currentFilter === 'all' || card.getAttribute('data-category') === currentFilter;
+                        
+                        if (matchesFilter) {
+                            visibleCount++;
+                            
+                            // Check if card should be displayed on current page
+                            if (visibleCount <= currentPage * itemsPerPage) {
+                                card.classList.remove('hidden');
+                                card.offsetHeight; // Trigger reflow
+                                
+                                // Apply animation with delay
+                                const delayIndex = displayedCount % itemsPerPage;
+                                card.style.animation = `fadeInUp 0.5s ease-out forwards ${delayIndex * 0.1}s`;
+                                
+                                displayedCount++;
+                            }
+                        }
+                    });
+                    
+                    // Update showing count
+                    showingCount.textContent = Math.min(visibleCount, currentPage * itemsPerPage);
+                    
+                    // Update total count
+                    totalCount.textContent = visibleCount;
+                    
+                    // Show/hide load more button
+                    if (visibleCount <= currentPage * itemsPerPage) {
+                        loadMoreBtn.style.display = 'none';
+                    } else {
+                        loadMoreBtn.style.display = 'inline-block';
+                    }
+                }
+            });
     </script>
 </body>
 </html>
