@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Products - Contour Island Resort & Spa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Google Font Import */
+        @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a3d62;
+            --primary-light: #3c6382;
+            --secondary: #60a3bc;
+            --accent: #82ccdd;
+            --dark: #1e272e;
+            --light: #f5f6fa;
+            --gold: #e9bc66;
+            --white: #ffffff;
+            --gray: #f0f0f0;
+            --text: #333333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 1.6rem;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: "Cormorant Garamond", serif;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        p {
+            margin-bottom: 2rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.5rem 3.5rem;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--gold);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .btn:hover:before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            color: var(--dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:before {
+            background-color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            color: var(--white);
+        }
+
+        /* Logo Style for when page is scrolled */
+        .scrolled .logo-svg path,
+        .scrolled .logo-svg text {
+            fill: var(--primary);
+            stroke: var(--primary);
+        }
+
+        .scrolled .logo-svg path:nth-child(2),
+        .scrolled .logo-svg path:nth-of-type(n + 13):nth-of-type(-n + 18) {
+            fill: var(--gold);
+            stroke: var(--gold);
+        }
+
+        /* Header and Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 2.5rem 0;
+            transition: all 0.4s ease;
+        }
+
+        .header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            position: absolute;
+            bottom: -0.5rem;
+            right: 0;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        /* Enhanced Navbar and Dropdown Styles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            position: relative;
+        }
+
+        .nav-links li {
+            margin-left: 3rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.4rem;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a i {
+            margin-left: 0.5rem;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Dropdown menu styles */
+        .has-dropdown {
+            position: relative;
+        }
+
+        .has-dropdown:hover > a i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .has-dropdown:hover > a i.fa-chevron-right {
+            transform: rotate(90deg);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -2rem;
+            width: 24rem;
+            background-color: white;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+            border-radius: 0.5rem;
+            padding: 1rem 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(1rem);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .has-dropdown:hover > .dropdown {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown li {
+            margin: 0;
+            position: relative;
+        }
+
+        .dropdown a {
+            color: var(--primary) !important;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown a:hover {
+            background-color: rgba(233, 188, 102, 0.1);
+            border-left: 3px solid var(--gold);
+        }
+
+        .dropdown a:after {
+            display: none;
+        }
+
+        /* Submenu styles */
+        .dropdown-submenu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 24rem;
+            background-color: white;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+            border-radius: 0.5rem;
+            padding: 1rem 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(1rem);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .has-dropdown:hover > .dropdown-submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Book now button styles */
+        .book-now-btn {
+            background-color: var(--gold);
+            color: var(--dark) !important;
+            padding: 1rem 2rem !important;
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .book-now-btn:hover {
+            background-color: var(--primary);
+            color: var(--white) !important;
+        }
+
+        .book-now-btn:after {
+            display: none;
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 2.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Page Header Styles */
+        .page-header {
+            height: 40vh;
+            min-height: 30rem;
+            background: linear-gradient(to right, rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.4)),
+                url("https://cdn.pixabay.com/photo/2021/08/01/12/58/beach-6514331_1280.jpg") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            margin-top: 8rem;
+        }
+
+        .page-header:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to top, var(--white), transparent);
+        }
+
+        .page-header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-subtitle {
+            font-family: "Montserrat", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 400;
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+        }
+
+        .page-title {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        /* Enhanced Wellness Styles */
+        .wellness-intro {
+            padding-bottom: 5rem;
+        }
+        
+        .wellness-feature {
+            padding: 8rem 0;
+            position: relative;
+        }
+        
+        .wellness-feature:nth-child(odd) {
+            background-color: var(--light);
+        }
+        
+        .wellness-feature-container {
+            display: flex;
+            align-items: center;
+            gap: 6rem;
+        }
+        
+        .wellness-feature-reverse .wellness-feature-container {
+            flex-direction: row-reverse;
+        }
+        
+        .wellness-feature-content, 
+        .wellness-feature-image {
+            flex: 1;
+        }
+        
+        .wellness-feature-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wellness-feature-content h3 {
+            font-size: 3.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        
+        .wellness-feature-content h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .wellness-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+        
+        .wellness-grid-section {
+            padding: 10rem 0;
+        }
+        
+        .wellness-products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            margin-top: 5rem;
+        }
+        
+        .wellness-product {
+            background-color: var(--white);
+            padding: 4rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            text-align: center;
+        }
+        
+        .wellness-product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wellness-product-icon {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+        
+        .wellness-product h3 {
+            font-size: 2.4rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .wellness-product p {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+        }
+        
+        .wellness-testimonials {
+            background-color: var(--white);
+            padding: 10rem 0;
+        }
+        
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-content {
+            background-color: var(--light);
+            padding: 4rem;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-content p {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-author h4 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-author p {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+        
+        .wellness-cta {
+            background: linear-gradient(to right, rgba(10, 61, 98, 0.9), rgba(10, 61, 98, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80') center/cover no-repeat;
+            padding: 10rem 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .cta-content h2 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.8rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .btn-large {
+            padding: 1.8rem 4rem;
+            font-size: 1.6rem;
+        }
+        
+        @media (max-width: 991px) {
+            .wellness-feature-container {
+                flex-direction: column;
+                gap: 4rem;
+            }
+            
+            .wellness-feature-reverse .wellness-feature-container {
+                flex-direction: column;
+            }
+            
+            .wellness-products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .wellness-products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .wellness-feature-image img {
+                height: 350px;
+            }
+        }
+
+        /* Footer styles from home.html */
+        .footer {
+            background-color: var(--dark);
+            color: #999;
+            padding: 8rem 0 2rem;
+            position: relative;
+        }
+
+        .footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: linear-gradient(
+                to bottom right,
+                var(--primary) 0%,
+                var(--primary) 50%,
+                transparent 50%,
+                transparent 100%
+            );
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 5rem;
+            margin-bottom: 5rem;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-description {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 30rem;
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--white);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .footer-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 5rem;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #999;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact-icon {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-right: 1.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .footer-contact-text {
+            font-size: 1.4rem;
+        }
+
+        .footer-social {
+            margin-top: 2.5rem;
+        }
+
+        .footer-social-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-newsletter {
+            margin-top: 2.5rem;
+        }
+
+        .footer-newsletter-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            border-radius: 3px 0 0 3px;
+            font-size: 1.4rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+        }
+
+        .newsletter-btn {
+            padding: 0 1.5rem;
+            background-color: var(--gold);
+            color: var(--dark);
+            border: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #d4a849;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1.4rem;
+        }
+
+        .copyright {
+            color: #777;
+        }
+
+        .copyright a {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#0a3d62" stroke-width="2" />
+                        <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2" />
+                        <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#0a3d62" />
+                        <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#0a3d62" />
+                        <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#0a3d62" />
+                        <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#0a3d62" />
+                        <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#0a3d62" />
+                        <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#0a3d62" />
+                        <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#0a3d62" />
+                        <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#0a3d62" />
+                        <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#0a3d62" />
+                        <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66" />
+                        <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66" />
+                        <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66" />
+                        <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66" />
+                        <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66" />
+                        <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66" />
+                        <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#0a3d62">RESORT & SPA</text>
+                    </svg>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">Destinations <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li class="has-dropdown">
+                                <a href="#">Wayanad <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                                    <li><a href="#">The Wave Lakeview Resort</a></li>
+                                    <li><a href="#">Talenresort Vythiri Villas</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Nelliampathi <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Vanya Holiday Resort</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Munnar <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Anubhav Resort</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Changanassery <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Contour Backwaters Hotel & Convention Centre</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Trivandrum <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Sunview Beach Resort</a></li>
+                                    <li><a href="#">Indimasi Healing Village</a></li>
+                                    <li><a href="#">The Terrace Business Hotel</a></li>
+                                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Coorg <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Wind Chimes Retreat</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Tamil Nadu <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Contour Farm Resort</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Malaysia <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Lotus Desaru Beach Resort & Spa</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="#">Spain <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Torres De Selma</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Other Products <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">MICE</a></li>
+                            <li><a href="#">Coffee Tree Spa</a></li>
+                            <li><a href="#">Ruchikoot By Citrine</a></li>
+                            <li class="has-dropdown">
+                                <a href="#">Wellness Resorts <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-submenu">
+                                    <li><a href="#">Poovar Island Resort & Spa</a></li>
+                                    <li><a href="#">Contour Island Resort & Spa</a></li>
+                                    <li><a href="#">Indimasi Healing Village</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="our_story.html">Our Story</a></li>
+                    <li><a href="contact.html">Reach Us</a></li>
+                    <li><a href="#" class="book-now-btn">Book Now</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <span class="page-subtitle">REJUVENATE YOUR MIND, BODY & SOUL</span>
+            <h1 class="page-title">Wellness Products</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Intro Section -->
+        <section class="section section-white wellness-intro">
+            <div class="container">
+                <div class="section-title-container">
+                    <span class="section-subtitle">HOLISTIC APPROACH</span>
+                    <h2 class="section-title">Wellness at Contour Island Resort & Spa</h2>
+                    <p class="section-description">Experience rejuvenation and healing with our premium wellness offerings. Rooted in ancient traditions and modern therapeutic practices, our wellness products are designed to nurture mind, body, and soul.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ayurvedic Treatments -->
+        <section class="section wellness-feature">
+            <div class="container wellness-feature-container">
+                <div class="wellness-feature-content">
+                    <div class="wellness-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Ayurvedic Treatments</h3>
+                    <p>Embrace the ancient healing science of Ayurveda with our authentic treatments performed by certified practitioners. Experience personalized therapies that restore balance and promote holistic well-being.</p>
+                    <div class="buttons">
+                        <a href="ayurveda.html" class="btn primary">Learn More</a>
+                        <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+                <div class="wellness-feature-image">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="Ayurvedic Treatment">
+                </div>
+            </div>
+        </section>
+
+        <!-- Spa Packages -->
+        <section class="section wellness-feature wellness-feature-reverse">
+            <div class="container wellness-feature-container">
+                <div class="wellness-feature-image">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="Spa Package">
+                </div>
+                <div class="wellness-feature-content">
+                    <div class="wellness-icon">
+                        <i class="fas fa-hot-tub"></i>
+                    </div>
+                    <h3>Spa Packages</h3>
+                    <p>Indulge in our signature spa experiences featuring organic products and specialized techniques. Our spa packages combine traditional wisdom with modern luxury for ultimate relaxation.</p>
+                    <div class="buttons">
+                        <a href="spa-packages.html" class="btn primary">View Packages</a>
+                        <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yoga & Meditation -->
+        <section class="section wellness-feature">
+            <div class="container wellness-feature-container">
+                <div class="wellness-feature-content">
+                    <div class="wellness-icon">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <h3>Yoga & Meditation</h3>
+                    <p>Reconnect with yourself through our guided yoga and meditation sessions. Located amidst serene natural surroundings, these sessions are designed to calm the mind and strengthen the body.</p>
+                    <div class="buttons">
+                        <a href="yoga.html" class="btn primary">View Schedule</a>
+                        <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+                <div class="wellness-feature-image">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="Yoga and Meditation">
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Wellness Products Grid -->
+        <section class="section section-light wellness-grid-section">
+            <div class="container">
+                <div class="section-title-container">
+                    <span class="section-subtitle">MORE OFFERINGS</span>
+                    <h2 class="section-title">Complete Your Wellness Journey</h2>
+                </div>
+                
+                <div class="wellness-products-grid">
+                    <div class="wellness-product">
+                        <div class="wellness-product-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Natural Skincare Products</h3>
+                        <p>Take home the essence of our wellness philosophy with our exclusive range of natural skincare products. Crafted from local ingredients using traditional methods.</p>
+                        <div class="buttons">
+                            <a href="skincare.html" class="btn primary">Shop Now</a>
+                            <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <div class="wellness-product">
+                        <div class="wellness-product-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3>Wellness Retreats</h3>
+                        <p>Embark on a transformative journey with our curated wellness retreats. From detox programs to mindfulness retreats, we offer specialized experiences.</p>
+                        <div class="buttons">
+                            <a href="retreats.html" class="btn primary">View Retreats</a>
+                            <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <div class="wellness-product">
+                        <div class="wellness-product-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3>Nutritional Counseling</h3>
+                        <p>Discover personalized nutrition plans developed by our expert nutritionists. Learn how to incorporate wellness into your daily diet with tailored guidance.</p>
+                        <div class="buttons">
+                            <a href="nutrition.html" class="btn primary">Learn More</a>
+                            <a href="https://wa.me/917356777860" class="btn secondary">Enquire on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="section section-white wellness-testimonials">
+            <div class="container">
+                <div class="section-title-container">
+                    <span class="section-subtitle">GUEST EXPERIENCES</span>
+                    <h2 class="section-title">What Our Clients Say</h2>
+                </div>
+                
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                            <p>"The Ayurvedic treatments at Contour Island Resort transformed my wellness journey. The expert practitioners and serene environment made it a truly healing experience."</p>
+                            <div class="testimonial-author">
+                                <h4>Sarah Williams</h4>
+                                <p>United Kingdom</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="wellness-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Begin Your Wellness Journey Today</h2>
+                    <p>Contact our wellness specialists to create a personalized experience tailored to your needs.</p>
+                    <a href="https://wa.me/917356777860" class="btn primary btn-large">Contact Wellness Team</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">
+                        <svg class="logo-svg" width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5C13.3726 5 8 10.3726 8 17C8 23.6274 13.3726 29 20 29C26.6274 29 32 23.6274 32 17" stroke="#fff" stroke-width="2" />
+                            <path d="M20 11C16.6863 11 14 13.6863 14 17C14 20.3137 16.6863 23 20 23C23.3137 23 26 20.3137 26 17" stroke="#e9bc66" stroke-width="2" />
+                            <path d="M40 12H42.968C45.064 12 46.112 13.176 46.112 15.048C46.112 16.92 45.064 18.096 42.968 18.096H40V12ZM42.968 16.92C44.24 16.92 44.816 16.2 44.816 15.048C44.816 13.896 44.24 13.176 42.968 13.176H41.296V16.92H42.968Z" fill="#fff" />
+                            <path d="M51.3559 12H47.1719V18.096H51.3559V16.92H48.4679V15.624H51.0439V14.448H48.4679V13.176H51.3559V12Z" fill="#fff" />
+                            <path d="M58.0036 12L55.7196 18.096H57.0156L57.5236 16.68H59.9996L60.5076 18.096H61.8676L59.5836 12H58.0036ZM57.9396 15.504L58.7516 13.176L59.5636 15.504H57.9396Z" fill="#fff" />
+                            <path d="M66.3981 12H62.2141V18.096H66.3981V16.92H63.5101V15.624H66.0861V14.448H63.5101V13.176H66.3981V12Z" fill="#fff" />
+                            <path d="M67.4422 12H68.7382V16.92H71.6262V18.096H67.4422V12Z" fill="#fff" />
+                            <path d="M77.3608 12H73.1768V18.096H74.4728V15.696H77.1208V14.52H74.4728V13.176H77.3608V12Z" fill="#fff" />
+                            <path d="M89.9422 12H82.7502V13.176H85.7342V18.096H87.0302V13.176H89.9422V12Z" fill="#fff" />
+                            <path d="M91.0056 12H92.3016V18.096H91.0056V12Z" fill="#fff" />
+                            <path d="M101.497 12H97.3127V18.096H98.6087V15.624H101.113V14.448H98.6087V13.176H101.497V12Z" fill="#fff" />
+                            <path d="M106.282 12H102.098V18.096H103.394V15.696H106.042V14.52H103.394V13.176H106.282V12Z" fill="#e9bc66" />
+                            <path d="M107.346 12H111.77V13.176H110.234V18.096H108.938V13.176H107.346V12Z" fill="#e9bc66" />
+                            <path d="M117.491 12H115.615C113.615 12 112.471 13.224 112.471 15.048C112.471 16.872 113.615 18.096 115.615 18.096H117.491V12ZM115.735 16.92C114.367 16.92 113.767 16.152 113.767 15.048C113.767 13.944 114.367 13.176 115.735 13.176H116.195V16.92H115.735Z" fill="#e9bc66" />
+                            <path d="M120.079 15.048C120.079 16.872 121.223 18.096 123.223 18.096H125.099V17.664C125.099 17.256 124.975 16.92 124.039 16.92H123.343C121.975 16.92 121.375 16.152 121.375 15.048C121.375 13.944 121.975 13.176 123.343 13.176H123.903C124.839 13.176 124.963 12.84 124.963 12.432V12H123.223C121.223 12 120.079 13.224 120.079 15.048Z" fill="#e9bc66" />
+                            <path d="M128.83 12H127.534V18.096H131.718V16.92H128.83V12Z" fill="#e9bc66" />
+                            <path d="M132.764 12H137.188V13.176H135.652V18.096H134.356V13.176H132.764V12Z" fill="#e9bc66" />
+                            <text x="44" y="30" font-family="Montserrat" font-size="6" fill="#fff">RESORT & SPA</text>
+                        </svg>
+                    </a>
+                    <p class="footer-description">
+                        Escape to tranquility on the shores of Banasura Sagar Lake, amidst
+                        the breathtaking landscapes of Wayanad. Experience luxury,
+                        comfort, and natural beauty.
+                    </p>
+
+                    <div class="footer-social">
+                        <h4 class="footer-social-title">Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="our-story.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="other-products.html">Other Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="reach-us.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            T.C. 93/1744, V V Road, Pattoor,<br>
+                            Vanchiyoor, Pettah .P.O,<br>
+                            Thiruvananthapuram - 695024
+                        </div>
+                    </div>
+
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            +91 7356777860 / 861 / 862<br>
+                            1800 2020 166 (Toll-Free)
+                        </div>
+                    </div>
+
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="footer-contact-text">crs@citrinehotels.com</div>
+                    </div>
+
+                    <div class="footer-newsletter">
+                        <h4 class="footer-newsletter-title">Subscribe to Newsletter</h4>
+                        <div class="footer-newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your Email">
+                            <button class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">
+                    Citrine Hotels and Resorts © 2024 - All Rights Reserved. Designed by Netindia
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Header scroll effect
+            window.addEventListener("scroll", function () {
+                const header = document.getElementById("header");
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+            const navLinks = document.querySelector(".nav-links");
+
+            mobileMenuBtn.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+
+                // Change icon based on menu state
+                const icon = this.querySelector("i");
+                if (navLinks.classList.contains("active")) {
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-times");
+                } else {
+                    icon.classList.remove("fa-times");
+                    icon.classList.add("fa-bars");
+                }
+            });
+
+            // Mobile dropdown toggle
+            const windowWidth = window.innerWidth;
+
+            if (windowWidth < 992) {
+                const dropdownToggles = document.querySelectorAll(".has-dropdown > a");
+
+                dropdownToggles.forEach((toggle) => {
+                    toggle.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        const dropdown = parent.querySelector(".dropdown, .dropdown-submenu");
+
+                        // Close all other open dropdowns first
+                        const allDropdowns = document.querySelectorAll(".dropdown, .dropdown-submenu");
+                        const allDropdownParents = document.querySelectorAll(".has-dropdown");
+
+                        // If clicking on a submenu toggle, don't close parent dropdowns
+                        if (!parent.parentElement.classList.contains("dropdown")) {
+                            allDropdowns.forEach((drop) => {
+                                if (drop !== dropdown && drop !== parent.parentElement) {
+                                    drop.classList.remove("active");
+                                }
+                            });
+
+                            allDropdownParents.forEach((drparent) => {
+                                if (drparent !== parent && drparent !== parent.parentElement.parentElement) {
+                                    drparent.classList.remove("active");
+                                }
+                            });
+                        }
+
+                        // Toggle current dropdown
+                        parent.classList.toggle("active");
+                        dropdown.classList.toggle("active");
+                    });
+                });
+            }
+
+            // Handle window resize
+            window.addEventListener("resize", function () {
+                if (window.innerWidth >= 992) {
+                    // Reset mobile menu styles when switching to desktop
+                    const activeDropdowns = document.querySelectorAll(".dropdown.active, .dropdown-submenu.active");
+                    const activeParents = document.querySelectorAll(".has-dropdown.active");
+
+                    activeDropdowns.forEach((dropdown) => {
+                        dropdown.classList.remove("active");
+                    });
+
+                    activeParents.forEach((parent) => {
+                        parent.classList.remove("active");
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
